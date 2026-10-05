@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_aqua_global_trace" model="ir.actions.act_window">
+        <field name="name">Global Biological IDs</field>
+        <field name="res_model">aqua.global.trace</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_aqua_batch" model="ir.actions.act_window">
+        <field name="name">Batches</field>
+        <field name="res_model">aqua.batch</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_aqua_batch_relation" model="ir.actions.act_window">
+        <field name="name">Batch Relations</field>
+        <field name="res_model">aqua.batch.relation</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_aqua_batch_event" model="ir.actions.act_window">
+        <field name="name">Batch Events</field>
+        <field name="res_model">aqua.batch.event</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_aqua_water_quality" model="ir.actions.act_window">
+        <field name="name">Water Quality</field>
+        <field name="res_model">aqua.water.quality</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_aqua_input_consumption" model="ir.actions.act_window">
+        <field name="name">Input Consumption</field>
+        <field name="res_model">aqua.input.consumption</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_aqua_farm" model="ir.actions.act_window">
+        <field name="name">Farms</field>
+        <field name="res_model">aqua.farm</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_aqua_production_unit" model="ir.actions.act_window">
+        <field name="name">Ponds / Tanks / Cages</field>
+        <field name="res_model">aqua.production.unit</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_aqua_species" model="ir.actions.act_window">
+        <field name="name">Species</field>
+        <field name="res_model">aqua.species</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_aqua_stage" model="ir.actions.act_window">
+        <field name="name">Stages</field>
+        <field name="res_model">aqua.stage</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_aqua_companies" model="ir.actions.act_window">
+        <field name="name">Aquaculture Companies</field>
+        <field name="res_model">res.company</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">['|', ('is_aqua_company', '=', True), ('aqua_company_type', '!=', False)]</field>
+        <field name="context">{'default_is_aqua_company': True}</field>
+    </record>
+
+    <menuitem id="menu_aqua_root"
+              name="Aquaculture"
+              sequence="50"/>
+
+    <menuitem id="menu_aqua_traceability"
+              name="Traceability"
+              parent="menu_aqua_root"
+              sequence="10"/>
+    <menuitem id="menu_aqua_global_trace"
+              name="Global Biological IDs"
+              parent="menu_aqua_traceability"
+              action="action_aqua_global_trace"
+              sequence="10"/>
+    <menuitem id="menu_aqua_batch"
+              name="Batches"
+              parent="menu_aqua_traceability"
+              action="action_aqua_batch"
+              sequence="20"/>
+    <menuitem id="menu_aqua_batch_relation"
+              name="Batch Relations"
+              parent="menu_aqua_traceability"
+              action="action_aqua_batch_relation"
+              sequence="30"/>
+    <menuitem id="menu_aqua_batch_event"
+              name="Batch Events"
+              parent="menu_aqua_traceability"
+              action="action_aqua_batch_event"
+              sequence="40"/>
+
+    <menuitem id="menu_aqua_operations"
+              name="Operations"
+              parent="menu_aqua_root"
+              sequence="20"/>
+    <menuitem id="menu_aqua_water_quality"
+              name="Water Quality"
+              parent="menu_aqua_operations"
+              action="action_aqua_water_quality"
+              sequence="10"/>
+    <menuitem id="menu_aqua_input_consumption"
+              name="Input Consumption"
+              parent="menu_aqua_operations"
+              action="action_aqua_input_consumption"
+              sequence="20"/>
+
+    <menuitem id="menu_aqua_structure"
+              name="Structure"
+              parent="menu_aqua_root"
+              sequence="30"/>
+    <menuitem id="menu_aqua_farm"
+              name="Farms"
+              parent="menu_aqua_structure"
+              action="action_aqua_farm"
+              sequence="10"/>
+    <menuitem id="menu_aqua_production_unit"
+              name="Ponds / Tanks / Cages"
+              parent="menu_aqua_structure"
+              action="action_aqua_production_unit"
+              sequence="20"/>
+    <menuitem id="menu_aqua_species"
+              name="Species"
+              parent="menu_aqua_structure"
+              action="action_aqua_species"
+              sequence="30"/>
+    <menuitem id="menu_aqua_stage"
+              name="Stages"
+              parent="menu_aqua_structure"
+              action="action_aqua_stage"
+              sequence="40"/>
+
+    <menuitem id="menu_aqua_configuration"
+              name="Configuration"
+              parent="menu_aqua_root"
+              sequence="40"/>
+    <menuitem id="menu_aqua_companies"
+              name="Aquaculture Companies"
+              parent="menu_aqua_configuration"
+              action="action_aqua_companies"
+              sequence="10"/>
+</odoo>

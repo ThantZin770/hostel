@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="demand_planning_root" name="Demand and Distribution"
+              web_icon="demand_planning,static/description/icon.png">
+        <menuitem id="demand_planning_requests" name="Requests" sequence="100"/>
+        <menuitem id="demand_planning_configuration" name="Configuration" sequence="500"/>
+    </menuitem>
+</odoo>

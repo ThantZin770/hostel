@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="res_country_state_township_view_list" model="ir.ui.view">
+        <field name="name">res_country_state_township_view_list</field>
+        <field name="model">res.country.state.township</field>
+        <field name="arch" type="xml">
+            <list string="res_country_state_township_tree">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="state_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="res_country_state_township_action" model="ir.actions.act_window">
+        <field name="name">Township</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.country.state.township</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

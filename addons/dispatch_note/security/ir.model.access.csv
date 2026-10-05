@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_dispatch_note_user,dispatch.note.user,model_dispatch_note,base.group_user,1,1,1,1
+access_dispatch_note_line_user,dispatch.note.line.user,model_dispatch_note_line,base.group_user,1,1,1,1
+access_dispatch_return_note,dispatch.return.note,model_dispatch_return_note,base.group_user,1,1,1,1
+access_dispatch_return_note_line,dispatch.return.note.line,model_dispatch_return_note_line,base.group_user,1,1,1,1

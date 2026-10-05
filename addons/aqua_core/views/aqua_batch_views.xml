@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_aqua_batch_list" model="ir.ui.view">
+        <field name="name">aqua.batch.list</field>
+        <field name="model">aqua.batch</field>
+        <field name="arch" type="xml">
+            <list decoration-muted="not active" decoration-danger="problem_flag">
+                <field name="global_bio_id"/>
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="farm_id"/>
+                <field name="production_unit_id"/>
+                <field name="species_id"/>
+                <field name="stage_id"/>
+                <field name="status" widget="badge" decoration-success="status == 'active'" decoration-warning="status in ('quarantine', 'problem')" decoration-muted="status == 'closed'"/>
+                <field name="quantity"/>
+                <field name="avg_weight_g"/>
+                <field name="biomass_kg"/>
+                <field name="mortality_qty" optional="hide"/>
+                <field name="problem_flag" optional="hide"/>
+                <field name="active" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_aqua_batch_form" model="ir.ui.view">
+        <field name="name">aqua.batch.form</field>
+        <field name="model">aqua.batch</field>
+        <field name="arch" type="xml">
+            <form string="Aquaculture Batch">
+                <header>
+                    <button name="action_create_parallel_batch" type="object" string="Create Parallel Batch" class="btn-secondary" invisible="not id"/>
+                    <button name="action_split_batch" type="object" string="Split Batch" class="btn-secondary" invisible="not id"/>
+                    <button name="action_separate_batch" type="object" string="Separate Batch" class="btn-secondary" invisible="not id"/>
+                    <button name="action_merge_batches" type="object" string="Merge Batches" class="btn-secondary" invisible="not id"/>
+                    <button name="action_transfer_stage" type="object" string="Transfer Stage" class="btn-primary" invisible="not id"/>
+                    <field name="status" widget="statusbar" statusbar_visible="draft,active,transferred,completed,harvested,quarantine,problem,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_open_global_trace" type="object" class="oe_stat_button" icon="fa-link">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Global Trace</span>
+                            </div>
+                        </button>
+                        <button name="action_open_upstream_trace" type="object" class="oe_stat_button" icon="fa-arrow-up">
+                            <field name="parent_count" widget="statinfo" string="Parents"/>
+                        </button>
+                        <button name="action_open_downstream_trace" type="object" class="oe_stat_button" icon="fa-arrow-down">
+                            <field name="child_count" widget="statinfo" string="Children"/>
+                        </button>
+                        <button name="action_open_events" type="object" class="oe_stat_button" icon="fa-history">
+                            <field name="event_count" widget="statinfo" string="Events"/>
+                        </button>
+                        <button name="action_open_water_quality" type="object" class="oe_stat_button" icon="fa-tint">
+                            <field name="water_quality_count" widget="statinfo" string="Water"/>
+                        </button>
+                        <button name="action_open_input_consumption" type="object" class="oe_stat_button" icon="fa-cutlery">
+                            <field name="input_consumption_count" widget="statinfo" string="Inputs"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="Local batch number"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="global_trace_id"/>
+                            <field name="global_bio_id"/>
+                            <field name="company_id"/>
+                            <field name="farm_id" domain="[('company_id', '=', company_id)]"/>
+                            <field name="production_unit_id" domain="[('farm_id', '=', farm_id)]"/>
+                        </group>
+                        <group>
+                            <field name="species_id"/>
+                            <field name="stage_id"/>
+                            <field name="stage_type"/>
+                            <field name="quantity"/>
+                            <field name="avg_weight_g"/>
+                            <field name="biomass_kg"/>
+                            <field name="mortality_qty"/>
+                            <field name="problem_flag"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Basic Information" name="basic_information">
+                            <group>
+                                <group>
+                                    <field name="start_date"/>
+                                    <field name="end_date"/>
+                                    <field name="previous_generation_batch_id"/>
+                                </group>
+                                <group>
+                                    <field name="is_parallel"/>
+                                    <field name="is_merged"/>
+                                    <field name="is_split_child"/>
+                                    <field name="active"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Quantity &amp; Biomass" name="quantity_biomass">
+                            <group>
+                                <group>
+                                    <field name="quantity"/>
+                                    <field name="avg_weight_g"/>
+                                    <field name="biomass_kg"/>
+                                </group>
+                                <group>
+                                    <field name="mortality_qty"/>
+                                    <field name="mortality_rate"/>
+                                    <field name="survival_rate"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Parent / Child Traceability" name="traceability">
+                            <group>
+                                <group string="Parent Relations">
+                                    <field name="parent_relation_ids" readonly="1">
+                                        <list>
+                                            <field name="parent_batch_id"/>
+                                            <field name="operation_type"/>
+                                            <field name="operation_date"/>
+                                            <field name="from_company_id"/>
+                                            <field name="quantity"/>
+                                        </list>
+                                    </field>
+                                </group>
+                                <group string="Child Relations">
+                                    <field name="child_relation_ids" readonly="1">
+                                        <list>
+                                            <field name="child_batch_id"/>
+                                            <field name="operation_type"/>
+                                            <field name="operation_date"/>
+                                            <field name="to_company_id"/>
+                                            <field name="quantity"/>
+                                        </list>
+                                    </field>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Water Quality" name="water_quality">
+                            <field name="water_quality_ids" readonly="1">
+                                <list>
+                                    <field name="check_date"/>
+                                    <field name="production_unit_id"/>
+                                    <field name="temperature_c"/>
+                                    <field name="ph"/>
+                                    <field name="dissolved_oxygen"/>
+                                    <field name="salinity_ppt"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Input Consumption" name="input_consumption">
+                            <field name="input_consumption_ids" readonly="1">
+                                <list>
+                                    <field name="consume_date"/>
+                                    <field name="product_id"/>
+                                    <field name="input_type"/>
+                                    <field name="quantity"/>
+                                    <field name="used_by_id"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Events" name="events">
+                            <field name="event_ids" readonly="1">
+                                <list>
+                                    <field name="event_date"/>
+                                    <field name="event_type"/>
+                                    <field name="name"/>
+                                    <field name="quantity"/>
+                                    <field name="operator_id"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <group>
+                                <field name="problem_note" placeholder="Problem details"/>
+                                <field name="note" placeholder="Internal notes"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_aqua_batch_search" model="ir.ui.view">
+        <field name="name">aqua.batch.search</field>
+        <field name="model">aqua.batch</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="global_bio_id" string="Global Biological ID"/>
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="farm_id"/>
+                <field name="production_unit_id"/>
+                <field name="species_id"/>
+                <field name="stage_id"/>
+                <field name="status"/>
+                <filter string="Active Batches" name="active_batches" domain="[('status', '=', 'active')]"/>
+                <filter string="Problem Batches" name="problem_batches" domain="['|', ('problem_flag', '=', True), ('status', '=', 'problem')]"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                <group>
+                    <filter string="Global Biological ID" name="group_global" context="{'group_by': 'global_trace_id'}"/>
+                    <filter string="Company" name="group_company" context="{'group_by': 'company_id'}"/>
+                    <filter string="Farm" name="group_farm" context="{'group_by': 'farm_id'}"/>
+                    <filter string="Production Unit" name="group_unit" context="{'group_by': 'production_unit_id'}"/>
+                    <filter string="Stage" name="group_stage" context="{'group_by': 'stage_id'}"/>
+                    <filter string="Status" name="group_status" context="{'group_by': 'status'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>

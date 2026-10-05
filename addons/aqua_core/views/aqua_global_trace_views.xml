@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_aqua_global_trace_list" model="ir.ui.view">
+        <field name="name">aqua.global.trace.list</field>
+        <field name="model">aqua.global.trace</field>
+        <field name="arch" type="xml">
+            <list decoration-muted="not active">
+                <field name="name"/>
+                <field name="species_id"/>
+                <field name="origin_company_id"/>
+                <field name="origin_batch_id"/>
+                <field name="status" widget="badge" decoration-success="status == 'active'" decoration-warning="status == 'problem'" decoration-muted="status == 'closed'"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="active" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_aqua_global_trace_form" model="ir.ui.view">
+        <field name="name">aqua.global.trace.form</field>
+        <field name="model">aqua.global.trace</field>
+        <field name="arch" type="xml">
+            <form string="Global Biological Traceability ID">
+                <header>
+                    <field name="status" widget="statusbar" statusbar_visible="active,completed,problem,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_open_batches" type="object" class="oe_stat_button" icon="fa-leaf">
+                            <field name="batch_count" widget="statinfo" string="Batches"/>
+                        </button>
+                        <button name="action_open_events" type="object" class="oe_stat_button" icon="fa-history">
+                            <field name="event_count" widget="statinfo" string="Events"/>
+                        </button>
+                        <button name="action_open_relations" type="object" class="oe_stat_button" icon="fa-random">
+                            <field name="relation_count" widget="statinfo" string="Relations"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="species_id"/>
+                            <field name="origin_company_id"/>
+                            <field name="origin_batch_id"/>
+                        </group>
+                        <group>
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Source Global IDs" name="source_global_ids">
+                            <field name="source_global_trace_ids" widget="many2many_tags"/>
+                        </page>
+                        <page string="Related Batches" name="related_batches">
+                            <field name="batch_ids" readonly="1">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="company_id"/>
+                                    <field name="farm_id"/>
+                                    <field name="production_unit_id"/>
+                                    <field name="stage_id"/>
+                                    <field name="status"/>
+                                    <field name="quantity"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_aqua_global_trace_search" model="ir.ui.view">
+        <field name="name">aqua.global.trace.search</field>
+        <field name="model">aqua.global.trace</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="species_id"/>
+                <field name="origin_company_id"/>
+                <field name="origin_batch_id"/>
+                <filter string="Active" name="active_status" domain="[('status', '=', 'active')]"/>
+                <filter string="Problem" name="problem_status" domain="[('status', '=', 'problem')]"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                <group>
+                    <filter string="Species" name="group_species" context="{'group_by': 'species_id'}"/>
+                    <filter string="Status" name="group_status" context="{'group_by': 'status'}"/>
+                    <filter string="Origin Company" name="group_origin_company" context="{'group_by': 'origin_company_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>

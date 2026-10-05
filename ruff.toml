@@ -1,0 +1,127 @@
+# --------------------------------------------------------
+# Ruff Configuration for Odoo Projects
+# --------------------------------------------------------
+# Target: Python 3.10 (Odoo 18.0 uses Python ≥3.10)
+# Style: Odoo + Ruff + Pre-commit integration
+# Notes:
+#   - Certain rules are disabled for practical Odoo use cases
+#   - Matches Odoo coding guidelines:
+#     https://www.odoo.com/documentation/master/contributing/development/coding_guidelines.html
+# --------------------------------------------------------
+
+target-version = "py310"
+
+[lint]
+# Enable preview mode (new rules in Ruff are included early)
+preview = true
+
+# Rule families enabled
+select = [
+    "B",     # bugbear (common bugs & design issues)
+    "C",     # flake8-comprehensions
+    "COM",   # flake8-commas
+    "E",     # pycodestyle errors
+    "EM",    # flake8-errmsg
+    "EXE",   # flake8-executable
+    "F",     # pyflakes
+    "FA",    # flake8-future-annotations
+    "FLY",   # flynt (f-string conversion)
+    "G",     # logging format
+    "I",     # isort (imports)
+    "ICN",   # import conventions
+    "INT",   # gettext
+    "ISC",   # implicit string concat
+    "LOG",   # logging checks
+    "PGH",   # pygrep-hooks
+    "PIE",   # flake8-pie
+    "PLC",   # pylint convention
+    "PLE",   # pylint error
+    "PLW",   # pylint warning
+    "PYI",   # type stubs
+    "RET",   # return checks
+    "RUF",   # Ruff-specific rules
+    "SIM",   # simplify
+    "SLOT",  # dataclass slots
+    "T",     # print statements
+    "TC",    # type-checking blocks
+    "TID",   # tidy imports
+    "TRY",   # tryceratops
+    "UP",    # pyupgrade
+    "W",     # pycodestyle warnings
+    "YTT",   # flake8-2020 (old syntax checks)
+]
+
+# Rules to ignore (practical for Odoo projects)
+ignore = [
+    # ----- Pycodestyle -----
+    "E501",   # line too long (Odoo allows longer lines in XML dicts)
+    "E266",   # multiple leading hashes for block comments (used in Odoo)
+    "E713",   # 'not in' test (common in Odoo)
+    "E241",   # multiple spaces after ',' (for table-like formatting in tests)
+    "E201",   # whitespace after '(' (same reason)
+    "E221",   # multiple spaces before operator (same reason)
+    "E272",   # multiple spaces before keyword (same reason)
+    "INT001" ,
+
+    # ----- Bugbear / General -----
+    "B023",   # loop variable in lambda (not critical for Odoo)
+    "B904",   # prefer `raise ... from ...` (Odoo style is plain raise)
+
+    # ----- Simplify -----
+    "SIM102", # collapsible if
+    "SIM108", # if-else block instead of if-exp
+    "SIM115", # use context manager for files (Odoo often uses open())
+    "SIM117", # multiple with-statements
+
+    # ----- Return -----
+    "RET503", # missing explicit return (Odoo often implicit None)
+
+    # ----- Tryceratops -----
+    "TRY002", # custom exceptions required
+    "TRY003", # raise vanilla args
+    "TRY300", # consider else
+    "TRY301", # abstract raise to inner function
+    "TRY400", # error vs exception
+
+    # ----- Ruff-specific -----
+    "RUF001", # ambiguous unicode
+    "RUF005", # literal concatenation
+    "RUF012", # mutable default
+    "RUF100", # unused noqa
+
+    # ----- Misc -----
+    "C901",   # function too complex (common in Odoo ORM)
+    "C408",   # unnecessary collection call
+    "C420",   # unnecessary dict comprehension
+    "PGH003", # blanket type ignore
+    "PIE790", # unnecessary placeholder
+    "PIE808", # unnecessary range start
+    "PLC2701",# import private name
+    "PLW2901",# redefined loop var
+    "TID252", # relative imports allowed in Odoo
+    "UP031",  # printf-style formatting still common
+    # "UP038",  # Odoo still uses isinstance tuple
+
+    "EM102", #  Exception must not use an f-string literal, assign to variable first
+    "COM812",
+    "G004", # ignore using f string in logging
+]
+
+[lint.per-file-ignores]
+# __init__.py files:
+# - often re-export symbols (unused imports expected)
+# - import order might be forced
+"**/__init__.py" = ["F401", "I001","RUF067"]
+
+# Odoo module descriptors (__manifest__.py):
+# - pure data dicts (may trigger useless expression checks)
+"**/__manifest__.py" = ["B018"]
+
+# Tests allow table-like formatting with extra spaces
+"**/tests/**.py" = ["E201", "E221", "E241", "E272"]
+
+[lint.isort]
+# Odoo import order
+section-order = ["future", "standard-library", "third-party", "first-party", "local-folder"]
+known-first-party = ["odoo"]
+known-local-folder = ["odoo.addons"]

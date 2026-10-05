@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="res_country_state_township_category"
+              name="Township"
+              parent="contacts.menu_localisation"
+              action="ica_mm_nrc.res_country_state_township_action"
+              sequence="2"/>
+</odoo>

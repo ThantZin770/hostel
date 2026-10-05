@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="aquaculture_base_menu_root" name="Aquaculture" sequence="33">
+        <menuitem id="aquaculture_configuration_menu" name="Configuration">
+        </menuitem>
+    </menuitem>
+</odoo>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+<!--    <record id="view_partner_form_inherit_partner_type" model="ir.ui.view">-->
+<!--        <field name="name">res.partner.form.inherit.partner.type</field>-->
+<!--        <field name="model">res.partner</field>-->
+<!--        <field name="inherit_id" ref="ica_mm_nrc.view_partner_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <group name="nrc_information" position="after">-->
+<!--                <group string="Partner Information">-->
+<!--                    <group>-->
+<!--                        <field name="partner_type" widget="radio" options="{'horizontal': True}"/>-->
+<!--                    </group>-->
+<!--                    <group>-->
+<!--                        <field name="public_sector_type" widget="radio"-->
+<!--                               invisible="partner_type != 'public_sector'"-->
+<!--                               options="{'horizontal': True}"/>-->
+<!--                        <field name="third_parties_workforce_type" widget="radio"-->
+<!--                               invisible="partner_type != 'third_parties_workforce'" options="{'horizontal': True}"/>-->
+<!--                        <field name="family_member_type" widget="radio" invisible="partner_type != 'family_member'"-->
+<!--                               options="{'horizontal': True}"/>-->
+<!--                        <field name="other_remark" invisible="partner_type != 'other'"/>-->
+<!--                    </group>-->
+<!--                </group>-->
+<!--            </group>-->
+<!--        </field>-->
+<!--    </record>-->
+
+</odoo>

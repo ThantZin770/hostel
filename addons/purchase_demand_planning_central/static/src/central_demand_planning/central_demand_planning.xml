@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="purchase_demand_planning_central.CentralDemandPlanningDashboard">
+        <div class="o_central_demand_planning_dashboard container-fluid py-4 border-bottom bg-view">
+            <div class="row justify-content-between gap-2 gap-lg-0">
+                <div class="col-12 col-lg-8 flex-grow-1 flex-lg-grow-0 flex-shrink-0">
+                    <div class="grid gap-1 gap-lg-4">
+                        <div class="g-col-12 g-col-lg-1 d-flex align-items-center pt-2 pb-lg-2 justify-content-lg-end text-break">
+                            <t t-if="multiuser">All</t>
+                        </div>
+                        <div class="g-col-12 g-col-lg-11 grid gap-1" style="--columns: 61">
+                            <div class="g-col-12 p-0" t-on-click="setSearchContext" title="All To Review" filter_name="to_review">
+                                <a href="#" class="btn o_central_demand_planning_dashboard_card p-1 p-lg-2 text-truncate text-wrap"
+                                   t-attf-class="o_central_demand_planning_dashboard_card_{{ multiuser ? 'top' : 'sole' }} {{ dashboard.global.pending == 0 ? 'bg-secondary-subtle text-secondary-emphasis' : 'bg-info-subtle text-info-emphasis' }}">
+                                    <div class="fs-2" t-out="dashboard.global.pending"/>
+                                    To Review
+                                </a>
+                            </div>
+                            <div class="g-col-12 p-0" t-on-click="setSearchContext" title="All Approved" filter_name="approved">
+                                <a href="#" class="btn o_central_demand_planning_dashboard_card p-1 p-lg-2 text-truncate text-wrap"
+                                   t-attf-class="o_central_demand_planning_dashboard_card_{{ multiuser ? 'top' : 'sole' }} {{ dashboard.global.approved == 0 ? 'bg-secondary-subtle text-secondary-emphasis' : 'bg-success-subtle text-success-emphasis' }}">
+                                    <div class="fs-2" t-out="dashboard.global.approved"/>
+                                    Approved
+                                </a>
+                            </div>
+                            <div class="g-col-12 p-0" t-on-click="setSearchContext" title="All Late" filter_name="late">
+                                <a href="#" class="btn o_central_demand_planning_dashboard_card p-1 p-lg-2 text-truncate text-wrap"
+                                   t-attf-class="o_central_demand_planning_dashboard_card_{{ multiuser ? 'top' : 'sole' }} {{ dashboard.global.late == 0 ? 'bg-secondary-subtle text-secondary-emphasis' : 'bg-warning-subtle text-warning-emphasis' }}">
+                                    <div class="fs-2" t-out="dashboard.global.late"/>
+                                    Late
+                                </a>
+                            </div>
+                            <div class="g-col-1"/>
+                            <div class="g-col-12 p-0" t-on-click="setSearchContext" title="All RFQ Created" filter_name="rfq_created">
+                                <a href="#" class="btn o_central_demand_planning_dashboard_card p-1 p-lg-2 text-truncate text-wrap"
+                                   t-attf-class="o_central_demand_planning_dashboard_card_{{ multiuser ? 'top' : 'sole' }} {{ dashboard.global.rfq_created == 0 ? 'bg-secondary-subtle text-secondary-emphasis' : 'bg-info-subtle text-info-emphasis' }}">
+                                    <div class="fs-2" t-out="dashboard.global.rfq_created"/>
+                                    RFQ Created
+                                </a>
+                            </div>
+                            <div class="g-col-12 p-0" t-on-click="setSearchContext" title="All Rejected" filter_name="rejected">
+                                <a href="#" class="btn o_central_demand_planning_dashboard_card p-1 p-lg-2 text-truncate text-wrap"
+                                   t-attf-class="o_central_demand_planning_dashboard_card_{{ multiuser ? 'top' : 'sole' }} {{ dashboard.global.rejected == 0 ? 'bg-secondary-subtle text-secondary-emphasis' : 'bg-danger-subtle text-danger-emphasis' }}">
+                                    <div class="fs-2" t-out="dashboard.global.rejected"/>
+                                    Rejected
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div t-if="multiuser" class="grid gap-1 gap-lg-4">
+                        <div class="g-col-12 g-col-lg-1 d-flex align-items-center pt-2 pb-lg-2 justify-content-lg-end text-break">
+                            My
+                        </div>
+                        <div class="g-col-12 g-col-lg-11 grid gap-1 pt-0 pt-lg-1" style="--columns: 61">
+                            <div class="g-col-12 p-0" t-on-click="setSearchContext" title="My To Review" filter_name="to_review,my_lines">
+                                <a href="#" class="o_central_demand_planning_dashboard_card_bottom btn o_central_demand_planning_dashboard_card p-1 p-lg-2 text-truncate text-wrap"
+                                   t-attf-class="{{ dashboard.my.pending == 0 ? 'bg-secondary-subtle text-secondary-emphasis' : 'bg-info-subtle text-info-emphasis' }}">
+                                    <div t-out="dashboard.my.pending"/>
+                                </a>
+                            </div>
+                            <div class="g-col-12 p-0" t-on-click="setSearchContext" title="My Approved" filter_name="approved,my_lines">
+                                <a href="#" class="o_central_demand_planning_dashboard_card_bottom btn o_central_demand_planning_dashboard_card p-1 p-lg-2 text-truncate text-wrap"
+                                   t-attf-class="{{ dashboard.my.approved == 0 ? 'bg-secondary-subtle text-secondary-emphasis' : 'bg-success-subtle text-success-emphasis' }}">
+                                    <div t-out="dashboard.my.approved"/>
+                                </a>
+                            </div>
+                            <div class="g-col-12 p-0" t-on-click="setSearchContext" title="My Late" filter_name="late,my_lines">
+                                <a href="#" class="o_central_demand_planning_dashboard_card_bottom btn o_central_demand_planning_dashboard_card p-1 p-lg-2 text-truncate text-wrap"
+                                   t-attf-class="{{ dashboard.my.late == 0 ? 'bg-secondary-subtle text-secondary-emphasis' : 'bg-warning-subtle text-warning-emphasis' }}">
+                                    <div t-out="dashboard.my.late"/>
+                                </a>
+                            </div>
+                            <div class="g-col-1"/>
+                            <div class="g-col-12 p-0" t-on-click="setSearchContext" title="My RFQ Created" filter_name="rfq_created,my_lines">
+                                <a href="#" class="o_central_demand_planning_dashboard_card_bottom btn o_central_demand_planning_dashboard_card p-1 p-lg-2 text-truncate text-wrap"
+                                   t-attf-class="{{ dashboard.my.rfq_created == 0 ? 'bg-secondary-subtle text-secondary-emphasis' : 'bg-info-subtle text-info-emphasis' }}">
+                                    <div t-out="dashboard.my.rfq_created"/>
+                                </a>
+                            </div>
+                            <div class="g-col-12 p-0" t-on-click="setSearchContext" title="My Rejected" filter_name="rejected,my_lines">
+                                <a href="#" class="o_central_demand_planning_dashboard_card_bottom btn o_central_demand_planning_dashboard_card p-1 p-lg-2 text-truncate text-wrap"
+                                   t-attf-class="{{ dashboard.my.rejected == 0 ? 'bg-secondary-subtle text-secondary-emphasis' : 'bg-danger-subtle text-danger-emphasis' }}">
+                                    <div t-out="dashboard.my.rejected"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4 flex-shrink-0 o_central_demand_planning_qty_column">
+                    <div class="grid gap-1 gap-lg-4">
+                        <div class="d-lg-none g-col-12 d-flex align-items-center pt-2 pb-lg-2 justify-content-lg-end text-break">
+                            All
+                        </div>
+                        <div class="g-col-12 grid gap-1 o_central_demand_planning_qty_cards">
+                            <div class="g-col-6 p-0" title="All Demand Quantity">
+                                <div class="o_central_demand_planning_dashboard_card o_no_hover p-1 p-lg-2 text-truncate text-wrap bg-100 text-center"
+                                     t-attf-class="o_central_demand_planning_dashboard_card_{{ multiuser ? 'top' : 'sole' }}">
+                                    <div class="fs-2" t-out="formatQty(dashboard.global.requested_qty)"/>
+                                    Demand Qty
+                                </div>
+                            </div>
+                            <div class="g-col-6 p-0" title="All Approved Quantity">
+                                <div class="o_central_demand_planning_dashboard_card o_no_hover p-1 p-lg-2 text-truncate text-wrap bg-100 text-center"
+                                     t-attf-class="o_central_demand_planning_dashboard_card_{{ multiuser ? 'top' : 'sole' }}">
+                                    <div class="fs-2" t-out="formatQty(dashboard.global.approved_qty)"/>
+                                    Approved Qty
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div t-if="multiuser" class="grid gap-1 gap-lg-4 pt-0 pt-lg-1">
+                        <div class="d-lg-none g-col-12 d-flex align-items-center pt-2 pb-lg-2 justify-content-lg-end text-break">
+                            My
+                        </div>
+                        <div class="g-col-12 grid gap-1 o_central_demand_planning_qty_cards">
+                            <div class="g-col-6 p-0" title="My Demand Quantity">
+                                <div class="o_central_demand_planning_dashboard_card_bottom o_central_demand_planning_dashboard_card o_no_hover p-1 p-lg-2 text-truncate text-wrap bg-100 text-center">
+                                    <div t-out="formatQty(dashboard.my.requested_qty)"/>
+                                </div>
+                            </div>
+                            <div class="g-col-6 p-0" title="My Approved Quantity">
+                                <div class="o_central_demand_planning_dashboard_card_bottom o_central_demand_planning_dashboard_card o_no_hover p-1 p-lg-2 text-truncate text-wrap bg-100 text-center">
+                                    <div t-out="formatQty(dashboard.my.approved_qty)"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="purchase_demand_planning_central.CentralDemandPlanningListView" t-inherit="web.ListView" t-inherit-mode="primary">
+        <xpath expr="//t[@t-component='props.Renderer']" position="replace">
+            <div t-if="model.isReady" class="o_central_demand_planning_renderer o_renderer_with_searchpanel o_list_view d-flex flex-column">
+                <CentralDemandPlanningDashboard list="model.root"/>
+                <t t-component="props.Renderer"
+                    list="model.root"
+                    activeActions="activeActions"
+                    archInfo="archInfo"
+                    allowSelectors="props.allowSelectors"
+                    editable="editable"
+                    onOpenFormView="onOpenFormView"
+                    hasOpenFormViewButton="hasOpenFormViewButton"
+                    openRecord.bind="openRecord"
+                    noContentHelp="props.info.noContentHelp"
+                    onAdd.bind="createRecord"
+                    optionalActiveFields="optionalActiveFields"
+                    readonly="props.readonly"
+                />
+            </div>
+        </xpath>
+    </t>
+</templates>

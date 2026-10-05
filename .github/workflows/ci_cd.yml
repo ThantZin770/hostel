@@ -1,0 +1,114 @@
+name: CI/CD
+
+on:
+  pull_request:
+    branches:
+      - DEV
+      - UAT
+      - GOLIVE
+  push:
+    branches:
+      - DEV
+      - UAT
+  workflow_dispatch:
+    inputs:
+      odoo_modules:
+        description: "Odoo modules to update, comma-separated. Example: purchase_demand_planning,purchase_demand_planning_central"
+        required: false
+        type: string
+
+concurrency:
+  group: ci-cd-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  branch_policy:
+    name: Branch Policy
+    if: github.event_name == 'pull_request'
+    uses: ./.github/workflows/branch_policy.yml
+    with:
+      source_branch: ${{ github.head_ref }}
+      target_branch: ${{ github.base_ref }}
+
+  lint:
+    name: Ruff Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dev tools
+        run: python -m pip install -r requirements-dev.txt
+
+      - name: Ruff check
+        run: ruff check .
+
+      - name: Ruff format check
+        run: ruff format --check .
+
+  merge_checks:
+    name: Merge Checks
+    if: always() && github.event_name == 'pull_request'
+    needs:
+      - branch_policy
+      - lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify required PR checks
+        env:
+          BRANCH_POLICY_RESULT: ${{ needs.branch_policy.result }}
+          RUFF_LINT_RESULT: ${{ needs.lint.result }}
+        run: |
+          set -e
+
+          if [ "$BRANCH_POLICY_RESULT" != "success" ]; then
+            echo "Branch Policy failed with result: $BRANCH_POLICY_RESULT"
+            exit 1
+          fi
+
+          if [ "$RUFF_LINT_RESULT" != "success" ]; then
+            echo "Ruff Lint failed with result: $RUFF_LINT_RESULT"
+            exit 1
+          fi
+
+          echo "Branch Policy and Ruff Lint passed."
+
+  deploy_dev:
+    name: Deploy DEV
+    if: github.event_name != 'pull_request' && github.ref_name == 'DEV'
+    needs: lint
+    uses: ./.github/workflows/deploy.yml
+    with:
+      branch: DEV
+      commit_message: ${{ github.event.head_commit.message || '' }}
+      odoo_modules: ${{ github.event.inputs.odoo_modules || '' }}
+    secrets:
+      ssh_host: ${{ secrets.DEV_SSH_HOST }}
+      ssh_user: ${{ secrets.SSH_USER }}
+      ssh_port: ${{ secrets.SSH_PORT }}
+      ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+      deploy_path: ${{ secrets.DEV_DEPLOY_PATH }}
+      odoo_db_name: ${{ secrets.DEV_ODOO_DB_NAME }}
+
+  deploy_uat:
+    name: Deploy UAT
+    if: github.event_name != 'pull_request' && github.ref_name == 'UAT'
+    needs: lint
+    uses: ./.github/workflows/deploy.yml
+    with:
+      branch: UAT
+      commit_message: ${{ github.event.head_commit.message || '' }}
+      odoo_modules: ${{ github.event.inputs.odoo_modules || '' }}
+    secrets:
+      ssh_host: ${{ secrets.UAT_SSH_HOST }}
+      ssh_user: ${{ secrets.SSH_USER }}
+      ssh_port: ${{ secrets.SSH_PORT }}
+      ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+      deploy_path: ${{ secrets.UAT_DEPLOY_PATH }}
+      odoo_db_name: ${{ secrets.UAT_ODOO_DB_NAME }}

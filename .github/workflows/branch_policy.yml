@@ -1,0 +1,35 @@
+name: Branch Policy
+
+on:
+  workflow_call:
+    inputs:
+      source_branch:
+        description: Source branch name.
+        required: true
+        type: string
+      target_branch:
+        description: Target branch name.
+        required: true
+        type: string
+
+jobs:
+  validate:
+    name: Validate Branch Flow
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check merge policy
+        env:
+          SOURCE_BRANCH: ${{ inputs.source_branch }}
+          TARGET_BRANCH: ${{ inputs.target_branch }}
+        run: |
+          set -e
+
+          if [[ "$TARGET_BRANCH" == "UAT" && "$SOURCE_BRANCH" != "DEV" ]]; then
+            echo "Only DEV can merge into UAT."
+            exit 1
+          elif [[ "$TARGET_BRANCH" == "GOLIVE" && "$SOURCE_BRANCH" != "UAT" ]]; then
+            echo "Only PRE-PROD can merge into GO_LIVE."
+            exit 1
+          fi
+
+          echo "Merge allowed: $SOURCE_BRANCH -> $TARGET_BRANCH"

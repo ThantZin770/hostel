@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="state_chin" model="res.country.state">
+            <field name="name">Chin</field>
+            <field name="code">4/</field>
+            <field name="country_id" ref="base.mm"/>
+        </record>
+
+        <record id="township_hakha" model="res.country.state.township">
+            <field name="name">Hakha</field>
+            <field name="code">hakhana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_chin"/>
+        </record>
+
+
+        <record id="township_htantlang" model="res.country.state.township">
+            <field name="name">Htantlang</field>
+            <field name="code">htatala</field>
+            <field name="state_id" ref="ica_mm_nrc.state_chin"/>
+        </record>
+
+
+        <record id="township_tedim" model="res.country.state.township">
+            <field name="name">Tedim</field>
+            <field name="code">tatana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_chin"/>
+        </record>
+
+
+        <record id="township_tonzang" model="res.country.state.township">
+            <field name="name">Tonzang</field>
+            <field name="code">tazana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_chin"/>
+        </record>
+
+
+        <record id="township_cikha" model="res.country.state.township">
+            <field name="name">Cikha</field>
+            <field name="code">kakhana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_chin"/>
+        </record>
+
+
+        <record id="township_paletwa" model="res.country.state.township">
+            <field name="name">Paletwa</field>
+            <field name="code">palawa</field>
+            <field name="state_id" ref="ica_mm_nrc.state_chin"/>
+        </record>
+
+
+        <record id="township_samee" model="res.country.state.township">
+            <field name="name">Samee</field>
+            <field name="code">hsamana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_chin"/>
+        </record>
+
+
+        <record id="township_falam" model="res.country.state.township">
+            <field name="name">Falam</field>
+            <field name="code">phalana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_chin"/>
+        </record>
+
+
+        <record id="township_rikhawdar" model="res.country.state.township">
+            <field name="name">Rikhawdar</field>
+            <field name="code">rakhada</field>
+            <field name="state_id" ref="ica_mm_nrc.state_chin"/>
+        </record>
+
+
+        <record id="township_matupi" model="res.country.state.township">
+            <field name="name">Matupi</field>
+            <field name="code">matapa</field>
+            <field name="state_id" ref="ica_mm_nrc.state_chin"/>
+        </record>
+
+
+        <record id="township_rezua" model="res.country.state.township">
+            <field name="name">Rezua</field>
+            <field name="code">razana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_chin"/>
+        </record>
+
+
+        <record id="township_mindat" model="res.country.state.township">
+            <field name="name">Mindat</field>
+            <field name="code">matana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_chin"/>
+        </record>
+
+
+        <record id="township_kanpetlet" model="res.country.state.township">
+            <field name="name">Kanpetlet</field>
+            <field name="code">kapala</field>
+            <field name="state_id" ref="ica_mm_nrc.state_chin"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="region_yangon" model="res.country.state">
+            <field name="name">Yangon</field>
+            <field name="code">12/</field>
+            <field name="country_id" ref="base.mm"/>
+        </record>
+
+
+        <record id="township_kyauktada" model="res.country.state.township">
+            <field name="name">Kyauktada</field>
+            <field name="code">katata</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_dagon" model="res.country.state.township">
+            <field name="name">Dagon</field>
+            <field name="code">dagana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_pabedan" model="res.country.state.township">
+            <field name="name">Pabedan</field>
+            <field name="code">pabata</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_latha" model="res.country.state.township">
+            <field name="name">Latha</field>
+            <field name="code">lathana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_lanmadaw" model="res.country.state.township">
+            <field name="name">Lanmadaw</field>
+            <field name="code">lamata</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_kamayut" model="res.country.state.township">
+            <field name="name">Kamayut</field>
+            <field name="code">kamara</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_bahan" model="res.country.state.township">
+            <field name="name">Bahan</field>
+            <field name="code">bahana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_taikkyi" model="res.country.state.township">
+            <field name="name">Taikkyi</field>
+            <field name="code">takana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_twantay" model="res.country.state.township">
+            <field name="name">Twantay</field>
+            <field name="code">tatana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_kawhmu" model="res.country.state.township">
+            <field name="name">Kawhmu</field>
+            <field name="code">kamana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_kunchangone" model="res.country.state.township">
+            <field name="name">Kunchangone</field>
+            <field name="code">kakhaka</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_seikkyi_kanaungto" model="res.country.state.township">
+            <field name="name">Seikkyi Kanaungto</field>
+            <field name="code">hsakakha</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_dala" model="res.country.state.township">
+            <field name="name">Dala</field>
+            <field name="code">dalana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_dagon_myothit_seikkan" model="res.country.state.township">
+            <field name="name">Dagon Myothit (Seikkan)</field>
+            <field name="code">dagahsa</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_dagon_myothit_south" model="res.country.state.township">
+            <field name="name">Dagon Myothit (South)</field>
+            <field name="code">dagata</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_dagon_myothit_north" model="res.country.state.township">
+            <field name="name">Dagon Myothit (North)</field>
+            <field name="code">dagama</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_dagon_myothit_east" model="res.country.state.township">
+            <field name="name">Dagon Myothit (East)</field>
+            <field name="code">dagara</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_botataung" model="res.country.state.township">
+            <field name="name">Botataung</field>
+            <field name="code">batahta</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_seikkan" model="res.country.state.township">
+            <field name="name">Seikkan</field>
+            <field name="code">hsakana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_dawbon" model="res.country.state.township">
+            <field name="name">Dawbon</field>
+            <field name="code">dapana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_pazundaung" model="res.country.state.township">
+            <field name="name">Pazundaung</field>
+            <field name="code">pazata</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_mingala_taungnyunt" model="res.country.state.township">
+            <field name="name">Mingala Taungnyunt</field>
+            <field name="code">magata</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_thaketa" model="res.country.state.township">
+            <field name="name">Thaketa</field>
+            <field name="code">thakata</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_mayangon" model="res.country.state.township">
+            <field name="name">Mayangon</field>
+            <field name="code">maraka</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_north_okkalapa" model="res.country.state.township">
+            <field name="name">North Okkalapa</field>
+            <field name="code">ukama</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_hlaing" model="res.country.state.township">
+            <field name="name">Hlaing</field>
+            <field name="code">lamana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_mingaladon" model="res.country.state.township">
+            <field name="name">Mingaladon</field>
+            <field name="code">magada</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_shwepyitha" model="res.country.state.township">
+            <field name="name">Shwepyitha</field>
+            <field name="code">rapatha</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_hmawbi" model="res.country.state.township">
+            <field name="name">Hmawbi</field>
+            <field name="code">mabana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_htantabin" model="res.country.state.township">
+            <field name="name">Htantabin</field>
+            <field name="code">htatapa</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_hlegu" model="res.country.state.township">
+            <field name="name">Hlegu</field>
+            <field name="code">lakana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_thingangyun" model="res.country.state.township">
+            <field name="name">Thingangyun</field>
+            <field name="code">thagaka</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_tamwe" model="res.country.state.township">
+            <field name="name">Tamwe</field>
+            <field name="code">tamana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_south_okkalapa" model="res.country.state.township">
+            <field name="name">South Okkalapa</field>
+            <field name="code">ukata</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_yankin" model="res.country.state.township">
+            <field name="name">Yankin</field>
+            <field name="code">rakana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_thanlyin" model="res.country.state.township">
+            <field name="name">Thanlyin</field>
+            <field name="code">thalana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_cocokyun" model="res.country.state.township">
+            <field name="name">Cocokyun</field>
+            <field name="code">kakaka</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_kyauktan" model="res.country.state.township">
+            <field name="name">Kyauktan</field>
+            <field name="code">katana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_tantarr" model="res.country.state.township">
+            <field name="name">Tantarr</field>
+            <field name="code">tatata</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_kayan" model="res.country.state.township">
+            <field name="name">Kayan</field>
+            <field name="code">kharana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_thongwa" model="res.country.state.township">
+            <field name="name">Thongwa</field>
+            <field name="code">thakhana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_ahlon" model="res.country.state.township">
+            <field name="name">Ahlon</field>
+            <field name="code">alana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_kyeemyindaing" model="res.country.state.township">
+            <field name="name">Kyeemyindaing</field>
+            <field name="code">kamata</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_sanchaung" model="res.country.state.township">
+            <field name="name">Sanchaung</field>
+            <field name="code">sakhana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_insein" model="res.country.state.township">
+            <field name="name">Insein</field>
+            <field name="code">asana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_hlaingthaya_west" model="res.country.state.township">
+            <field name="name">Hlaingthaya (West)</field>
+            <field name="code">layana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_hlaingthaya_east" model="res.country.state.township">
+            <field name="name">Hlaingthaya (East)</field>
+            <field name="code">layara</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+        <record id="township_hlaingthaya" model="res.country.state.township">
+            <field name="name">Hlaingthaya</field>
+            <field name="code">lathaya</field>
+            <field name="state_id" ref="ica_mm_nrc.region_yangon"/>
+        </record>
+
+
+    </data>
+</odoo>
+

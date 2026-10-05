@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="region_ayeyarwady" model="res.country.state">
+            <field name="name">Ayeyarwady</field>
+            <field name="code">14/</field>
+            <field name="country_id" ref="base.mm"/>
+        </record>
+
+
+        <record id="township_pathein" model="res.country.state.township">
+            <field name="name">Pathein</field>
+            <field name="code">pathana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_shwethaungyan" model="res.country.state.township">
+            <field name="name">Shwethaungyan</field>
+            <field name="code">rathaya</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_ngwesaung" model="res.country.state.township">
+            <field name="name">Ngwesaung</field>
+            <field name="code">ngahsana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_kangyidaunt" model="res.country.state.township">
+            <field name="name">Kangyidaunt</field>
+            <field name="code">kakahta</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_kangyidaunt" model="res.country.state.township">
+            <field name="name">Kangyidaunt</field>
+            <field name="code">pathara</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_ngapudaw" model="res.country.state.township">
+            <field name="name">Ngapudaw</field>
+            <field name="code">ngapata</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_ngayokaung" model="res.country.state.township">
+            <field name="name">Ngayokaung</field>
+            <field name="code">ngaraka</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_hainggyikyun" model="res.country.state.township">
+            <field name="name">Hainggyikyun</field>
+            <field name="code">hakaka</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_thabaung" model="res.country.state.township">
+            <field name="name">Thabaung</field>
+            <field name="code">thapana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_kyonpyaw" model="res.country.state.township">
+            <field name="name">Kyonpyaw</field>
+            <field name="code">kapana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_kyaunggon" model="res.country.state.township">
+            <field name="name">Kyaunggon</field>
+            <field name="code">kakana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_yekyi" model="res.country.state.township">
+            <field name="name">Yekyi</field>
+            <field name="code">rakana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_ngathaingchaung" model="res.country.state.township">
+            <field name="name">Ngathaingchaung</field>
+            <field name="code">ngathakha</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_pyapon" model="res.country.state.township">
+            <field name="name">Pyapon</field>
+            <field name="code">phapana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_ahmar" model="res.country.state.township">
+            <field name="name">Ahmar</field>
+            <field name="code">amata</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_kyankin" model="res.country.state.township">
+            <field name="name">Kyankin</field>
+            <field name="code">kalana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_dedaye" model="res.country.state.township">
+            <field name="name">Dedaye</field>
+            <field name="code">dadara</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_bogale" model="res.country.state.township">
+            <field name="name">Bogale</field>
+            <field name="code">bakala</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_ma-ubin" model="res.country.state.township">
+            <field name="name">Ma-ubin</field>
+            <field name="code">maapa</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_nyaungdon" model="res.country.state.township">
+            <field name="name">Nyaungdon</field>
+            <field name="code">nyatana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_danuphyu" model="res.country.state.township">
+            <field name="name">Danuphyu</field>
+            <field name="code">danapha</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_pantanaw" model="res.country.state.township">
+            <field name="name">Pantanaw</field>
+            <field name="code">patana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_myaungmya" model="res.country.state.township">
+            <field name="name">Myaungmya</field>
+            <field name="code">mamana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_wakema" model="res.country.state.township">
+            <field name="name">Wakema</field>
+            <field name="code">wakhama</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_einme" model="res.country.state.township">
+            <field name="name">Einme</field>
+            <field name="code">amana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_myanaung" model="res.country.state.township">
+            <field name="name">Myanaung</field>
+            <field name="code">maana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_kyangin" model="res.country.state.township">
+            <field name="name">Kyangin</field>
+            <field name="code">kakhana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_ingapu" model="res.country.state.township">
+            <field name="name">Ingapu</field>
+            <field name="code">agapa</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_labutta" model="res.country.state.township">
+            <field name="name">Labutta</field>
+            <field name="code">lapata</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_pyinsalu" model="res.country.state.township">
+            <field name="name">Pyinsalu</field>
+            <field name="code">pasala</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_mawlamyinegyun" model="res.country.state.township">
+            <field name="name">Mawlamyinegyun</field>
+            <field name="code">mamaka</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_hinthada" model="res.country.state.township">
+            <field name="name">Hinthada</field>
+            <field name="code">hathata</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_zalun" model="res.country.state.township">
+            <field name="name">Zalun</field>
+            <field name="code">zalana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+
+
+        <record id="township_lemyethna" model="res.country.state.township">
+            <field name="name">Lemyethna</field>
+            <field name="code">lamana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_ayeyarwady"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="region_tanintharyi" model="res.country.state">
+            <field name="name">Tanintharyi</field>
+            <field name="code">6/</field>
+            <field name="country_id" ref="base.mm"/>
+        </record>
+
+        <record id="township_dawei" model="res.country.state.township">
+            <field name="name">Dawei</field>
+            <field name="code">htawana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_tanintharyi"/>
+        </record>
+
+
+        <record id="township_myitta" model="res.country.state.township">
+            <field name="name">Myitta</field>
+            <field name="code">matana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_tanintharyi"/>
+        </record>
+
+
+        <record id="township_yebyu" model="res.country.state.township">
+            <field name="name">Yebyu</field>
+            <field name="code">raphana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_tanintharyi"/>
+        </record>
+
+
+        <record id="township_kaleinaung" model="res.country.state.township">
+            <field name="name">Kaleinaung</field>
+            <field name="code">kalaa</field>
+            <field name="state_id" ref="ica_mm_nrc.region_tanintharyi"/>
+        </record>
+
+
+        <record id="township_launglon" model="res.country.state.township">
+            <field name="name">Launglon</field>
+            <field name="code">lalana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_tanintharyi"/>
+        </record>
+
+
+        <record id="township_thayetchaung" model="res.country.state.township">
+            <field name="name">Thayetchaung</field>
+            <field name="code">tharakha</field>
+            <field name="state_id" ref="ica_mm_nrc.region_tanintharyi"/>
+        </record>
+
+
+        <record id="township_kawthaung" model="res.country.state.township">
+            <field name="name">Kawthaung</field>
+            <field name="code">kathana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_tanintharyi"/>
+        </record>
+
+
+        <record id="township_khamaukgyi" model="res.country.state.township">
+            <field name="name">Khamaukgyi</field>
+            <field name="code">khamaka</field>
+            <field name="state_id" ref="ica_mm_nrc.region_tanintharyi"/>
+        </record>
+
+
+        <record id="township_bokpyin" model="res.country.state.township">
+            <field name="name">Bokpyin</field>
+            <field name="code">bapana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_tanintharyi"/>
+        </record>
+
+
+        <record id="township_pyigyimandaing" model="res.country.state.township">
+            <field name="name">Pyigyimandaing</field>
+            <field name="code">pakama</field>
+            <field name="state_id" ref="ica_mm_nrc.region_tanintharyi"/>
+        </record>
+
+
+        <record id="township_karathuri" model="res.country.state.township">
+            <field name="name">Karathuri</field>
+            <field name="code">karara</field>
+            <field name="state_id" ref="ica_mm_nrc.region_tanintharyi"/>
+        </record>
+
+
+        <record id="township_myeik" model="res.country.state.township">
+            <field name="name">Myeik</field>
+            <field name="code">maara</field>
+            <field name="state_id" ref="ica_mm_nrc.region_tanintharyi"/>
+        </record>
+
+
+        <record id="township_myeik" model="res.country.state.township">
+            <field name="name">Myeik</field>
+            <field name="code">mamana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_tanintharyi"/>
+        </record>
+
+
+        <record id="township_kyunsu" model="res.country.state.township">
+            <field name="name">Kyunsu</field>
+            <field name="code">maana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_tanintharyi"/>
+        </record>
+
+
+        <record id="township_kyunsu" model="res.country.state.township">
+            <field name="name">Kyunsu</field>
+            <field name="code">kasana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_tanintharyi"/>
+        </record>
+
+
+        <record id="township_tanintharyi" model="res.country.state.township">
+            <field name="name">Tanintharyi</field>
+            <field name="code">tathara</field>
+            <field name="state_id" ref="ica_mm_nrc.region_tanintharyi"/>
+        </record>
+
+
+        <record id="township_palaw" model="res.country.state.township">
+            <field name="name">Palaw</field>
+            <field name="code">palana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_tanintharyi"/>
+        </record>
+
+
+        <record id="township_palauk" model="res.country.state.township">
+            <field name="name">Palauk</field>
+            <field name="code">palata</field>
+            <field name="state_id" ref="ica_mm_nrc.region_tanintharyi"/>
+        </record>
+    </data>
+</odoo>

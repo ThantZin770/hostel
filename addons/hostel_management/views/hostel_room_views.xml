@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_hostel_room_list" model="ir.ui.view">
+        <field name="name">hostel.room.list</field>
+        <field name="model">hostel.room</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="room_type_id"/>
+                <field name="capacity"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_hostel_room_form" model="ir.ui.view">
+        <field name="name">hostel.room.form</field>
+        <field name="model">hostel.room</field>
+        <field name="arch" type="xml">
+            <form string="Room">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+
+                            <field name="code"/>
+                    </group>
+
+                    <group>
+                        <group string="Room Specifications">
+                            <field name="floor_ids"/>
+                            <field name="allocation_mode"/>
+                            <field name="room_type_id"/>
+                            <field name="state"/>
+                            <field name="active"/>
+                        </group>
+                        <group string="Location/Capacity">
+                            <field name="building_id"/>
+                            <field name="section_ids"/>
+                            <field name="capacity"/>
+                            <field name="current_occupancy"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Restriction">
+                            <field name="use_gender_restriction"/>
+                            <field name="effective_gender_restriction"/>
+                        </group>
+                        <group string="Notes">
+                            <field name="notes" placeholder="notes"/>
+                        </group>
+                    </group>
+                <notebook>
+                    <page string="Beds">
+<!--                        <field name="bed_ids">-->
+<!--                            <list editable="bottom">-->
+<!--                                <field name="name"/>-->
+<!--                            </list>-->
+<!--                        </field>-->
+
+                    </page>
+                </notebook>
+
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

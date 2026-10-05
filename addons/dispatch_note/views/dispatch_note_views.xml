@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="dispatch_note_view_list" model="ir.ui.view">
+        <field name="name">dispatch.note.list</field>
+        <field name="model">dispatch.note</field>
+        <field name="arch" type="xml">
+            <list string="Internal Dispatch Notes">
+                <field name="name"/>
+                <field name="type"/>
+                <field name="state" widget="badge" decoration-info="state == 'draft'"
+                       decoration-success="state == 'confirm'"
+                       decoration-danger="state == 'cancel'"/>
+                <field name="note_type" widget="badge" decoration-warning="note_type=='late'"
+                       decoration-success="note_type=='plan'" decoration-danger="note_type=='return'"/>
+                <field name="delivery_date"/>
+                <field name="company_id"/>
+                <field name="remark"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="dispatch_note_view_form" model="ir.ui.view">
+        <field name="name">dispatch.note.form</field>
+        <field name="model">dispatch.note</field>
+        <field name="arch" type="xml">
+            <form string="Internal Dispatch Note">
+                <header>
+                    <button type="object" name="action_rest_to_draft" string="Draft" invisible="state!='cancel'"/>
+                    <button type="object" name="action_confirm"
+                            string="Confirm" class="btn btn-primary" invisible="state!='draft'"
+                            confirm="Are you sure to confirm ?"/>
+                    <button type="object" name="action_cancel" string="Cancel" class="btn btn-danger"
+                            invisible="state in ['draft','cancel']"/>
+                    <button name="action_return_dispatch" type="object" string="Return" invisible="state!='confirm'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="type"/>
+                            <field name="vehicle_id"/>
+                            <field name="driver_id"/>
+                            <field name="source_dispatch_note_id"/>
+                        </group>
+                        <group>
+                            <field name="note_type"/>
+                            <field name="delivery_date"/>
+                            <field name="company_id"/>
+                            <field name="remark"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Lines" name="lines">
+                            <field name="line_ids">
+                                <list editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="quantity"/>
+                                    <field name="uom_id" optional="show"/>
+                                    <field name="company_id" optional="show"/>
+                                    <field name="warehouse_id" optional="show"/>
+                                    <field name="dest_location_id" optional="show"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_dispatch_note_internal" model="ir.actions.act_window">
+        <field name="name">Internal Dispatch Notes</field>
+        <field name="res_model">dispatch.note</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('type', '=', 'internal')]</field>
+        <field name="context">{'default_type': 'internal'}</field>
+    </record>
+
+    <record id="action_dispatch_note_internal_view_list" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="dispatch_note_view_list"/>
+        <field name="act_window_id" ref="action_dispatch_note_internal"/>
+    </record>
+
+    <record id="action_dispatch_note_internal_view_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="dispatch_note_view_form"/>
+        <field name="act_window_id" ref="action_dispatch_note_internal"/>
+    </record>
+
+</odoo>

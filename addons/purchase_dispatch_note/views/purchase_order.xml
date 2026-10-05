@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Inherit Form View to Modify it -->
+    <record id="purchase_order_form" model="ir.ui.view">
+        <field name="name">purchase_order_form</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <!--            <xpath expr="//button[@name='button_confirm'][1]" position="attributes">-->
+            <!--                <attribute name="invisible">state != 'confirm'</attribute>-->
+            <!--            </xpath>-->
+            <xpath expr="//button[@name='button_confirm'][2]" position="attributes">
+                <!--                <attribute name="invisible">state != 'confirm'</attribute>-->
+                <attribute name="invisible">state != 'confirm' or not dispatch_note_ids</attribute>
+                <attribute name="string">Confirm Dispatch</attribute>
+            </xpath>
+            <header position="inside">
+                <button name="action_virtual_confirm" type="object" string="Confirm"
+                        invisible="state!= 'draft'"/>
+                <button name="action_dispatch_note" type="object" string="Dispatch Note"
+                        invisible="state in ['cancel','draft','to_approve','cancel']"/>
+            </header>
+            <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                <button type="object" name="action_view_dispatch_note_ids" class="oe_stat_button"
+                        icon="fa-pencil-square-o"
+                        invisible="not dispatch_note_ids">
+                    <field name="dispatch_note_count" widget="statinfo" string="Dispatch Notes"/>
+                    <field name="dispatch_note_ids" invisible="1"/>
+                </button>
+            </xpath>
+
+            <!--                                                            <field name="qty_received" string="Received" column_invisible="parent.state != 'purchase'" readonly="qty_received_method != 'manual' or is_downpayment" optional="show"/>-->
+            <field name="qty_received" position="before">
+                <field name="qty_dispatch_note" string="Dispatch Notes" column_invisible="parent.state != 'purchase'" optional="show"/>
+            </field>
+        </field>
+    </record>
+</odoo>

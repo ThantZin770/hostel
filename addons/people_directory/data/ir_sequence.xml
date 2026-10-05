@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="seq_res_profile" model="ir.sequence">
+        <field name="name">Profile Global UID</field>
+        <field name="code">res.profile</field>
+        <field name="prefix">PRF%(year)s-</field>
+        <field name="padding">5</field>
+        <field name="number_next">1</field>
+        <field name="number_increment">1</field>
+        <field name="implementation">standard</field>
+    </record>
+</odoo>

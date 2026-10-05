@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="purchase_demand_plan_form_view_inherit" model="ir.ui.view">
+        <field name="name">purchase.demand.plan.form.view.inherit</field>
+        <field name="model">purchase.demand.plan</field>
+        <field name="inherit_id" ref="purchase_demand_planning.view_purchase_demand_plan_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_central_approve"
+                            type="object"
+                            string="Central Approve"
+                            class="btn-primary"
+                            invisible="state != 'bu_approved'"/>
+                    <button name="action_central_reject"
+                            type="object"
+                            string="Cancel"
+                            class="btn-primary"
+                            invisible="state != 'bu_approved'"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

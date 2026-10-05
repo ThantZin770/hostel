@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_res_profile_user,res.profile.user,model_res_profile,base.group_user,1,1,1,1
+access_res_religious_user,res.religious.user,model_res_religious,base.group_user,1,1,1,1
+access_res_profile_relationship_type_user,res.profile.relationship.type.user,model_res_profile_relationship_type,base.group_user,1,1,1,1
+access_res_profile_major_user,res.profile.major.user,model_res_profile_major,base.group_user,1,1,1,1
+access_res_profile_emergency_contact_user,res.profile.emergency.contact.user,model_res_profile_emergency_contact,base.group_user,1,1,1,1
+access_res_profile_work_experience_user,res.profile.work.experience.user,model_res_profile_work_experience,base.group_user,1,1,1,1
+access_res_profile_skill_certification_user,res.profile.skill.certification.user,model_res_profile_skill_certification,base.group_user,1,1,1,1
+access_res_profile_driver_license_user,res.profile.driver.license.user,model_res_profile_driver_license,base.group_user,1,1,1,1
+access_res_profile_education_user,res.profile.education.user,model_res_profile_education,base.group_user,1,1,1,1

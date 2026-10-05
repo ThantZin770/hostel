@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    mandalay region-->
+    <data noupdate="1">
+        <record id="region_mandalay_region" model="res.country.state">
+            <field name="name">Mandalay</field>
+            <field name="code">9/</field>
+            <field name="country_id" ref="base.mm"/>
+        </record>
+
+        <record id="township_maha_aungmye_marata" model="res.country.state.township">
+            <field name="name">Maha Aungmye</field>
+            <field name="code">marata</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_maha_aungmye_mahama" model="res.country.state.township">
+            <field name="name">Maha Aungmye</field>
+            <field name="code">mahama</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_chanmyathazi" model="res.country.state.township">
+            <field name="name">Chanmyathazi</field>
+            <field name="code">manata</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_chanmyathazi" model="res.country.state.township">
+            <field name="name">Chanmyathazi</field>
+            <field name="code">khamasa</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_chanayethazan" model="res.country.state.township">
+            <field name="name">Chanayethazan</field>
+            <field name="code">marama</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_chanayethazan" model="res.country.state.township">
+            <field name="name">Chanayethazan</field>
+            <field name="code">khaaza</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_pyigyitagon" model="res.country.state.township">
+            <field name="name">Pyigyitagon</field>
+            <field name="code">patakha</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_kyaukse" model="res.country.state.township">
+            <field name="name">Kyaukse</field>
+            <field name="code">kahsana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_sintgaing" model="res.country.state.township">
+            <field name="name">Sintgaing</field>
+            <field name="code">sakata</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_myittha" model="res.country.state.township">
+            <field name="name">Myittha</field>
+            <field name="code">mathana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_nyaung-u" model="res.country.state.township">
+            <field name="name">Nyaung-U</field>
+            <field name="code">nyauna</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_ngathayauk" model="res.country.state.township">
+            <field name="name">Ngathayauk</field>
+            <field name="code">ngathara</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_kyaukpadaung" model="res.country.state.township">
+            <field name="name">Kyaukpadaung</field>
+            <field name="code">kapata</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_tada-u" model="res.country.state.township">
+            <field name="name">Tada-U</field>
+            <field name="code">tatau</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_ngazun" model="res.country.state.township">
+            <field name="name">Ngazun</field>
+            <field name="code">ngazana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_pyin_oo_lwin_paula" model="res.country.state.township">
+            <field name="name">Pyin Oo Lwin</field>
+            <field name="code">paula</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_pyin_oo_lwin_mamana" model="res.country.state.township">
+            <field name="name">Pyin Oo Lwin</field>
+            <field name="code">mamana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_meiktila" model="res.country.state.township">
+            <field name="name">Meiktila</field>
+            <field name="code">mahtala</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_mahlaing" model="res.country.state.township">
+            <field name="name">Mahlaing</field>
+            <field name="code">malana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_wundwin" model="res.country.state.township">
+            <field name="name">Wundwin</field>
+            <field name="code">watana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_thazi" model="res.country.state.township">
+            <field name="name">Thazi</field>
+            <field name="code">thasana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_myingyan" model="res.country.state.township">
+            <field name="name">Myingyan</field>
+            <field name="code">makhana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_taungtha" model="res.country.state.township">
+            <field name="name">Taungtha</field>
+            <field name="code">tathana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_natogyi" model="res.country.state.township">
+            <field name="name">Natogyi</field>
+            <field name="code">nahtaka</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_yamethin" model="res.country.state.township">
+            <field name="name">Yamethin</field>
+            <field name="code">ramatha</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_pyawbwe" model="res.country.state.township">
+            <field name="name">Pyawbwe</field>
+            <field name="code">pabana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_tatkon" model="res.country.state.township">
+            <field name="name">Tatkon</field>
+            <field name="code">thapaka</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_tagaung" model="res.country.state.township">
+            <field name="name">Tagaung</field>
+            <field name="code">takata</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_singu" model="res.country.state.township">
+            <field name="name">Singu</field>
+            <field name="code">sakana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_mogok" model="res.country.state.township">
+            <field name="name">Mogok</field>
+            <field name="code">makana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_amarapura" model="res.country.state.township">
+            <field name="name">Amarapura</field>
+            <field name="code">amara</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_aungmyethazan" model="res.country.state.township">
+            <field name="name">Aungmyethazan</field>
+            <field name="code">manama</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_aungmyethazan" model="res.country.state.township">
+            <field name="name">Aungmyethazan</field>
+            <field name="code">amaza</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_patheingyi" model="res.country.state.township">
+            <field name="name">Patheingyi</field>
+            <field name="code">pathaka</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+
+
+        <record id="township_madaya" model="res.country.state.township">
+            <field name="name">Madaya</field>
+            <field name="code">matara</field>
+            <field name="state_id" ref="ica_mm_nrc.region_mandalay_region"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_hostel_building_list" model="ir.ui.view">
+        <field name="name">hostel_building_list</field>
+        <field name="model">hostel.building</field>
+        <field name="arch" type="xml">
+            <list string="Building">
+                <field name="name"/>
+                <field name="code"/>
+            </list>
+        </field>
+    </record>
+
+<record id="view_hostel_building_form" model="ir.ui.view">
+    <field name="name">hostel.building.form</field>
+    <field name="model">hostel.building</field>
+    <field name="arch" type="xml">
+        <form string="Building">
+            <sheet>
+
+                <group>
+                    <group>
+                        <field name="name" placeholder="Enter Name"/>
+
+                    </group>
+                    <group>
+                        <field name="code" placeholder="Enter Code"/>
+                    </group>
+                </group>
+
+                <notebook>
+                    <page string="Sections">
+
+                        <field name="section_ids">
+                            <list editable="bottom">
+                                <field name="name"/>
+                            </list>
+                        </field>
+
+                    </page>
+                </notebook>
+
+            </sheet>
+        </form>
+    </field>
+</record>
+
+</odoo>

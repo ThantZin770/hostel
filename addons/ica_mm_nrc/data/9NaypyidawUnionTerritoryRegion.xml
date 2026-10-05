@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--        9 Naypyidaw Union Territory to Mandalay Region-->
+    <data noupdate="1">
+        <record id="region_naypyidaw_region" model="res.country.state">
+            <field name="name">Naypyidaw</field>
+            <field name="code">15/</field>
+            <field name="country_id" ref="base.mm"/>
+        </record>
+
+        <record id="township_pyinmana" model="res.country.state.township">
+            <field name="name">Pyinmana</field>
+            <field name="code">pamana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_naypyidaw_region"/>
+        </record>
+
+
+        <record id="township_zabuthiri" model="res.country.state.township">
+            <field name="name">Zabuthiri</field>
+            <field name="code">zabatha</field>
+            <field name="state_id" ref="ica_mm_nrc.region_naypyidaw_region"/>
+        </record>
+
+
+        <record id="township_zeyarthiri" model="res.country.state.township">
+            <field name="name">Zeyarthiri</field>
+            <field name="code">zayatha</field>
+            <field name="state_id" ref="ica_mm_nrc.region_naypyidaw_region"/>
+        </record>
+
+
+        <record id="township_pobbathiri" model="res.country.state.township">
+            <field name="name">Pobbathiri</field>
+            <field name="code">pabatha</field>
+            <field name="state_id" ref="ica_mm_nrc.region_naypyidaw_region"/>
+        </record>
+
+
+        <record id="township_lewe" model="res.country.state.township">
+            <field name="name">Lewe</field>
+            <field name="code">lawana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_naypyidaw_region"/>
+        </record>
+
+
+        <record id="township_dekkhinathiri" model="res.country.state.township">
+            <field name="name">Dekkhinathiri</field>
+            <field name="code">dakhatha</field>
+            <field name="state_id" ref="ica_mm_nrc.region_naypyidaw_region"/>
+        </record>
+
+
+        <record id="township_ottarathiri" model="res.country.state.township">
+            <field name="name">Ottarathiri</field>
+            <field name="code">utatha</field>
+            <field name="state_id" ref="ica_mm_nrc.region_naypyidaw_region"/>
+        </record>
+
+
+        <record id="township_tatkon" model="res.country.state.township">
+            <field name="name">Tatkon</field>
+            <field name="code">takana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_naypyidaw_region"/>
+        </record>
+    </data>
+</odoo>

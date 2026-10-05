@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="view_hostel_unit_list" model="ir.ui.view">
+        <field name="name">hostel_unit_list</field>
+        <field name="model">hostel.unit</field>
+        <field name="arch" type="xml">
+            <list string="Units">
+                <field name="name"/>
+                <field name="floor_ids"/>
+                <field name="section_ids"/>
+                <field name="building_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_hostel_unit_form" model="ir.ui.view">
+        <field name="name">hostel_unit_form</field>
+        <field name="model">hostel.unit</field>
+        <field name="arch" type="xml">
+            <form string="Units">
+                <sheet>
+                    <group>
+                        <div class="oe_title">
+                            <label for="name" string="Unit Name"/>
+                            <h1><field name="name" placeholder="e.g. 406"/></h1>
+                        </div>
+                    </group>
+
+                    <group>
+                        <group string="Unit Details">
+                            <field name="floor_ids" options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+                        <group string="Location">
+                            <field name="section_ids" readonly="1" force_save="1"/>
+                            <field name="building_id" readonly="1" force_save="1"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Rooms">
+                            <field name="room_ids" options="{'no_create_edit': True, 'no_quick_create': True}">
+                                <list editable="bottom">
+                                    <field name="name" string="Room Name"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="aqua_stage_breeder" model="aqua.stage">
+            <field name="name">Breeder</field>
+            <field name="code">BRE</field>
+            <field name="sequence">10</field>
+            <field name="company_type">breeder</field>
+            <field name="stage_type">breeder</field>
+        </record>
+
+        <record id="aqua_stage_broodstock" model="aqua.stage">
+            <field name="name">Broodstock</field>
+            <field name="code">BROOD</field>
+            <field name="sequence">20</field>
+            <field name="company_type">hatchery</field>
+            <field name="stage_type">broodstock</field>
+        </record>
+
+        <record id="aqua_stage_spawning" model="aqua.stage">
+            <field name="name">Spawning</field>
+            <field name="code">SPW</field>
+            <field name="sequence">30</field>
+            <field name="company_type">hatchery</field>
+            <field name="stage_type">spawning</field>
+        </record>
+
+        <record id="aqua_stage_egg" model="aqua.stage">
+            <field name="name">Egg</field>
+            <field name="code">EGG</field>
+            <field name="sequence">40</field>
+            <field name="company_type">hatchery</field>
+            <field name="stage_type">egg</field>
+        </record>
+
+        <record id="aqua_stage_larvae" model="aqua.stage">
+            <field name="name">Larvae</field>
+            <field name="code">LAR</field>
+            <field name="sequence">50</field>
+            <field name="company_type">hatchery</field>
+            <field name="stage_type">larvae</field>
+        </record>
+
+        <record id="aqua_stage_nursery1" model="aqua.stage">
+            <field name="name">Nursery 1</field>
+            <field name="code">N1</field>
+            <field name="sequence">60</field>
+            <field name="company_type">nursery</field>
+            <field name="stage_type">nursery1</field>
+        </record>
+
+        <record id="aqua_stage_nursery2" model="aqua.stage">
+            <field name="name">Nursery 2</field>
+            <field name="code">N2</field>
+            <field name="sequence">70</field>
+            <field name="company_type">nursery</field>
+            <field name="stage_type">nursery2</field>
+        </record>
+
+        <record id="aqua_stage_nursery3" model="aqua.stage">
+            <field name="name">Nursery 3</field>
+            <field name="code">N3</field>
+            <field name="sequence">80</field>
+            <field name="company_type">nursery</field>
+            <field name="stage_type">nursery3</field>
+        </record>
+
+        <record id="aqua_stage_growout" model="aqua.stage">
+            <field name="name">Grow-out</field>
+            <field name="code">GRO</field>
+            <field name="sequence">90</field>
+            <field name="company_type">growout</field>
+            <field name="stage_type">growout</field>
+        </record>
+
+        <record id="aqua_stage_harvest" model="aqua.stage">
+            <field name="name">Harvest</field>
+            <field name="code">HAR</field>
+            <field name="sequence">100</field>
+            <field name="company_type">harvest_sales</field>
+            <field name="stage_type">harvest</field>
+        </record>
+    </data>
+</odoo>

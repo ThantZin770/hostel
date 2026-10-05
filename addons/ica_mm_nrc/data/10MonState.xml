@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="state_mon" model="res.country.state">
+            <field name="name">Mon</field>
+            <field name="code">10/</field>
+            <field name="country_id" ref="base.mm"/>
+        </record>
+
+
+        <record id="township_mawlamyine" model="res.country.state.township">
+            <field name="name">Mawlamyine</field>
+            <field name="code">malama</field>
+            <field name="state_id" ref="ica_mm_nrc.state_mon"/>
+        </record>
+
+
+        <record id="township_kyaikmaraw" model="res.country.state.township">
+            <field name="name">Kyaikmaraw</field>
+            <field name="code">kamara</field>
+            <field name="state_id" ref="ica_mm_nrc.state_mon"/>
+        </record>
+
+
+        <record id="township_chaungzon" model="res.country.state.township">
+            <field name="name">Chaungzon</field>
+            <field name="code">khahsana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_mon"/>
+        </record>
+
+
+        <record id="township_mudon" model="res.country.state.township">
+            <field name="name">Mudon</field>
+            <field name="code">madana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_mon"/>
+        </record>
+
+
+        <record id="township_thanbyuzayat" model="res.country.state.township">
+            <field name="name">Thanbyuzayat</field>
+            <field name="code">thaphara</field>
+            <field name="state_id" ref="ica_mm_nrc.state_mon"/>
+        </record>
+
+
+        <record id="township_kyaikto" model="res.country.state.township">
+            <field name="name">Kyaikto</field>
+            <field name="code">kahtana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_mon"/>
+        </record>
+
+
+        <record id="township_bilin" model="res.country.state.township">
+            <field name="name">Bilin</field>
+            <field name="code">balana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_mon"/>
+        </record>
+
+
+        <record id="township_ye" model="res.country.state.township">
+            <field name="name">Ye</field>
+            <field name="code">ramana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_mon"/>
+        </record>
+
+
+        <record id="township_lamine" model="res.country.state.township">
+            <field name="name">Lamine</field>
+            <field name="code">lamana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_mon"/>
+        </record>
+
+
+        <record id="township_khawzar" model="res.country.state.township">
+            <field name="name">Khawzar</field>
+            <field name="code">khazana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_mon"/>
+        </record>
+
+
+        <record id="township_thaton" model="res.country.state.township">
+            <field name="name">Thaton</field>
+            <field name="code">thahtana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_mon"/>
+        </record>
+
+
+        <record id="township_paung" model="res.country.state.township">
+            <field name="name">Paung</field>
+            <field name="code">paung</field>
+            <field name="state_id" ref="ica_mm_nrc.state_mon"/>
+        </record>
+    </data>
+</odoo>

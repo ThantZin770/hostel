@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="pepole_directory_root" name="People Directory"
+              web_icon="people_directory,static/description/icon.png">
+        <menuitem id="res_profile_category" name="Profile" sequence="100" action="people_directory.res_profile_action"/>
+
+        <menuitem id="configuration_category" name="Configuration" sequence="500">
+            <menuitem id="contacts_category" name="Contacts" sequence="100" action="contacts.action_contacts"/>
+            <menuitem id="employee_category" name="Employee" sequence="200" action="hr.open_view_employee_list_my"/>
+            <menuitem id="localization_category" name="Localization" sequence="300">
+                <menuitem id="country_category" name="Countries" action="base.action_country" sequence="10"/>
+                <menuitem id="state_category" name="Fed. States" action="base.action_country_state" sequence="20"/>
+                <menuitem id="country_group_category" name="Country Group" action="base.action_country_group"
+                          sequence="30"/>
+                <menuitem id="res_country_state_township_category"
+                          name="Township"
+                          action="ica_mm_nrc.res_country_state_township_action"
+                          sequence="2"/>
+            </menuitem>
+        </menuitem>
+    </menuitem>
+</odoo>

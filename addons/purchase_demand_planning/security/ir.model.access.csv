@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_purchase_demand_plan_user,purchase.demand.plan.user,model_purchase_demand_plan,base.group_user,1,1,1,1
+access_purchase_demand_plan_manager,purchase.demand.plan.manager,model_purchase_demand_plan,base.group_user,1,1,1,1
+access_purchase_demand_plan_line_user,purchase.demand.plan.line.user,model_purchase_demand_plan_line,base.group_user,1,1,1,1
+access_purchase_demand_plan_line_manager,purchase.demand.plan.line.manager,model_purchase_demand_plan_line,base.group_user,1,1,1,1

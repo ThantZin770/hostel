@@ -1,0 +1,106 @@
+name: Reusable Deploy
+
+on:
+  workflow_call:
+    inputs:
+      branch:
+        description: Branch to deploy.
+        required: true
+        type: string
+      commit_message:
+        description: Commit message used to detect #odoo-module:module1,module2.
+        required: false
+        type: string
+        default: ""
+      odoo_modules:
+        description: Explicit modules to update. Overrides commit message detection.
+        required: false
+        type: string
+        default: ""
+    secrets:
+      ssh_host:
+        required: true
+      ssh_user:
+        required: true
+      ssh_port:
+        required: false
+      ssh_private_key:
+        required: true
+      deploy_path:
+        required: true
+      odoo_db_name:
+        required: false
+
+jobs:
+  deploy:
+    name: Deploy ${{ inputs.branch }}
+    runs-on: ubuntu-latest
+    env:
+      DEPLOY_HOST: ${{ secrets.ssh_host }}
+      DEPLOY_USER: ${{ secrets.ssh_user }}
+      DEPLOY_PORT: ${{ secrets.ssh_port || '22' }}
+      DEPLOY_PATH: ${{ secrets.deploy_path }}
+      DEPLOY_BRANCH: ${{ inputs.branch }}
+      COMMIT_MESSAGE: ${{ inputs.commit_message }}
+      EXPLICIT_ODOO_MODULES: ${{ inputs.odoo_modules }}
+      ODOO_DB_NAME: ${{ secrets.odoo_db_name }}
+      SSH_PRIVATE_KEY: ${{ secrets.ssh_private_key }}
+
+    steps:
+      - name: Validate deployment inputs
+        run: |
+          test -n "$DEPLOY_HOST" || (echo "Missing SSH host" && exit 1)
+          test -n "$DEPLOY_USER" || (echo "Missing SSH user" && exit 1)
+          test -n "$DEPLOY_PORT" || (echo "Missing SSH port" && exit 1)
+          test -n "$DEPLOY_PATH" || (echo "Missing deploy path" && exit 1)
+          test -n "$DEPLOY_BRANCH" || (echo "Missing deploy branch" && exit 1)
+          test -n "$SSH_PRIVATE_KEY" || (echo "Missing SSH private key" && exit 1)
+
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -p "$DEPLOY_PORT" -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts
+
+      - name: Resolve Odoo modules
+        run: |
+          if [ -n "$EXPLICIT_ODOO_MODULES" ]; then
+            echo "ODOO_MODULES=$EXPLICIT_ODOO_MODULES" >> "$GITHUB_ENV"
+          else
+            modules=$(printf '%s\n' "$COMMIT_MESSAGE" | sed -n 's/.*#odoo-module:\([^ ]*\).*/\1/p' || true)
+            echo "ODOO_MODULES=$modules" >> "$GITHUB_ENV"
+          fi
+
+      - name: Deploy on remote server
+        run: |
+          ssh \
+            -i ~/.ssh/deploy_key \
+            -p "$DEPLOY_PORT" \
+            -o IdentitiesOnly=yes \
+            "$DEPLOY_USER@$DEPLOY_HOST" \
+            "DEPLOY_PATH='$DEPLOY_PATH' DEPLOY_BRANCH='$DEPLOY_BRANCH' ODOO_DB_NAME='$ODOO_DB_NAME' ODOO_MODULES='$ODOO_MODULES' bash -s" <<'REMOTE'
+          set -e
+
+          cd "$DEPLOY_PATH"
+
+          git fetch origin "$DEPLOY_BRANCH"
+          git checkout "$DEPLOY_BRANCH"
+          git pull --ff-only origin "$DEPLOY_BRANCH"
+
+          docker compose down
+          docker compose up -d --build
+
+          if [ -n "$ODOO_MODULES" ] && [ -n "$ODOO_DB_NAME" ]; then
+            docker compose run --rm web odoo -u "$ODOO_MODULES" -d "$ODOO_DB_NAME" --stop-after-init --no-http
+          elif [ -n "$ODOO_MODULES" ]; then
+            echo "Skipping Odoo module update because ODOO_DB_NAME is not configured."
+            exit 1
+          else
+            echo "No Odoo modules requested for update."
+          fi
+
+          docker system prune -af
+          echo "Removed all unused Docker images and resources"
+          REMOTE

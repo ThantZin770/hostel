@@ -1,0 +1,38 @@
+.o_people_directory_dashboard {
+    --pdd-bg: #171a24;
+    --pdd-panel: #222736;
+    --pdd-line: #343a4d;
+    --pdd-text: #f4f6fb;
+    --pdd-muted: #aeb6c9;
+    --pdd-muted-2: #7f889d;
+    --pdd-accent: #00c8c8;
+    --pdd-crumb: #bfc7da;
+    --pdd-field: #1d2230;
+    --pdd-field-border: #3a4054;
+    --pdd-field-text: #e8edf8;
+    --pdd-button-bg: #30364a;
+    --pdd-button-text: #ffffff;
+    --pdd-button-primary-bg: #16a7a7;
+    --pdd-button-primary-border: #16a7a7;
+    --pdd-button-primary-text: #ffffff;
+    --pdd-kpi-big-bg: linear-gradient(135deg, #263147, #202736);
+    --pdd-chart-empty: #30364a;
+    --pdd-track: #30364a;
+    --pdd-bar-bg: linear-gradient(180deg, #00c8c8, #167a8a);
+    --pdd-table-text: #eef2fb;
+    --pdd-row-hover: rgba(255, 255, 255, 0.035);
+    --pdd-drawer-bg: #202432;
+    --pdd-drawer-shadow: -15px 0 35px rgba(0, 0, 0, 0.35);
+    --pdd-backdrop: rgba(0, 0, 0, 0.25);
+    --pdd-loading-bg: #30364a;
+    --pdd-badge-green-bg: rgba(46, 204, 113, 0.15);
+    --pdd-badge-green-text: #6be29b;
+    --pdd-badge-orange-bg: rgba(245, 166, 35, 0.15);
+    --pdd-badge-orange-text: #ffc46d;
+    --pdd-badge-red-bg: rgba(226, 91, 91, 0.15);
+    --pdd-badge-red-text: #ff8b8b;
+    --pdd-badge-blue-bg: rgba(78, 140, 255, 0.15);
+    --pdd-badge-blue-text: #92b9ff;
+
+    color-scheme: dark;
+}

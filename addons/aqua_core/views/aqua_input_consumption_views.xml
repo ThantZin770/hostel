@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_aqua_input_consumption_list" model="ir.ui.view">
+        <field name="name">aqua.input.consumption.list</field>
+        <field name="model">aqua.input.consumption</field>
+        <field name="arch" type="xml">
+            <list decoration-muted="not active">
+                <field name="consume_date"/>
+                <field name="name"/>
+                <field name="batch_id"/>
+                <field name="global_trace_id"/>
+                <field name="company_id"/>
+                <field name="farm_id"/>
+                <field name="production_unit_id"/>
+                <field name="product_id"/>
+                <field name="input_type"/>
+                <field name="quantity"/>
+                <field name="used_by_id"/>
+                <field name="active" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_aqua_input_consumption_form" model="ir.ui.view">
+        <field name="name">aqua.input.consumption.form</field>
+        <field name="model">aqua.input.consumption</field>
+        <field name="arch" type="xml">
+            <form string="Aquaculture Input Consumption">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="batch_id"/>
+                            <field name="global_trace_id"/>
+                            <field name="company_id"/>
+                            <field name="farm_id"/>
+                            <field name="production_unit_id"/>
+                        </group>
+                        <group>
+                            <field name="consume_date"/>
+                            <field name="product_id"/>
+                            <field name="input_type"/>
+                            <field name="quantity"/>
+                            <field name="used_by_id"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_aqua_input_consumption_search" model="ir.ui.view">
+        <field name="name">aqua.input.consumption.search</field>
+        <field name="model">aqua.input.consumption</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="batch_id"/>
+                <field name="global_trace_id"/>
+                <field name="company_id"/>
+                <field name="farm_id"/>
+                <field name="input_type"/>
+                <field name="product_id"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                <group>
+                    <filter string="Company" name="group_company" context="{'group_by': 'company_id'}"/>
+                    <filter string="Farm" name="group_farm" context="{'group_by': 'farm_id'}"/>
+                    <filter string="Input Type" name="group_input_type" context="{'group_by': 'input_type'}"/>
+                    <filter string="Product" name="group_product" context="{'group_by': 'product_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>

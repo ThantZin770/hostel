@@ -1,0 +1,4 @@
+.o_form_label.ica_form_required_label::after {
+  content: " *";
+  color: var(--o-danger, #dc3545);
+}

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Tree View -->
+    <record id="view_purchase_demand_plan_tree" model="ir.ui.view">
+        <field name="name">purchase.demand.plan.tree</field>
+        <field name="model">purchase.demand.plan</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="reference"/>
+                <field name="requester_id"/>
+                <field name="company_id"/>
+                <field name="request_date"/>
+                <field name="state" widget="badge" decoration-danger="state == 'cancel'"
+                       decoration-success="state == 'central_approved'" decoration-info="state == 'rfq_created'"
+                       decoration-muted="state == 'draft'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_purchase_demand_plan_form" model="ir.ui.view">
+        <field name="name">purchase.demand.plan.form</field>
+        <field name="model">purchase.demand.plan</field>
+        <field name="arch" type="xml">
+            <form string="Purchase Demand Plan">
+                <header>
+                    <button name="action_submitted"
+                            type="object"
+                            string="Submit"
+                            class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button name="action_bu_approved"
+                            type="object"
+                            string="Bu Approve"
+                            class="btn-primary"
+                            invisible="state != 'submitted'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+
+                <sheet>
+                    <div name="button_box" class="oe_button_box">
+                        <button type="object"
+                                name="action_view_purchase_orders"
+                                class="oe_stat_button"
+                                icon="fa-shopping-cart"
+                                invisible="purchase_order_count == 0">
+                            <field name="purchase_order_count" widget="statinfo" string="Purchase"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="reference" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="requester_id"/>
+                            <field name="company_id"/>
+                        </group>
+                        <group>
+                            <field name="request_date"/>
+                            <field name="picking_type_id"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Lines" name="lines">
+                            <field name="line_ids">
+                                <list>
+                                    <field name="product_id" optional="show"/>
+                                    <field name="description" optional="hide"/>
+
+                                    <field name="qty_available" optional="show"/>
+                                    <field name="virtual_available" optional="hide"/>
+                                    <field name="free_qty" optional="hide"/>
+                                    <field name="incoming_qty" optional="hide"/>
+                                    <field name="outgoing_qty" optional="hide"/>
+
+                                    <field name="forecasted_issue" column_invisible="True"/>
+                                    <button type="object" name="action_product_forecast_report" title="Forecast Report"
+                                            icon="fa-area-chart"
+                                            invisible="not id or not forecasted_issue or not is_storable"
+                                            class="text-danger"/>
+                                    <button type="object" name="action_product_forecast_report" title="Forecast Report"
+                                            icon="fa-area-chart"
+                                            invisible="not id or forecasted_issue or not is_storable"/>
+
+                                    <field name="requested_qty" optional="show"/>
+                                    <field name="approved_qty" optional="hide"/>
+                                    <field name="rejected_qty" readonly="1" optional="hide"/>
+                                    <field name="uom_id" optional="show"/>
+                                    <field name="preferred_vendor_id" optional="show"/>
+                                    <field name="required_date" optional="hide"/>
+                                    <field name="state" widget="badge" decoration-warning="state=='pending'"
+                                           decoration-success="state == 'approved'"
+                                           decoration-danger="state == 'rejected'"/>
+                                    <field name="remark" optional="hide"/>
+                                    <field name="rfq_ids" widget="many2many_tags" optional="hide"/>
+                                    <field name="rfq_line_ids" widget="many2many_tags" optional="hide"/>
+                                </list>
+                                <form>
+                                    <header>
+                                        <field name="state" widget="statusbar"/>
+                                    </header>
+                                    <sheet>
+                                        <group>
+                                            <group>
+                                                <field name="product_id"/>
+                                                <field name="requested_qty"/>
+                                                <field name="uom_id"/>
+                                            </group>
+                                            <group>
+                                                <field name="description"/>
+                                                <field name="preferred_vendor_id"/>
+                                                <field name="required_date"/>
+                                            </group>
+                                        </group>
+                                        <notebook>
+                                            <page name="info" string="Information">
+                                                <group name="reference" string="Reference Information">
+                                                    <group>
+                                                        <field name="qty_available"/>
+                                                        <field name="virtual_available"/>
+                                                    </group>
+                                                    <group>
+                                                        <field name="free_qty"/>
+                                                        <field name="incoming_qty"/>
+                                                        <field name="outgoing_qty"/>
+                                                    </group>
+                                                </group>
+                                                <group name="status" string="Status">
+                                                    <group>
+                                                        <field name="requested_qty" readonly="1"/>
+                                                        <field name="approved_qty" readonly="0"/>
+                                                        <field name="rejected_qty"/>
+                                                    </group>
+                                                    <group>
+                                                        <field name="rfq_ids" widget="many2many_tags"/>
+                                                        <field name="rfq_line_ids" widget="many2many_tags"/>
+                                                    </group>
+                                                </group>
+                                            </page>
+                                            <page name="remark" string="Remarks">
+                                                <field name="remark"/>
+                                            </page>
+                                        </notebook>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+
+                        <page string="Notes">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_purchase_demand_plan" model="ir.actions.act_window">
+        <field name="name">Demand Requests</field>
+        <field name="res_model">purchase.demand.plan</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

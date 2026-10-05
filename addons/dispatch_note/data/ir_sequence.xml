@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="seq_dispatch_note_internal" model="ir.sequence">
+        <field name="name">Internal Dispatch Note</field>
+        <field name="code">dispatch.note.internal</field>
+        <field name="prefix">IDN/%(day)s/%(month)s/%(year)s/</field>
+        <field name="padding">5</field>
+    </record>
+
+</odoo>

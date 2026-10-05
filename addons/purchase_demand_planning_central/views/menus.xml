@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="menu_purchase_demand_plan"
+              name="Central Demand Planning"
+              parent="demand_planning.demand_planning_root"
+              action="action_purchase_demand_planning_central_lines"
+              sequence="10"/>
+</odoo>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ================= ACTIONS ================= -->
+    <record id="action_hostel_building" model="ir.actions.act_window">
+        <field name="name">Building</field>
+        <field name="res_model">hostel.building</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_hostel_section" model="ir.actions.act_window">
+        <field name="name">Sections</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hostel.section</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_hostel_floor" model="ir.actions.act_window">
+        <field name="name">Floors</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hostel.floor</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_hostel_unit" model="ir.actions.act_window">
+        <field name="name">Unit</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hostel.unit</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_hostel_room" model="ir.actions.act_window">
+        <field name="name">Room</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hostel.room</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_hostel_room_type" model="ir.actions.act_window">
+        <field name="name">Room Types</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hostel.room.type</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Gender Restriction အတွက် Action -->
+    <record id="action_hostel_gender_restriction" model="ir.actions.act_window">
+        <field name="name">Gender Restrictions</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hostel.gender.restriction</field> <!-- ⚠️ မိမိ Gender Restriction သုံးထားသော Model အမည် ပြောင်းပေးပါ -->
+        <field name="view_mode">list,form</field>
+    </record>
+
+
+    <!-- ================= MENUS STRUCTURE ================= -->
+    <!-- Root Menu -->
+    <menuitem id="hostel_management_root" name="Hostel" sequence="0"/>
+
+    <!-- Top Bar Menus -->
+    <menuitem id="menu_hostel_dashboard" name="Dashboard" parent="hostel_management_root" sequence="20"/>
+    <menuitem id="menu_hostel_operation" name="Operation" parent="hostel_management_root" sequence="30"/>
+    <menuitem id="hostel_menu_configuration" name="Configuration" parent="hostel_management_root" sequence="40"/>
+    <menuitem id="report_category" name="Reports" parent="hostel_management_root" sequence="70"/>
+
+
+    <!-- ================= CONFIGURATION DROPDOWN ================= -->
+
+    <!-- 1. SET UP CATEGORY HEADER -->
+    <menuitem id="menu_config_set_up" name="Set Up" parent="hostel_menu_configuration" sequence="10"/>
+
+    <!-- Set Up အောက်ရှိ Sub-menus များ -->
+    <menuitem id="menu_hostel_building" name="Buildings" parent="menu_config_set_up" action="action_hostel_building" sequence="10"/>
+    <menuitem id="menu_hostel_section" name="Sections" parent="menu_config_set_up" action="action_hostel_section" sequence="20"/>
+    <menuitem id="menu_hostel_floor" name="Floors" parent="menu_config_set_up" action="action_hostel_floor" sequence="30"/>
+    <menuitem id="menu_hostel_unit" name="Units" parent="menu_config_set_up" action="action_hostel_unit" sequence="40"/>
+    <menuitem id="menu_hostel_room" name="Rooms" parent="menu_config_set_up" action="action_hostel_room" sequence="50"/>
+    <menuitem id="menu_hostel_room_type" name="Room Type" parent="menu_config_set_up" action="action_hostel_room_type" sequence="60"/>
+
+
+    <!-- 2. RESTRICTIONS CATEGORY HEADER -->
+    <menuitem id="menu_config_restrictions" name="Restrictions" parent="hostel_menu_configuration" sequence="20"/>
+
+    <!-- Restrictions အောက်ရှိ Gender Sub-menu -->
+    <menuitem id="menu_hostel_gender_restriction"
+              name="Gender"
+              parent="menu_config_restrictions"
+              action="action_hostel_gender_restriction"
+              sequence="10"/>
+
+</odoo>

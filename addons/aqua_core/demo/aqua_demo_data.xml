@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Company hierarchy: Central -> Aqua Culture -> operating companies -->
+    <record id="aqua_demo_company_central" model="res.company">
+        <field name="name">Central Company</field>
+        <field name="is_aqua_company" eval="False"/>
+        <field name="aqua_company_type">central</field>
+        <field name="aqua_code">CENTRAL</field>
+    </record>
+
+    <record id="aqua_demo_company_aqua" model="res.company">
+        <field name="name">Aqua Culture Company</field>
+        <field name="parent_id" ref="aqua_demo_company_central"/>
+        <field name="is_aqua_company" eval="True"/>
+        <field name="aqua_company_type">aqua_main</field>
+        <field name="aqua_code">AQUA</field>
+    </record>
+
+    <record id="aqua_demo_company_breeder" model="res.company">
+        <field name="name">Breeder Company</field>
+        <field name="parent_id" ref="aqua_demo_company_aqua"/>
+        <field name="is_aqua_company" eval="True"/>
+        <field name="aqua_company_type">breeder</field>
+        <field name="aqua_code">BRE</field>
+    </record>
+
+    <record id="aqua_demo_company_hatchery" model="res.company">
+        <field name="name">Hatchery Company</field>
+        <field name="parent_id" ref="aqua_demo_company_aqua"/>
+        <field name="is_aqua_company" eval="True"/>
+        <field name="aqua_company_type">hatchery</field>
+        <field name="aqua_code">HAT</field>
+    </record>
+
+    <record id="aqua_demo_company_nursery" model="res.company">
+        <field name="name">Nursery Company</field>
+        <field name="parent_id" ref="aqua_demo_company_aqua"/>
+        <field name="is_aqua_company" eval="True"/>
+        <field name="aqua_company_type">nursery</field>
+        <field name="aqua_code">NUR</field>
+    </record>
+
+    <record id="aqua_demo_company_growout" model="res.company">
+        <field name="name">Grow-out Company</field>
+        <field name="parent_id" ref="aqua_demo_company_aqua"/>
+        <field name="is_aqua_company" eval="True"/>
+        <field name="aqua_company_type">growout</field>
+        <field name="aqua_code">GRO</field>
+    </record>
+
+    <record id="aqua_demo_company_harvest_sales" model="res.company">
+        <field name="name">Harvest &amp; Sales Company</field>
+        <field name="parent_id" ref="aqua_demo_company_aqua"/>
+        <field name="is_aqua_company" eval="True"/>
+        <field name="aqua_company_type">harvest_sales</field>
+        <field name="aqua_code">HAR</field>
+    </record>
+
+    <record id="aqua_demo_species_tilapia" model="aqua.species">
+        <field name="name">Tilapia</field>
+        <field name="scientific_name">Oreochromis niloticus</field>
+        <field name="category">fish</field>
+    </record>
+
+    <!-- Farms / sites -->
+    <record id="aqua_demo_farm_b_01" model="aqua.farm">
+        <field name="name">B-Farm-01</field>
+        <field name="code">B-FARM-01</field>
+        <field name="company_id" ref="aqua_demo_company_breeder"/>
+        <field name="location">Breeder Site 01</field>
+    </record>
+
+    <record id="aqua_demo_farm_h_01" model="aqua.farm">
+        <field name="name">H-Farm-01</field>
+        <field name="code">H-FARM-01</field>
+        <field name="company_id" ref="aqua_demo_company_hatchery"/>
+        <field name="location">Hatchery Site 01</field>
+    </record>
+
+    <record id="aqua_demo_farm_n_01" model="aqua.farm">
+        <field name="name">N-Farm-01</field>
+        <field name="code">N-FARM-01</field>
+        <field name="company_id" ref="aqua_demo_company_nursery"/>
+        <field name="location">Nursery Site 01</field>
+    </record>
+
+    <record id="aqua_demo_farm_g_01" model="aqua.farm">
+        <field name="name">G-Farm-01</field>
+        <field name="code">G-FARM-01</field>
+        <field name="company_id" ref="aqua_demo_company_growout"/>
+        <field name="location">Grow-out Site 01</field>
+    </record>
+
+    <record id="aqua_demo_farm_g_02" model="aqua.farm">
+        <field name="name">G-Farm-02</field>
+        <field name="code">G-FARM-02</field>
+        <field name="company_id" ref="aqua_demo_company_growout"/>
+        <field name="location">Grow-out Site 02</field>
+    </record>
+
+    <record id="aqua_demo_farm_processing_01" model="aqua.farm">
+        <field name="name">Processing-01</field>
+        <field name="code">PROCESSING-01</field>
+        <field name="company_id" ref="aqua_demo_company_harvest_sales"/>
+        <field name="location">Processing Site 01</field>
+    </record>
+
+    <!-- Production units -->
+    <record id="aqua_demo_unit_b_pond_01" model="aqua.production.unit">
+        <field name="name">B-Pond-01</field>
+        <field name="code">B-POND-01</field>
+        <field name="farm_id" ref="aqua_demo_farm_b_01"/>
+        <field name="unit_type">pond</field>
+        <field name="water_type">freshwater</field>
+    </record>
+
+    <record id="aqua_demo_unit_b_pond_02" model="aqua.production.unit">
+        <field name="name">B-Pond-02</field>
+        <field name="code">B-POND-02</field>
+        <field name="farm_id" ref="aqua_demo_farm_b_01"/>
+        <field name="unit_type">pond</field>
+        <field name="water_type">freshwater</field>
+    </record>
+
+    <record id="aqua_demo_unit_h_broodstock_tank_01" model="aqua.production.unit">
+        <field name="name">H-Broodstock-Tank-01</field>
+        <field name="code">H-BROOD-01</field>
+        <field name="farm_id" ref="aqua_demo_farm_h_01"/>
+        <field name="unit_type">broodstock_tank</field>
+        <field name="water_type">freshwater</field>
+    </record>
+
+    <record id="aqua_demo_unit_h_spawning_tank_01" model="aqua.production.unit">
+        <field name="name">H-Spawning-Tank-01</field>
+        <field name="code">H-SPAWN-01</field>
+        <field name="farm_id" ref="aqua_demo_farm_h_01"/>
+        <field name="unit_type">spawning_tank</field>
+        <field name="water_type">freshwater</field>
+    </record>
+
+    <record id="aqua_demo_unit_h_egg_incubation_01" model="aqua.production.unit">
+        <field name="name">H-Egg-Incubation-01</field>
+        <field name="code">H-EGG-01</field>
+        <field name="farm_id" ref="aqua_demo_farm_h_01"/>
+        <field name="unit_type">egg_incubation</field>
+        <field name="water_type">freshwater</field>
+    </record>
+
+    <record id="aqua_demo_unit_h_larvae_tank_01" model="aqua.production.unit">
+        <field name="name">H-Larvae-Tank-01</field>
+        <field name="code">H-LARVAE-01</field>
+        <field name="farm_id" ref="aqua_demo_farm_h_01"/>
+        <field name="unit_type">larvae_tank</field>
+        <field name="water_type">freshwater</field>
+    </record>
+
+    <record id="aqua_demo_unit_n_nursery_01" model="aqua.production.unit">
+        <field name="name">N-Nursery-01</field>
+        <field name="code">N-NURSERY-01</field>
+        <field name="farm_id" ref="aqua_demo_farm_n_01"/>
+        <field name="unit_type">nursery_area</field>
+        <field name="water_type">freshwater</field>
+    </record>
+
+    <record id="aqua_demo_unit_n_nursery_02" model="aqua.production.unit">
+        <field name="name">N-Nursery-02</field>
+        <field name="code">N-NURSERY-02</field>
+        <field name="farm_id" ref="aqua_demo_farm_n_01"/>
+        <field name="unit_type">nursery_area</field>
+        <field name="water_type">freshwater</field>
+    </record>
+
+    <record id="aqua_demo_unit_n_nursery_03" model="aqua.production.unit">
+        <field name="name">N-Nursery-03</field>
+        <field name="code">N-NURSERY-03</field>
+        <field name="farm_id" ref="aqua_demo_farm_n_01"/>
+        <field name="unit_type">nursery_area</field>
+        <field name="water_type">freshwater</field>
+    </record>
+
+    <record id="aqua_demo_unit_g_pond_01" model="aqua.production.unit">
+        <field name="name">G-Pond-01</field>
+        <field name="code">G-POND-01</field>
+        <field name="farm_id" ref="aqua_demo_farm_g_01"/>
+        <field name="unit_type">pond</field>
+        <field name="water_type">freshwater</field>
+    </record>
+
+    <record id="aqua_demo_unit_g_pond_02" model="aqua.production.unit">
+        <field name="name">G-Pond-02</field>
+        <field name="code">G-POND-02</field>
+        <field name="farm_id" ref="aqua_demo_farm_g_02"/>
+        <field name="unit_type">pond</field>
+        <field name="water_type">freshwater</field>
+    </record>
+
+    <record id="aqua_demo_unit_fg_01" model="aqua.production.unit">
+        <field name="name">FG-01</field>
+        <field name="code">FG-01</field>
+        <field name="farm_id" ref="aqua_demo_farm_processing_01"/>
+        <field name="unit_type">processing_area</field>
+        <field name="water_type">freshwater</field>
+    </record>
+
+    <!-- Input products -->
+    <record id="aqua_demo_product_feed" model="product.product">
+        <field name="name">Tilapia Starter Feed</field>
+        <field name="default_code">AQUA-FEED-01</field>
+        <field name="type">consu</field>
+    </record>
+
+    <record id="aqua_demo_product_medicine" model="product.product">
+        <field name="name">Aquaculture Medicine</field>
+        <field name="default_code">AQUA-MED-01</field>
+        <field name="type">consu</field>
+    </record>
+
+    <record id="aqua_demo_product_probiotic" model="product.product">
+        <field name="name">Water Probiotic</field>
+        <field name="default_code">AQUA-PRO-01</field>
+        <field name="type">consu</field>
+    </record>
+
+    <!-- Global trace generated from sequence. On a 2026 install this becomes AQ-2026-000001. -->
+    <record id="aqua_demo_global_trace_000001" model="aqua.global.trace">
+        <field name="species_id" ref="aqua_demo_species_tilapia"/>
+        <field name="origin_company_id" ref="aqua_demo_company_breeder"/>
+        <field name="status">active</field>
+        <field name="date_start">2026-01-01</field>
+    </record>
+
+    <!-- Lifecycle batches -->
+    <record id="aqua_demo_batch_bre_a" model="aqua.batch">
+        <field name="name">BRE-A</field>
+        <field name="global_trace_id" ref="aqua_demo_global_trace_000001"/>
+        <field name="company_id" ref="aqua_demo_company_breeder"/>
+        <field name="farm_id" ref="aqua_demo_farm_b_01"/>
+        <field name="production_unit_id" ref="aqua_demo_unit_b_pond_01"/>
+        <field name="species_id" ref="aqua_demo_species_tilapia"/>
+        <field name="stage_id" ref="aqua_stage_breeder"/>
+        <field name="status">active</field>
+        <field name="start_date">2026-01-01</field>
+        <field name="quantity">2500</field>
+        <field name="avg_weight_g">600</field>
+    </record>
+
+    <record id="aqua_demo_batch_bre_b" model="aqua.batch">
+        <field name="name">BRE-B</field>
+        <field name="global_trace_id" ref="aqua_demo_global_trace_000001"/>
+        <field name="company_id" ref="aqua_demo_company_breeder"/>
+        <field name="farm_id" ref="aqua_demo_farm_b_01"/>
+        <field name="production_unit_id" ref="aqua_demo_unit_b_pond_02"/>
+        <field name="species_id" ref="aqua_demo_species_tilapia"/>
+        <field name="stage_id" ref="aqua_stage_breeder"/>
+        <field name="status">active</field>
+        <field name="start_date">2026-01-01</field>
+        <field name="quantity">2500</field>
+        <field name="avg_weight_g">600</field>
+        <field name="is_parallel" eval="True"/>
+    </record>
+
+    <record id="aqua_demo_batch_brood_m1" model="aqua.batch">
+        <field name="name">BROOD-M1</field>
+        <field name="global_trace_id" ref="aqua_demo_global_trace_000001"/>
+        <field name="company_id" ref="aqua_demo_company_hatchery"/>
+        <field name="farm_id" ref="aqua_demo_farm_h_01"/>
+        <field name="production_unit_id" ref="aqua_demo_unit_h_broodstock_tank_01"/>
+        <field name="species_id" ref="aqua_demo_species_tilapia"/>
+        <field name="stage_id" ref="aqua_stage_broodstock"/>
+        <field name="status">active</field>
+        <field name="start_date">2026-01-15</field>
+        <field name="quantity">5000</field>
+        <field name="avg_weight_g">610</field>
+        <field name="is_merged" eval="True"/>
+    </record>
+
+    <record id="aqua_demo_batch_spw_m1" model="aqua.batch">
+        <field name="name">SPW-M1</field>
+        <field name="global_trace_id" ref="aqua_demo_global_trace_000001"/>
+        <field name="company_id" ref="aqua_demo_company_hatchery"/>
+        <field name="farm_id" ref="aqua_demo_farm_h_01"/>
+        <field name="production_unit_id" ref="aqua_demo_unit_h_spawning_tank_01"/>
+        <field name="species_id" ref="aqua_demo_species_tilapia"/>
+        <field name="stage_id" ref="aqua_stage_spawning"/>
+        <field name="status">active</field>
+        <field name="start_date">2026-02-01</field>
+        <field name="quantity">5000</field>
+        <field name="avg_weight_g">620</field>
+    </record>
+
+    <record id="aqua_demo_batch_egg_1" model="aqua.batch">
+        <field name="name">EGG-1</field>
+        <field name="global_trace_id" ref="aqua_demo_global_trace_000001"/>
+        <field name="company_id" ref="aqua_demo_company_hatchery"/>
+        <field name="farm_id" ref="aqua_demo_farm_h_01"/>
+        <field name="production_unit_id" ref="aqua_demo_unit_h_egg_incubation_01"/>
+        <field name="species_id" ref="aqua_demo_species_tilapia"/>
+        <field name="stage_id" ref="aqua_stage_egg"/>
+        <field name="status">active</field>
+        <field name="start_date">2026-02-03</field>
+        <field name="quantity">100000</field>
+        <field name="is_split_child" eval="True"/>
+    </record>
+
+    <record id="aqua_demo_batch_egg_2" model="aqua.batch">
+        <field name="name">EGG-2</field>
+        <field name="global_trace_id" ref="aqua_demo_global_trace_000001"/>
+        <field name="company_id" ref="aqua_demo_company_hatchery"/>
+        <field name="farm_id" ref="aqua_demo_farm_h_01"/>
+        <field name="production_unit_id" ref="aqua_demo_unit_h_egg_incubation_01"/>
+        <field name="species_id" ref="aqua_demo_species_tilapia"/>
+        <field name="stage_id" ref="aqua_stage_egg"/>
+        <field name="status">active</field>
+        <field name="start_date">2026-02-03</field>
+        <field name="quantity">100000</field>
+        <field name="is_split_child" eval="True"/>
+    </record>
+
+    <record id="aqua_demo_batch_lar_a" model="aqua.batch">
+        <field name="name">LAR-A</field>
+        <field name="global_trace_id" ref="aqua_demo_global_trace_000001"/>
+        <field name="company_id" ref="aqua_demo_company_hatchery"/>
+        <field name="farm_id" ref="aqua_demo_farm_h_01"/>
+        <field name="production_unit_id" ref="aqua_demo_unit_h_larvae_tank_01"/>
+        <field name="species_id" ref="aqua_demo_species_tilapia"/>
+        <field name="stage_id" ref="aqua_stage_larvae"/>
+        <field name="status">active</field>
+        <field name="start_date">2026-02-06</field>
+        <field name="quantity">90000</field>
+        <field name="avg_weight_g">0.01</field>
+    </record>
+
+    <record id="aqua_demo_batch_lar_b" model="aqua.batch">
+        <field name="name">LAR-B</field>
+        <field name="global_trace_id" ref="aqua_demo_global_trace_000001"/>
+        <field name="company_id" ref="aqua_demo_company_hatchery"/>
+        <field name="farm_id" ref="aqua_demo_farm_h_01"/>
+        <field name="production_unit_id" ref="aqua_demo_unit_h_larvae_tank_01"/>
+        <field name="species_id" ref="aqua_demo_species_tilapia"/>
+        <field name="stage_id" ref="aqua_stage_larvae"/>
+        <field name="status">active</field>
+        <field name="start_date">2026-02-06</field>
+        <field name="quantity">88000</field>
+        <field name="avg_weight_g">0.01</field>
+        <field name="is_parallel" eval="True"/>
+    </record>
+
+    <record id="aqua_demo_batch_n1_a" model="aqua.batch">
+        <field name="name">N1-A</field>
+        <field name="global_trace_id" ref="aqua_demo_global_trace_000001"/>
+        <field name="company_id" ref="aqua_demo_company_nursery"/>
+        <field name="farm_id" ref="aqua_demo_farm_n_01"/>
+        <field name="production_unit_id" ref="aqua_demo_unit_n_nursery_01"/>
+        <field name="species_id" ref="aqua_demo_species_tilapia"/>
+        <field name="stage_id" ref="aqua_stage_nursery1"/>
+        <field name="status">active</field>
+        <field name="start_date">2026-02-10</field>
+        <field name="quantity">80000</field>
+        <field name="avg_weight_g">0.2</field>
+    </record>
+
+    <record id="aqua_demo_batch_n1_b" model="aqua.batch">
+        <field name="name">N1-B</field>
+        <field name="global_trace_id" ref="aqua_demo_global_trace_000001"/>
+        <field name="company_id" ref="aqua_demo_company_nursery"/>
+        <field name="farm_id" ref="aqua_demo_farm_n_01"/>
+        <field name="production_unit_id" ref="aqua_demo_unit_n_nursery_02"/>
+        <field name="species_id" ref="aqua_demo_species_tilapia"/>
+        <field name="stage_id" ref="aqua_stage_nursery1"/>
+        <field name="status">active</field>
+        <field name="start_date">2026-02-10</field>
+        <field name="quantity">78000</field>
+        <field name="avg_weight_g">0.2</field>
+    </record>
+
+    <record id="aqua_demo_batch_n2_m1" model="aqua.batch">
+        <field name="name">N2-M1</field>
+        <field name="global_trace_id" ref="aqua_demo_global_trace_000001"/>
+        <field name="company_id" ref="aqua_demo_company_nursery"/>
+        <field name="farm_id" ref="aqua_demo_farm_n_01"/>
+        <field name="production_unit_id" ref="aqua_demo_unit_n_nursery_03"/>
+        <field name="species_id" ref="aqua_demo_species_tilapia"/>
+        <field name="stage_id" ref="aqua_stage_nursery2"/>
+        <field name="status">active</field>
+        <field name="start_date">2026-02-25</field>
+        <field name="quantity">155000</field>
+        <field name="avg_weight_g">1.5</field>
+        <field name="is_merged" eval="True"/>
+    </record>
+
+    <record id="aqua_demo_batch_n3_a" model="aqua.batch">
+        <field name="name">N3-A</field>
+        <field name="global_trace_id" ref="aqua_demo_global_trace_000001"/>
+        <field name="company_id" ref="aqua_demo_company_nursery"/>
+        <field name="farm_id" ref="aqua_demo_farm_n_01"/>
+        <field name="production_unit_id" ref="aqua_demo_unit_n_nursery_01"/>
+        <field name="species_id" ref="aqua_demo_species_tilapia"/>
+        <field name="stage_id" ref="aqua_stage_nursery3"/>
+        <field name="status">active</field>
+        <field name="start_date">2026-03-10</field>
+        <field name="quantity">75000</field>
+        <field name="avg_weight_g">5</field>
+        <field name="is_split_child" eval="True"/>
+    </record>
+
+    <record id="aqua_demo_batch_n3_b" model="aqua.batch">
+        <field name="name">N3-B</field>
+        <field name="global_trace_id" ref="aqua_demo_global_trace_000001"/>
+        <field name="company_id" ref="aqua_demo_company_nursery"/>
+        <field name="farm_id" ref="aqua_demo_farm_n_01"/>
+        <field name="production_unit_id" ref="aqua_demo_unit_n_nursery_02"/>
+        <field name="species_id" ref="aqua_demo_species_tilapia"/>
+        <field name="stage_id" ref="aqua_stage_nursery3"/>
+        <field name="status">active</field>
+        <field name="start_date">2026-03-10</field>
+        <field name="quantity">75000</field>
+        <field name="avg_weight_g">5</field>
+        <field name="is_split_child" eval="True"/>
+    </record>
+
+    <record id="aqua_demo_batch_gro_a" model="aqua.batch">
+        <field name="name">GRO-A</field>
+        <field name="global_trace_id" ref="aqua_demo_global_trace_000001"/>
+        <field name="company_id" ref="aqua_demo_company_growout"/>
+        <field name="farm_id" ref="aqua_demo_farm_g_01"/>
+        <field name="production_unit_id" ref="aqua_demo_unit_g_pond_01"/>
+        <field name="species_id" ref="aqua_demo_species_tilapia"/>
+        <field name="stage_id" ref="aqua_stage_growout"/>
+        <field name="status">active</field>
+        <field name="start_date">2026-03-25</field>
+        <field name="quantity">50000</field>
+        <field name="avg_weight_g">30</field>
+    </record>
+
+    <record id="aqua_demo_batch_gro_b" model="aqua.batch">
+        <field name="name">GRO-B</field>
+        <field name="global_trace_id" ref="aqua_demo_global_trace_000001"/>
+        <field name="company_id" ref="aqua_demo_company_growout"/>
+        <field name="farm_id" ref="aqua_demo_farm_g_02"/>
+        <field name="production_unit_id" ref="aqua_demo_unit_g_pond_02"/>
+        <field name="species_id" ref="aqua_demo_species_tilapia"/>
+        <field name="stage_id" ref="aqua_stage_growout"/>
+        <field name="status">active</field>
+        <field name="start_date">2026-03-25</field>
+        <field name="quantity">50000</field>
+        <field name="avg_weight_g">30</field>
+        <field name="is_parallel" eval="True"/>
+    </record>
+
+    <record id="aqua_demo_batch_harvest_m1" model="aqua.batch">
+        <field name="name">HARVEST-M1</field>
+        <field name="global_trace_id" ref="aqua_demo_global_trace_000001"/>
+        <field name="company_id" ref="aqua_demo_company_harvest_sales"/>
+        <field name="farm_id" ref="aqua_demo_farm_processing_01"/>
+        <field name="production_unit_id" ref="aqua_demo_unit_fg_01"/>
+        <field name="species_id" ref="aqua_demo_species_tilapia"/>
+        <field name="stage_id" ref="aqua_stage_harvest"/>
+        <field name="status">harvested</field>
+        <field name="start_date">2026-07-15</field>
+        <field name="quantity">9850</field>
+        <field name="avg_weight_g">1000</field>
+        <field name="is_merged" eval="True"/>
+    </record>
+
+    <!-- Relation graph -->
+    <record id="aqua_demo_relation_bre_parallel" model="aqua.batch.relation">
+        <field name="parent_batch_id" ref="aqua_demo_batch_bre_a"/>
+        <field name="child_batch_id" ref="aqua_demo_batch_bre_b"/>
+        <field name="operation_type">parallel</field>
+        <field name="quantity">2500</field>
+        <field name="operation_date">2026-01-01 08:00:00</field>
+    </record>
+
+    <record id="aqua_demo_relation_bre_a_brood_merge" model="aqua.batch.relation">
+        <field name="parent_batch_id" ref="aqua_demo_batch_bre_a"/>
+        <field name="child_batch_id" ref="aqua_demo_batch_brood_m1"/>
+        <field name="operation_type">merge</field>
+        <field name="quantity">2500</field>
+        <field name="operation_date">2026-01-15 08:00:00</field>
+    </record>
+
+    <record id="aqua_demo_relation_bre_b_brood_merge" model="aqua.batch.relation">
+        <field name="parent_batch_id" ref="aqua_demo_batch_bre_b"/>
+        <field name="child_batch_id" ref="aqua_demo_batch_brood_m1"/>
+        <field name="operation_type">merge</field>
+        <field name="quantity">2500</field>
+        <field name="operation_date">2026-01-15 08:30:00</field>
+    </record>
+
+    <record id="aqua_demo_relation_brood_spw_transfer" model="aqua.batch.relation">
+        <field name="parent_batch_id" ref="aqua_demo_batch_brood_m1"/>
+        <field name="child_batch_id" ref="aqua_demo_batch_spw_m1"/>
+        <field name="operation_type">stage_transfer</field>
+        <field name="quantity">5000</field>
+        <field name="operation_date">2026-02-01 08:00:00</field>
+    </record>
+
+    <record id="aqua_demo_relation_spw_egg1_split" model="aqua.batch.relation">
+        <field name="parent_batch_id" ref="aqua_demo_batch_spw_m1"/>
+        <field name="child_batch_id" ref="aqua_demo_batch_egg_1"/>
+        <field name="operation_type">split</field>
+        <field name="quantity">100000</field>
+        <field name="operation_date">2026-02-03 08:00:00</field>
+    </record>
+
+    <record id="aqua_demo_relation_spw_egg2_split" model="aqua.batch.relation">
+        <field name="parent_batch_id" ref="aqua_demo_batch_spw_m1"/>
+        <field name="child_batch_id" ref="aqua_demo_batch_egg_2"/>
+        <field name="operation_type">split</field>
+        <field name="quantity">100000</field>
+        <field name="operation_date">2026-02-03 08:30:00</field>
+    </record>
+
+    <record id="aqua_demo_relation_egg1_lar_a_transfer" model="aqua.batch.relation">
+        <field name="parent_batch_id" ref="aqua_demo_batch_egg_1"/>
+        <field name="child_batch_id" ref="aqua_demo_batch_lar_a"/>
+        <field name="operation_type">stage_transfer</field>
+        <field name="quantity">90000</field>
+        <field name="operation_date">2026-02-06 08:00:00</field>
+    </record>
+
+    <record id="aqua_demo_relation_egg2_lar_b_transfer" model="aqua.batch.relation">
+        <field name="parent_batch_id" ref="aqua_demo_batch_egg_2"/>
+        <field name="child_batch_id" ref="aqua_demo_batch_lar_b"/>
+        <field name="operation_type">stage_transfer</field>
+        <field name="quantity">88000</field>
+        <field name="operation_date">2026-02-06 08:30:00</field>
+    </record>
+
+    <record id="aqua_demo_relation_lar_parallel" model="aqua.batch.relation">
+        <field name="parent_batch_id" ref="aqua_demo_batch_lar_a"/>
+        <field name="child_batch_id" ref="aqua_demo_batch_lar_b"/>
+        <field name="operation_type">parallel</field>
+        <field name="quantity">88000</field>
+        <field name="operation_date">2026-02-06 09:00:00</field>
+    </record>
+
+    <record id="aqua_demo_relation_lar_a_n1_a_separate" model="aqua.batch.relation">
+        <field name="parent_batch_id" ref="aqua_demo_batch_lar_a"/>
+        <field name="child_batch_id" ref="aqua_demo_batch_n1_a"/>
+        <field name="operation_type">separate</field>
+        <field name="quantity">80000</field>
+        <field name="operation_date">2026-02-10 08:00:00</field>
+        <field name="note">Separated by size and nursery location.</field>
+    </record>
+
+    <record id="aqua_demo_relation_lar_b_n1_b_separate" model="aqua.batch.relation">
+        <field name="parent_batch_id" ref="aqua_demo_batch_lar_b"/>
+        <field name="child_batch_id" ref="aqua_demo_batch_n1_b"/>
+        <field name="operation_type">separate</field>
+        <field name="quantity">78000</field>
+        <field name="operation_date">2026-02-10 08:30:00</field>
+        <field name="note">Separated by size and nursery location.</field>
+    </record>
+
+    <record id="aqua_demo_relation_n1_a_n2_merge" model="aqua.batch.relation">
+        <field name="parent_batch_id" ref="aqua_demo_batch_n1_a"/>
+        <field name="child_batch_id" ref="aqua_demo_batch_n2_m1"/>
+        <field name="operation_type">merge</field>
+        <field name="quantity">80000</field>
+        <field name="operation_date">2026-02-25 08:00:00</field>
+    </record>
+
+    <record id="aqua_demo_relation_n1_b_n2_merge" model="aqua.batch.relation">
+        <field name="parent_batch_id" ref="aqua_demo_batch_n1_b"/>
+        <field name="child_batch_id" ref="aqua_demo_batch_n2_m1"/>
+        <field name="operation_type">merge</field>
+        <field name="quantity">78000</field>
+        <field name="operation_date">2026-02-25 08:30:00</field>
+    </record>
+
+    <record id="aqua_demo_relation_n2_n3_a_split" model="aqua.batch.relation">
+        <field name="parent_batch_id" ref="aqua_demo_batch_n2_m1"/>
+        <field name="child_batch_id" ref="aqua_demo_batch_n3_a"/>
+        <field name="operation_type">split</field>
+        <field name="quantity">75000</field>
+        <field name="operation_date">2026-03-10 08:00:00</field>
+    </record>
+
+    <record id="aqua_demo_relation_n2_n3_b_split" model="aqua.batch.relation">
+        <field name="parent_batch_id" ref="aqua_demo_batch_n2_m1"/>
+        <field name="child_batch_id" ref="aqua_demo_batch_n3_b"/>
+        <field name="operation_type">split</field>
+        <field name="quantity">75000</field>
+        <field name="operation_date">2026-03-10 08:30:00</field>
+    </record>
+
+    <record id="aqua_demo_relation_n3_a_gro_a_transfer" model="aqua.batch.relation">
+        <field name="parent_batch_id" ref="aqua_demo_batch_n3_a"/>
+        <field name="child_batch_id" ref="aqua_demo_batch_gro_a"/>
+        <field name="operation_type">stage_transfer</field>
+        <field name="quantity">50000</field>
+        <field name="operation_date">2026-03-25 08:00:00</field>
+    </record>
+
+    <record id="aqua_demo_relation_n3_b_gro_b_transfer" model="aqua.batch.relation">
+        <field name="parent_batch_id" ref="aqua_demo_batch_n3_b"/>
+        <field name="child_batch_id" ref="aqua_demo_batch_gro_b"/>
+        <field name="operation_type">stage_transfer</field>
+        <field name="quantity">50000</field>
+        <field name="operation_date">2026-03-25 08:30:00</field>
+    </record>
+
+    <record id="aqua_demo_relation_gro_parallel" model="aqua.batch.relation">
+        <field name="parent_batch_id" ref="aqua_demo_batch_gro_a"/>
+        <field name="child_batch_id" ref="aqua_demo_batch_gro_b"/>
+        <field name="operation_type">parallel</field>
+        <field name="quantity">50000</field>
+        <field name="operation_date">2026-03-25 09:00:00</field>
+    </record>
+
+    <record id="aqua_demo_relation_gro_a_harvest_merge" model="aqua.batch.relation">
+        <field name="parent_batch_id" ref="aqua_demo_batch_gro_a"/>
+        <field name="child_batch_id" ref="aqua_demo_batch_harvest_m1"/>
+        <field name="operation_type">merge</field>
+        <field name="quantity">4925</field>
+        <field name="operation_date">2026-07-15 08:00:00</field>
+    </record>
+
+    <record id="aqua_demo_relation_gro_b_harvest_merge" model="aqua.batch.relation">
+        <field name="parent_batch_id" ref="aqua_demo_batch_gro_b"/>
+        <field name="child_batch_id" ref="aqua_demo_batch_harvest_m1"/>
+        <field name="operation_type">merge</field>
+        <field name="quantity">4925</field>
+        <field name="operation_date">2026-07-15 08:30:00</field>
+    </record>
+
+    <!-- Water quality samples -->
+    <record id="aqua_demo_water_larvae" model="aqua.water.quality">
+        <field name="batch_id" ref="aqua_demo_batch_lar_a"/>
+        <field name="check_date">2026-02-07 07:00:00</field>
+        <field name="temperature_c">28.5</field>
+        <field name="ph">7.4</field>
+        <field name="dissolved_oxygen">5.8</field>
+        <field name="salinity_ppt">0.2</field>
+        <field name="ammonia">0.01</field>
+        <field name="nitrite">0.02</field>
+        <field name="alkalinity">110</field>
+    </record>
+
+    <record id="aqua_demo_water_nursery" model="aqua.water.quality">
+        <field name="batch_id" ref="aqua_demo_batch_n1_a"/>
+        <field name="check_date">2026-02-12 07:00:00</field>
+        <field name="temperature_c">29.0</field>
+        <field name="ph">7.2</field>
+        <field name="dissolved_oxygen">5.4</field>
+        <field name="salinity_ppt">0.2</field>
+        <field name="ammonia">0.02</field>
+        <field name="nitrite">0.03</field>
+        <field name="alkalinity">105</field>
+    </record>
+
+    <record id="aqua_demo_water_growout" model="aqua.water.quality">
+        <field name="batch_id" ref="aqua_demo_batch_gro_a"/>
+        <field name="check_date">2026-04-01 07:00:00</field>
+        <field name="temperature_c">30.0</field>
+        <field name="ph">7.6</field>
+        <field name="dissolved_oxygen">5.2</field>
+        <field name="salinity_ppt">0.3</field>
+        <field name="ammonia">0.03</field>
+        <field name="nitrite">0.04</field>
+        <field name="alkalinity">115</field>
+    </record>
+
+    <!-- Input consumption samples -->
+    <record id="aqua_demo_input_feed" model="aqua.input.consumption">
+        <field name="batch_id" ref="aqua_demo_batch_gro_a"/>
+        <field name="consume_date">2026-04-02 08:00:00</field>
+        <field name="product_id" ref="aqua_demo_product_feed"/>
+        <field name="input_type">feed</field>
+        <field name="quantity">250</field>
+        <field name="note">Daily grow-out feed usage.</field>
+    </record>
+
+    <record id="aqua_demo_input_medicine" model="aqua.input.consumption">
+        <field name="batch_id" ref="aqua_demo_batch_n1_b"/>
+        <field name="consume_date">2026-02-15 09:00:00</field>
+        <field name="product_id" ref="aqua_demo_product_medicine"/>
+        <field name="input_type">medicine</field>
+        <field name="quantity">2</field>
+        <field name="note">Preventive treatment after grading stress.</field>
+    </record>
+
+    <record id="aqua_demo_input_probiotic" model="aqua.input.consumption">
+        <field name="batch_id" ref="aqua_demo_batch_lar_a"/>
+        <field name="consume_date">2026-02-08 09:00:00</field>
+        <field name="product_id" ref="aqua_demo_product_probiotic"/>
+        <field name="input_type">probiotic</field>
+        <field name="quantity">1.5</field>
+        <field name="note">Larvae tank water stabilization.</field>
+    </record>
+
+    <!-- Additional explicit event samples -->
+    <record id="aqua_demo_event_mortality" model="aqua.batch.event">
+        <field name="name">Mortality Observation - GRO-A</field>
+        <field name="batch_id" ref="aqua_demo_batch_gro_a"/>
+        <field name="event_type">mortality</field>
+        <field name="event_date">2026-04-10 07:30:00</field>
+        <field name="quantity">120</field>
+        <field name="note">Routine mortality count recorded during morning inspection.</field>
+    </record>
+
+    <record id="aqua_demo_event_health" model="aqua.batch.event">
+        <field name="name">Health Check - N1-B</field>
+        <field name="batch_id" ref="aqua_demo_batch_n1_b"/>
+        <field name="event_type">health</field>
+        <field name="event_date">2026-02-16 10:00:00</field>
+        <field name="note">Post-treatment behavior normal.</field>
+    </record>
+
+    <record id="aqua_demo_event_harvest" model="aqua.batch.event">
+        <field name="name">Harvest Completed - HARVEST-M1</field>
+        <field name="batch_id" ref="aqua_demo_batch_harvest_m1"/>
+        <field name="event_type">harvest</field>
+        <field name="event_date">2026-07-15 15:00:00</field>
+        <field name="quantity">9850</field>
+        <field name="weight">9850</field>
+        <field name="note">Finished goods received at processing area.</field>
+    </record>
+</odoo>

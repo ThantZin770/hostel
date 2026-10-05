@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="purchase_demand_planning_central.CentralDemandPlanningSearchPanel">
+        <t t-if="env.isSmall">
+            <t t-call="web.SearchPanel.Small"/>
+        </t>
+        <t t-else="">
+            <t t-if="state.sidebarExpanded" t-call="purchase_demand_planning_central.CentralDemandPlanningSearchPanelContent"/>
+            <t t-else="" t-call="web.SearchPanel.Sidebar"/>
+        </t>
+    </t>
+
+    <t t-name="purchase_demand_planning_central.CentralDemandPlanningSearchPanelContent" t-inherit="web.SearchPanelContent" t-inherit-mode="primary">
+        <xpath expr="//div[hasclass('o_search_panel')]/section[1]" position="replace">
+            <t t-foreach="sections" t-as="section" t-key="section.id">
+                <section t-attf-class="o_search_panel_section o_search_panel_{{ section.type }}">
+                    <header class="o_search_panel_section_header pt-4 pb-2 text-uppercase cursor-default">
+                        <i t-attf-class="fa {{ section.icon }} o_search_panel_section_icon {{!section.color &amp;&amp; section.type == 'filter' ? 'text-warning' : !section.color ? 'text-primary': ''}} me-2"
+                           t-att-style="section.color and ('color: ' + section.color)"/>
+                        <b t-esc="section.description"/>
+                    </header>
+                    <t t-call="web.SearchPanel.Section"/>
+                </section>
+                <t t-if="section_index === 0">
+                    <t t-call="purchase_demand_planning_central.CentralDemandPlanningProductSearchPanelSection"/>
+                </t>
+            </t>
+        </xpath>
+    </t>
+
+    <t t-name="purchase_demand_planning_central.CentralDemandPlanningProductSearchPanelSection">
+        <section t-if="hasProductSearchItem"
+                 class="o_search_panel_section o_central_demand_planning_product_search_section">
+            <div class="o_central_demand_planning_product_filter d-flex flex-column gap-1 mt-3 mb-2 px-2 px-md-0">
+                <div class="o_central_demand_planning_product_filter_checkall form-check w-100">
+                    <input type="checkbox"
+                           name="select-all-products"
+                           class="form-check-input"
+                           t-attf-id="o_central_demand_planning_product_filter_{{nextProductFilterId}}"
+                           t-att-checked="isAllProductsActive"
+                           t-att-disabled="productState.filters.length === 0"
+                           t-on-change="(ev) => this.onAllProductInputChange(ev)"/>
+                    <label class="d-flex align-items-center"
+                           type="button"
+                           t-on-click.stop.prevent="() => this.toggleProductSection()">
+                        <span class="o_central_demand_planning_product_filter_label fw-bolder text-truncate flex-grow-1">
+                            Products
+                        </span>
+                        <i class="o_central_demand_planning_product_filter_collapse_icon fa ms-1"
+                           t-attf-class="fa-caret-{{ productState.collapsed ? 'left' : 'down' }}"/>
+                    </label>
+                </div>
+                <t t-if="!productState.collapsed">
+                    <div class="o_central_demand_planning_product_filter_items d-flex flex-column gap-1">
+                        <t t-foreach="productFilters" t-as="filter" t-key="filter.value">
+                            <t t-set="filterId" t-value="nextProductFilterId"/>
+                            <div class="o_central_demand_planning_product_filter_item form-check position-relative w-100 cursor-pointer">
+                                <input type="checkbox"
+                                       name="selection"
+                                       class="form-check-input"
+                                       t-attf-id="o_central_demand_planning_product_filter_item_{{filterId}}"
+                                       t-att-checked="filter.active"
+                                       t-on-change="(ev) => this.onProductFilterInputChange(filter, ev)"/>
+                                <label class="d-flex align-items-center gap-1"
+                                       t-attf-for="o_central_demand_planning_product_filter_item_{{filterId}}">
+                                    <span class="o_central_demand_planning_product_filter_title flex-grow-1 text-truncate lh-base"
+                                          t-esc="filter.label"/>
+                                </label>
+                                <button class="o_central_demand_planning_product_filter_remove btn position-absolute top-0 end-0 py-0 p-1 bg-view text-body"
+                                        role="img"
+                                        title="Remove this product from the list"
+                                        aria-label="Remove this product from the list"
+                                        t-on-click="() => this.onProductFilterRemove(filter)">
+                                    <i class="oi oi-close"/>
+                                </button>
+                            </div>
+                        </t>
+                    </div>
+                </t>
+                <AutoComplete t-props="productAutoCompleteProps">
+                    <t t-set-slot="option" t-slot-scope="optionScope">
+                        <t t-esc="optionScope.label"/>
+                    </t>
+                </AutoComplete>
+            </div>
+        </section>
+    </t>
+</templates>

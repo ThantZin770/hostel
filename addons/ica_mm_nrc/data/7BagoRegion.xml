@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="region_bago" model="res.country.state">
+            <field name="name">Bago</field>
+            <field name="code">7/</field>
+            <field name="country_id" ref="base.mm"/>
+        </record>
+
+        <record id="township_bago" model="res.country.state.township">
+            <field name="name">Bago</field>
+            <field name="code">pakhana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_bago"/>
+        </record>
+
+
+        <record id="township_kawa" model="res.country.state.township">
+            <field name="name">Kawa</field>
+            <field name="code">kawana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_bago"/>
+        </record>
+
+
+        <record id="township_waw" model="res.country.state.township">
+            <field name="name">Waw</field>
+            <field name="code">wamana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_bago"/>
+        </record>
+
+
+        <record id="township_thanatpin" model="res.country.state.township">
+            <field name="name">Thanatpin</field>
+            <field name="code">thanapa</field>
+            <field name="state_id" ref="ica_mm_nrc.region_bago"/>
+        </record>
+
+
+        <record id="township_nyaunglebin" model="res.country.state.township">
+            <field name="name">Nyaunglebin</field>
+            <field name="code">nyalapa</field>
+            <field name="state_id" ref="ica_mm_nrc.region_bago"/>
+        </record>
+
+
+        <record id="township_kyaukkyi" model="res.country.state.township">
+            <field name="name">Kyaukkyi</field>
+            <field name="code">kakana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_bago"/>
+        </record>
+
+
+        <record id="township_kyauktaga" model="res.country.state.township">
+            <field name="name">Kyauktaga</field>
+            <field name="code">katakha</field>
+            <field name="state_id" ref="ica_mm_nrc.region_bago"/>
+        </record>
+
+
+        <record id="township_daik-u" model="res.country.state.township">
+            <field name="name">Daik-U</field>
+            <field name="code">dauna</field>
+            <field name="state_id" ref="ica_mm_nrc.region_bago"/>
+        </record>
+
+
+        <record id="township_shwegyin" model="res.country.state.township">
+            <field name="name">Shwegyin</field>
+            <field name="code">rakana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_bago"/>
+        </record>
+
+
+        <record id="township_taungoo" model="res.country.state.township">
+            <field name="name">Taungoo</field>
+            <field name="code">tangana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_bago"/>
+        </record>
+
+
+        <record id="township_htantabin" model="res.country.state.township">
+            <field name="name">Htantabin</field>
+            <field name="code">htatapa</field>
+            <field name="state_id" ref="ica_mm_nrc.region_bago"/>
+        </record>
+
+
+        <record id="township_phyu" model="res.country.state.township">
+            <field name="name">Phyu</field>
+            <field name="code">phamana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_bago"/>
+        </record>
+
+
+        <record id="township_yedashe" model="res.country.state.township">
+            <field name="name">Yedashe</field>
+            <field name="code">ratara</field>
+            <field name="state_id" ref="ica_mm_nrc.region_bago"/>
+        </record>
+
+
+        <record id="township_oktwin" model="res.country.state.township">
+            <field name="name">Oktwin</field>
+            <field name="code">atana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_bago"/>
+        </record>
+
+
+        <record id="township_nattalin" model="res.country.state.township">
+            <field name="name">Nattalin</field>
+            <field name="code">natala</field>
+            <field name="state_id" ref="ica_mm_nrc.region_bago"/>
+        </record>
+
+
+        <record id="township_zigon" model="res.country.state.township">
+            <field name="name">Zigon</field>
+            <field name="code">zakana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_bago"/>
+        </record>
+
+
+        <record id="township_paungde" model="res.country.state.township">
+            <field name="name">Paungde</field>
+            <field name="code">patata</field>
+            <field name="state_id" ref="ica_mm_nrc.region_bago"/>
+        </record>
+
+
+        <record id="township_thegon" model="res.country.state.township">
+            <field name="name">Thegon</field>
+            <field name="code">thakana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_bago"/>
+        </record>
+
+
+        <record id="township_pyay" model="res.country.state.township">
+            <field name="name">Pyay</field>
+            <field name="code">pyay</field>
+            <field name="state_id" ref="ica_mm_nrc.region_bago"/>
+        </record>
+
+
+        <record id="township_paukkaung" model="res.country.state.township">
+            <field name="name">Paukkaung</field>
+            <field name="code">pakhata</field>
+            <field name="state_id" ref="ica_mm_nrc.region_bago"/>
+        </record>
+
+
+        <record id="township_padaung" model="res.country.state.township">
+            <field name="name">Padaung</field>
+            <field name="code">patana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_bago"/>
+        </record>
+
+
+        <record id="township_shwedaung" model="res.country.state.township">
+            <field name="name">Shwedaung</field>
+            <field name="code">ratana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_bago"/>
+        </record>
+
+
+        <record id="township_thayawady" model="res.country.state.township">
+            <field name="name">Thayawady</field>
+            <field name="code">thawata</field>
+            <field name="state_id" ref="ica_mm_nrc.region_bago"/>
+        </record>
+
+
+        <record id="township_kway" model="res.country.state.township">
+            <field name="name">Kway</field>
+            <field name="code">kapaka</field>
+            <field name="state_id" ref="ica_mm_nrc.region_bago"/>
+        </record>
+
+
+        <record id="township_monyo" model="res.country.state.township">
+            <field name="name">Monyo</field>
+            <field name="code">manyana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_bago"/>
+        </record>
+
+
+        <record id="township_minhla" model="res.country.state.township">
+            <field name="name">Minhla</field>
+            <field name="code">malana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_bago"/>
+        </record>
+
+
+        <record id="township_letpadan" model="res.country.state.township">
+            <field name="name">Letpadan</field>
+            <field name="code">lapata</field>
+            <field name="state_id" ref="ica_mm_nrc.region_bago"/>
+        </record>
+
+
+        <record id="township_okpho" model="res.country.state.township">
+            <field name="name">Okpho</field>
+            <field name="code">aphana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_bago"/>
+        </record>
+    </data>
+</odoo>

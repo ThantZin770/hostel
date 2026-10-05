@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="menu_purchase_demand_plan"
+              name="Demand Requests" parent="demand_planning.demand_planning_requests"
+              action="action_purchase_demand_plan"
+              sequence="20"/>
+
+    <menuitem id="purchase_rfq_category"
+              name="Requests for Quotation"
+              parent="demand_planning.demand_planning_configuration"
+              action="purchase.purchase_rfq" sequence="30"/>
+</odoo>

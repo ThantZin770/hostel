@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="purchase_return_view_list" model="ir.ui.view">
+        <field name="name">purchase.return.list</field>
+        <field name="model">purchase.return</field>
+        <field name="arch" type="xml">
+            <list string="Purchase Returns">
+                <field name="name"/>
+                <field name="requester_id"/>
+                <field name="company_id"/>
+                <field name="state" widget="badge"
+                       decoration-info="state == 'draft'"
+                       decoration-warning="state in ['requested', 'bu_approved']"
+                       decoration-success="state == 'central_approved'"
+                       decoration-danger="state == 'cancelled'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="purchase_return_view_form" model="ir.ui.view">
+        <field name="name">purchase.return.form</field>
+        <field name="model">purchase.return</field>
+        <field name="arch" type="xml">
+            <form string="Purchase Return">
+                <header>
+                    <button name="action_request" type="object" string="Request"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_bu_approve" type="object" string="BU Approve"
+                            class="btn-primary" invisible="state != 'requested'"/>
+                    <button name="action_central_approve" type="object" string="Central Approve"
+                            class="btn-primary" invisible="state != 'bu_approved'"/>
+                    <button name="action_cancel" type="object" string="Cancel"
+                            class="btn-secondary" invisible="state in ['cancelled', 'central_approved']"/>
+                    <button name="action_return_dispatch_note" type="object" string="Return Dispatch Notes" class="btn btn-primary"/>
+                    <button name="action_reset_to_draft" type="object" string="Reset to Draft"
+                            invisible="state != 'cancelled'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,requested,bu_approved,central_approved"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="requester_id"/>
+                            <field name="company_id"/>
+                        </group>
+                        <group>
+                            <field name="requested_date"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Lines" name="lines">
+                            <field name="line_ids">
+                                <list editable="bottom">
+                                    <field name="dispatch_note_id"/>
+                                    <field name="product_id_domain" column_invisible="True"/>
+                                    <field name="product_id" domain="product_id_domain"/>
+                                    <field name="dispatched_qty"/>
+                                    <field name="return_qty"/>
+                                    <field name="uom_id" optional="hide"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="purchase_return_view_search" model="ir.ui.view">
+        <field name="name">purchase.return.search</field>
+        <field name="model">purchase.return</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="requester_id"/>
+                <field name="company_id"/>
+                <field name="state"/>
+                <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]"/>
+                <filter string="Requested" name="requested" domain="[('state', '=', 'requested')]"/>
+                <filter string="BU Approved" name="bu_approved" domain="[('state', '=', 'bu_approved')]"/>
+                <filter string="Central Approved" name="central_approved" domain="[('state', '=', 'central_approved')]"/>
+                <filter string="Cancelled" name="cancelled" domain="[('state', '=', 'cancelled')]"/>
+                <group>
+                    <filter string="Requester" name="group_requester" context="{'group_by': 'requester_id'}"/>
+                    <filter string="Company" name="group_company" context="{'group_by': 'company_id'}"/>
+                    <filter string="State" name="group_state" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_purchase_return" model="ir.actions.act_window">
+        <field name="name">Purchase Returns</field>
+        <field name="res_model">purchase.return</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="purchase_return_view_search"/>
+    </record>
+</odoo>

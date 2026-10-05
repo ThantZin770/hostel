@@ -1,0 +1,105 @@
+.o_central_demand_planning_dashboard {
+    .o_central_demand_planning_dashboard_card {
+        @include media-breakpoint-up(lg) {
+            &.o_central_demand_planning_dashboard_card_top {
+                --btn-border-radius: #{$btn-border-radius} #{$btn-border-radius} 0 0;
+            }
+
+            &.o_central_demand_planning_dashboard_card_bottom {
+                --btn-border-radius: 0 0 #{$btn-border-radius} #{$btn-border-radius};
+            }
+
+            &.o_central_demand_planning_dashboard_card_sole {
+                --btn-border-radius: #{$btn-border-radius};
+            }
+        }
+
+        width: 100%;
+        height: 100%;
+
+        &:where(:not(.o_no_hover):hover) {
+            text-decoration: underline;
+        }
+
+        &:active {
+            border: none;
+        }
+    }
+
+    .o_no_hover {
+        pointer-events: none;
+    }
+
+    .o_central_demand_planning_qty_column {
+        .o_central_demand_planning_qty_cards {
+            --columns: 12;
+        }
+
+        .o_central_demand_planning_dashboard_card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 64px;
+        }
+
+        .o_central_demand_planning_dashboard_card_bottom {
+            min-height: 40px;
+        }
+    }
+}
+
+.o_central_demand_planning_renderer {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-width: 0;
+    overflow: hidden;
+
+    .o_central_demand_planning_dashboard {
+        flex: 0 0 auto;
+    }
+
+    .o_list_renderer {
+        flex: 1 1 auto;
+        min-height: 0;
+        min-width: 100%;
+        overflow: auto;
+
+        @include media-breakpoint-up(md) {
+            height: auto;
+        }
+    }
+}
+
+.o_central_demand_planning_product_search_section {
+    .o-autocomplete--input {
+        border: 0;
+        border-bottom: 1px solid $border-color;
+        border-radius: 0;
+        padding-left: 0;
+        color: $text-muted;
+        background: transparent;
+    }
+
+    .o_central_demand_planning_product_filter_checkall,
+    .o_central_demand_planning_product_filter_item {
+        min-height: 28px;
+    }
+
+    .o_central_demand_planning_product_filter_item {
+        padding-right: 28px;
+
+        &:hover .o_central_demand_planning_product_filter_remove {
+            opacity: 1;
+        }
+    }
+
+    .o_central_demand_planning_product_filter_remove {
+        opacity: 0;
+    }
+
+    .o_central_demand_planning_product_filter_title {
+        min-width: 0;
+    }
+}

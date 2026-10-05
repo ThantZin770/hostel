@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="purchase_dispatch_note_view_list" model="ir.ui.view">
+        <field name="name">purchase.dispatch.note.list</field>
+        <field name="model">dispatch.note</field>
+        <field name="arch" type="xml">
+            <list string="Purchase Dispatch Notes">
+                <field name="name"/>
+                <field name="type"/>
+                <field name="purchase_order_id"/>
+                <field name="state" widget="badge" decoration-info="state == 'draft'"
+                       decoration-success="state == 'confirm'"
+                       decoration-danger="state == 'cancel'"/>
+                <field name="note_type" widget="badge" decoration-warning="note_type=='late'"
+                       decoration-success="note_type=='plan'" decoration-danger="note_type=='return'"/>
+                <field name="delivery_date"/>
+                <field name="remark"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="purchase_dispatch_note_view_form" model="ir.ui.view">
+        <field name="name">purchase.dispatch.note.form</field>
+        <field name="model">dispatch.note</field>
+        <field name="arch" type="xml">
+            <form string="Purchase Dispatch Note">
+                <header>
+                    <button name="action_return_dispatch" type="object" string="Return" invisible="state=='confirm'"/>
+                    <button type="object" name="action_rest_to_draft" string="Draft" invisible="state!='cancel'"/>
+                    <button type="object" name="action_confirm"
+                            string="Confirm" class="btn btn-primary" invisible="state!='draft'"
+                            confirm="Are you sure to confirm ?"/>
+                    <button type="object" name="action_cancel" string="Cancel" class="btn btn-danger"
+                            invisible="state in ['draft','cancel']"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="purchase_order_id"/>
+                            <field name="type"/>
+                            <field name="vehicle_id"/>
+                            <field name="driver_id"/>
+                        </group>
+                        <group>
+                            <field name="note_type"/>
+                            <field name="delivery_date"/>
+                            <field name="remark"/>
+                            <field name="company_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Lines" name="lines">
+                            <field name="line_ids">
+                                <list editable="bottom">
+                                    <field name="product_id" domain="product_id_domain"/>
+                                    <field name="quantity"/>
+                                    <field name="uom_id" optional="show"/>
+                                    <field name="company_id" optional="show"/>
+                                    <field name="warehouse_id" optional="show"/>
+                                    <field name="dest_location_id" optional="show"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page name="receipts" string="Receipts">
+                            <field name="picking_ids" readonly="1"/>
+                        </page>
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_purchase_dispatch_note" model="ir.actions.act_window">
+        <field name="name">Purchase Dispatch Notes</field>
+        <field name="res_model">dispatch.note</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('type', '=', 'purchase')]</field>
+        <field name="context">{'default_type': 'purchase'}</field>
+    </record>
+
+    <record id="action_purchase_dispatch_note_view_list" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="purchase_dispatch_note_view_list"/>
+        <field name="act_window_id" ref="action_purchase_dispatch_note"/>
+    </record>
+
+    <record id="action_purchase_dispatch_note_view_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="purchase_dispatch_note_view_form"/>
+        <field name="act_window_id" ref="action_purchase_dispatch_note"/>
+    </record>
+
+
+</odoo>

@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="people_directory_dashboard.PeopleDirectoryDashboard">
+        <div class="o_people_directory_dashboard">
+            <main class="o_pdd_page">
+                <div class="o_pdd_header">
+                    <div>
+                        <div class="o_pdd_crumb">People Directory / Dashboard</div>
+                        <h1>Campus People Dashboard</h1>
+                    </div>
+                    <div class="o_pdd_header_actions">
+                        <button type="button" class="o_pdd_button" t-on-click="() => this.openProfiles()">Export</button>
+                        <button type="button" class="o_pdd_button" t-on-click="() => this.saveFilter()">Save Filter</button>
+                        <button type="button" class="o_pdd_button o_pdd_button_primary" t-on-click="() => this.refresh()">Refresh</button>
+                    </div>
+                </div>
+
+                <section class="o_pdd_filters">
+                    <div class="o_pdd_filter">
+                        <label>Campus</label>
+                        <select class="o_pdd_select" t-on-change="(ev) => this.onFilterChange('state_id', ev)">
+                            <option value="all" t-att-selected="state.filters.state_id === 'all'">All Campus</option>
+                            <t t-foreach="state.data.options.states" t-as="option" t-key="option.value">
+                                <option t-att-value="option.value" t-att-selected="state.filters.state_id === option.value" t-out="option.label"/>
+                            </t>
+                        </select>
+                    </div>
+                    <div class="o_pdd_filter">
+                        <label>Site Location</label>
+                        <select class="o_pdd_select" t-on-change="(ev) => this.onFilterChange('township_id', ev)">
+                            <option value="all" t-att-selected="state.filters.township_id === 'all'">All Locations</option>
+                            <t t-foreach="state.data.options.townships" t-as="option" t-key="option.value">
+                                <option t-att-value="option.value" t-att-selected="state.filters.township_id === option.value" t-out="option.label"/>
+                            </t>
+                        </select>
+                    </div>
+                    <div class="o_pdd_filter">
+                        <label>Demographic</label>
+                        <select class="o_pdd_select" t-on-change="(ev) => this.onFilterChange('demographic', ev)">
+                            <t t-foreach="demographicOptions" t-as="option" t-key="option.value">
+                                <option t-att-value="option.value" t-att-selected="state.filters.demographic === option.value" t-out="option.label"/>
+                            </t>
+                        </select>
+                    </div>
+                    <div class="o_pdd_filter">
+                        <label>Profile Category</label>
+                        <select class="o_pdd_select" t-on-change="(ev) => this.onFilterChange('category', ev)">
+                            <option value="all" t-att-selected="state.filters.category === 'all'">All Categories</option>
+                            <t t-foreach="state.data.options.categories" t-as="option" t-key="option.value">
+                                <option t-att-value="option.value" t-att-selected="state.filters.category === option.value" t-out="option.label"/>
+                            </t>
+                        </select>
+                    </div>
+                    <div class="o_pdd_filter">
+                        <label>Status</label>
+                        <select class="o_pdd_select" t-on-change="(ev) => this.onFilterChange('status', ev)">
+                            <option value="all" t-att-selected="state.filters.status === 'all'">Active Profiles</option>
+                            <t t-foreach="state.data.options.statuses" t-as="option" t-key="option.value">
+                                <option t-att-value="option.value" t-att-selected="state.filters.status === option.value" t-out="option.label"/>
+                            </t>
+                        </select>
+                    </div>
+                    <div class="o_pdd_filter">
+                        <label>Search Person</label>
+                        <input class="o_pdd_search" t-att-value="state.filters.search" t-on-input="(ev) => this.onSearchInput(ev)" placeholder="Name, ID, phone, QR..."/>
+                    </div>
+                </section>
+
+                <section class="o_pdd_kpis">
+                    <t t-foreach="state.data.kpis" t-as="kpi" t-key="kpi.key">
+                        <button type="button" class="o_pdd_kpi" t-att-class="{'o_pdd_kpi_big': kpi.big}" t-on-click="() => this.openDrawer(kpi.label, kpi.rows, kpi.domain)">
+                            <span class="o_pdd_label" t-out="kpi.label"/>
+                            <span class="o_pdd_num" t-out="formatNumber(kpi.value)"/>
+                            <span class="o_pdd_sub" t-out="kpi.sub"/>
+                        </button>
+                    </t>
+                </section>
+
+                <section class="o_pdd_grid">
+                    <div class="o_pdd_panel">
+                        <div class="o_pdd_panel_head">
+                            <div>
+                                <div class="o_pdd_panel_title">Headcount by Category</div>
+                                <div class="o_pdd_panel_sub">Click View Details to open report/table</div>
+                            </div>
+                            <button type="button" class="o_pdd_link" t-on-click="() => this.openDrawer('Category Report', state.data.categories, state.data.domain)">View Details</button>
+                        </div>
+                        <div class="o_pdd_donut_wrap">
+                            <div class="o_pdd_donut_box"
+                                 t-on-mouseenter="(ev) => this.onDonutEnter(ev)"
+                                 t-on-mousemove="(ev) => this.onDonutMove(ev)"
+                                 t-on-mouseleave="() => this.onDonutLeave()">
+                                <div class="o_pdd_donut" t-att-style="donutStyle"/>
+                                <div class="o_pdd_donut_center">
+                                    <strong t-out="formatNumber(state.data.kpis[0] ? state.data.kpis[0].value : 0)"/>
+                                    <span>Total</span>
+                                </div>
+                                <div class="o_pdd_donut_overlay" t-if="state.donutShowLabels and donutHoverLabels.length">
+                                    <t t-foreach="donutHoverLabels" t-as="label" t-key="label.key">
+                                        <div class="o_pdd_donut_hint"
+                                             t-att-style="label.style"
+                                             t-att-class="label.sideClass + (label.active ? ' o_pdd_donut_hint_active' : '')">
+                                            <i class="o_pdd_donut_hint_dot" t-att-style="'background:' + label.color"/>
+                                            <span t-out="label.text"/>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                            <div class="o_pdd_legend">
+                                <t t-foreach="state.data.categories" t-as="row" t-key="row.key">
+                                    <button type="button" class="o_pdd_legend_row" t-on-click="() => this.openProfiles(row.domain, row.label)">
+                                        <span><i class="o_pdd_dot" t-att-style="'background:' + row.color"/><t t-out="row.label"/></span>
+                                        <b t-out="formatNumber(row.count)"/>
+                                        <span><t t-out="row.percent"/>%</span>
+                                    </button>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="o_pdd_panel">
+                        <div class="o_pdd_panel_head">
+                            <div>
+                                <div class="o_pdd_panel_title">Employee Headcount</div>
+                                <div class="o_pdd_panel_sub">BU / Department / Section</div>
+                            </div>
+                            <button type="button" class="o_pdd_link" t-on-click="() => this.openDrawer('Employee Pivot', state.data.employee_bars, state.data.kpis[1] ? state.data.kpis[1].domain : state.data.domain)">Pivot</button>
+                        </div>
+                        <div class="o_pdd_bars">
+                            <t t-foreach="state.data.employee_bars" t-as="row" t-key="row.key">
+                                <button type="button" class="o_pdd_bar_col" t-on-click="() => this.openProfiles(row.domain, row.label)">
+                                    <span class="o_pdd_bar" t-att-style="barStyle(row)"/>
+                                    <span t-out="row.label"/>
+                                </button>
+                            </t>
+                        </div>
+                    </div>
+
+                    <div class="o_pdd_panel">
+                        <div class="o_pdd_panel_head">
+                            <div>
+                                <div class="o_pdd_panel_title">Demographics</div>
+                                <div class="o_pdd_panel_sub">Gender / age / nationality</div>
+                            </div>
+                            <button type="button" class="o_pdd_link" t-on-click="() => this.openDrawer('Demographic Details', demographicRows, state.data.domain)">Details</button>
+                        </div>
+                        <t t-foreach="demographicRows" t-as="row" t-key="row.key">
+                            <button type="button" class="o_pdd_hbar" t-on-click="() => this.openDrawer('Demographic Details', demographicRows, state.data.domain)">
+                                <span t-out="row.label"/>
+                                <span class="o_pdd_track"><i class="o_pdd_fill" t-att-style="fillStyle(row)"/></span>
+                                <strong t-out="formatNumber(row.count)"/>
+                            </button>
+                        </t>
+                    </div>
+                </section>
+
+                <div class="o_pdd_bottom_sections">
+                    <section class="o_pdd_breakdown">
+                        <t t-foreach="state.data.breakdowns" t-as="panel" t-key="panel.key">
+                            <div class="o_pdd_mini">
+                                <div class="o_pdd_mini_title" t-out="panel.title"/>
+                                <t t-foreach="panel.rows" t-as="row" t-key="row.key">
+                                    <button type="button" class="o_pdd_mini_row" t-on-click="() => this.openProfiles(row.domain, row.label)">
+                                        <span t-out="row.label"/>
+                                        <strong t-if="!row.badge_class" t-out="formatNumber(row.count)"/>
+                                        <span t-if="row.badge_class" class="o_pdd_badge" t-att-class="'o_pdd_badge_' + row.badge_class" t-out="formatNumber(row.count)"/>
+                                    </button>
+                                </t>
+                                <button type="button" class="o_pdd_link o_pdd_mini_link" t-on-click="() => this.openDrawer(panel.title, panel.rows, panel.domain)" t-out="panel.link_label"/>
+                            </div>
+                        </t>
+                    </section>
+
+                    <section class="o_pdd_table_panel">
+                        <div class="o_pdd_panel_head">
+                            <div>
+                                <div class="o_pdd_panel_title">Recent Profiles / Drill-down Result</div>
+                                <div class="o_pdd_panel_sub">This area can switch to tree, pivot, graph, or report view based on clicked dashboard item.</div>
+                            </div>
+                            <button type="button" class="o_pdd_link" t-on-click="() => this.openProfiles()">Open Full Table</button>
+                        </div>
+                        <div class="o_pdd_table_scroll">
+                            <table class="o_pdd_table">
+                                <thead>
+                                    <tr>
+                                        <th>Person</th>
+                                        <th>Category</th>
+                                        <th>BU / Group</th>
+                                        <th>Department / Position</th>
+                                        <th>Site Location</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="state.data.recent_profiles" t-as="profile" t-key="profile.id">
+                                        <tr t-on-click="() => profile.id ? this.openProfile(profile.id) : null">
+                                            <td t-out="profile.name"/>
+                                            <td t-out="profile.category"/>
+                                            <td t-out="profile.reference"/>
+                                            <td t-out="profile.subtype"/>
+                                            <td t-out="profile.location"/>
+                                            <td><span class="o_pdd_badge" t-att-class="'o_pdd_badge_' + profile.status_class" t-out="profile.status"/></td>
+                                        </tr>
+                                    </t>
+                                    <tr t-if="!state.data.recent_profiles.length">
+                                        <td colspan="6" class="o_pdd_empty">No profiles found</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+            </main>
+
+            <div class="o_pdd_drawer" t-att-class="{'o_pdd_drawer_open': state.drawerOpen}">
+                <div class="o_pdd_drawer_head">
+                    <h2 t-out="state.drawerTitle"/>
+                    <button type="button" class="o_pdd_close" aria-label="Close" t-on-click="() => this.closeDrawer()">x</button>
+                </div>
+                <div class="o_pdd_drawer_actions">
+                    <button type="button" class="o_pdd_button o_pdd_button_primary" t-on-click="() => this.openProfiles(state.drawerDomain, state.drawerTitle)">Open Records</button>
+                </div>
+                <table class="o_pdd_table">
+                    <thead>
+                        <tr>
+                            <th>Name / Group</th>
+                            <th>Count</th>
+                            <th>Confirmed</th>
+                            <th>Draft</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="state.drawerRows" t-as="row" t-key="row.key">
+                            <tr t-on-click="() => this.openProfiles(row.domain, row.label)">
+                                <td t-out="row.label"/>
+                                <td t-out="formatNumber(row.count)"/>
+                                <td t-out="formatNumber(row.confirmed)"/>
+                                <td t-out="formatNumber(row.draft)"/>
+                            </tr>
+                        </t>
+                        <tr t-if="!state.drawerRows.length">
+                            <td colspan="4" class="o_pdd_empty">No records found</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <button t-if="state.drawerOpen" type="button" class="o_pdd_backdrop" aria-label="Close details" t-on-click="() => this.closeDrawer()"/>
+            <div t-if="state.loading" class="o_pdd_loading">Loading...</div>
+        </div>
+    </t>
+</templates>

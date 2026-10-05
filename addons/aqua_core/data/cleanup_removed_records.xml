@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <delete model="ir.ui.view" search="[('model', 'in', [
+        'aqua.water.quality',
+        'aqua.input.consumption'
+    ])]"/>
+    <delete model="ir.actions.act_window" search="[('res_model', 'in', [
+        'aqua.water.quality',
+        'aqua.input.consumption'
+    ])]"/>
+    <delete model="ir.ui.menu" search="[('id', 'in', [
+        ref('aqua_core.menu_aqua_water_quality', raise_if_not_found=False) or 0,
+        ref('aqua_core.menu_aqua_input_consumption', raise_if_not_found=False) or 0,
+        ref('aqua_core.menu_aqua_operations', raise_if_not_found=False) or 0
+    ])]"/>
+</odoo>

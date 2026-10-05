@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="region_magway" model="res.country.state">
+            <field name="name">Magway</field>
+            <field name="code">8/</field>
+            <field name="country_id" ref="base.mm"/>
+        </record>
+
+
+        <record id="township_magway" model="res.country.state.township">
+            <field name="name">Magway</field>
+            <field name="code">makana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_magway"/>
+        </record>
+
+
+        <record id="township_taungdwingyi" model="res.country.state.township">
+            <field name="name">Taungdwingyi</field>
+            <field name="code">tataka</field>
+            <field name="state_id" ref="ica_mm_nrc.region_magway"/>
+        </record>
+
+
+        <record id="township_natmauk" model="res.country.state.township">
+            <field name="name">Natmauk</field>
+            <field name="code">namana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_magway"/>
+        </record>
+
+
+        <record id="township_myothit" model="res.country.state.township">
+            <field name="name">Myothit</field>
+            <field name="code">mathana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_magway"/>
+        </record>
+
+
+        <record id="township_chauk" model="res.country.state.township">
+            <field name="name">Chauk</field>
+            <field name="code">khamana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_magway"/>
+        </record>
+
+
+        <record id="township_yenangyaung" model="res.country.state.township">
+            <field name="name">Yenangyaung</field>
+            <field name="code">ranakha</field>
+            <field name="state_id" ref="ica_mm_nrc.region_magway"/>
+        </record>
+
+
+        <record id="township_gangaw" model="res.country.state.township">
+            <field name="name">Gangaw</field>
+            <field name="code">gagana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_magway"/>
+        </record>
+
+
+        <record id="township_saw" model="res.country.state.township">
+            <field name="name">Saw</field>
+            <field name="code">hsamana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_magway"/>
+        </record>
+
+
+        <record id="township_kyaukhtu" model="res.country.state.township">
+            <field name="name">Kyaukhtu</field>
+            <field name="code">kahtana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_magway"/>
+        </record>
+
+
+        <record id="township_htilin" model="res.country.state.township">
+            <field name="name">Htilin</field>
+            <field name="code">htalana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_magway"/>
+        </record>
+
+
+        <record id="township_pakokku" model="res.country.state.township">
+            <field name="name">Pakokku</field>
+            <field name="code">pakhaka</field>
+            <field name="state_id" ref="ica_mm_nrc.region_magway"/>
+        </record>
+
+
+        <record id="township_seikphyu" model="res.country.state.township">
+            <field name="name">Seikphyu</field>
+            <field name="code">hsaphana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_magway"/>
+        </record>
+
+
+        <record id="township_pauk" model="res.country.state.township">
+            <field name="name">Pauk</field>
+            <field name="code">pauk</field>
+            <field name="state_id" ref="ica_mm_nrc.region_magway"/>
+        </record>
+
+
+        <record id="township_myaing" model="res.country.state.township">
+            <field name="name">Myaing</field>
+            <field name="code">mamana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_magway"/>
+        </record>
+
+
+        <record id="township_yesagyo" model="res.country.state.township">
+            <field name="name">Yesagyo</field>
+            <field name="code">rasaka</field>
+            <field name="state_id" ref="ica_mm_nrc.region_magway"/>
+        </record>
+
+
+        <record id="township_minbu" model="res.country.state.township">
+            <field name="name">Minbu</field>
+            <field name="code">mabana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_magway"/>
+        </record>
+
+
+        <record id="township_ngape" model="res.country.state.township">
+            <field name="name">Ngape</field>
+            <field name="code">ngaphana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_magway"/>
+        </record>
+
+
+        <record id="township_salin" model="res.country.state.township">
+            <field name="name">Salin</field>
+            <field name="code">salana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_magway"/>
+        </record>
+
+
+        <record id="township_sidoktaya" model="res.country.state.township">
+            <field name="name">Sidoktaya</field>
+            <field name="code">satara</field>
+            <field name="state_id" ref="ica_mm_nrc.region_magway"/>
+        </record>
+
+
+        <record id="township_pwintbyu" model="res.country.state.township">
+            <field name="name">Pwintbyu</field>
+            <field name="code">paphana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_magway"/>
+        </record>
+
+
+        <record id="township_thayet" model="res.country.state.township">
+            <field name="name">Thayet</field>
+            <field name="code">tharana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_magway"/>
+        </record>
+
+
+        <record id="township_kamma" model="res.country.state.township">
+            <field name="name">Kamma</field>
+            <field name="code">kamana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_magway"/>
+        </record>
+
+
+        <record id="township_mindon" model="res.country.state.township">
+            <field name="name">Mindon</field>
+            <field name="code">matana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_magway"/>
+        </record>
+
+
+        <record id="township_minhla" model="res.country.state.township">
+            <field name="name">Minhla</field>
+            <field name="code">malana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_magway"/>
+        </record>
+
+
+        <record id="township_aunglan_alana" model="res.country.state.township">
+            <field name="name">Aunglan</field>
+            <field name="code">alana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_magway"/>
+        </record>
+
+
+        <record id="township_aunglan_mahtana" model="res.country.state.township">
+            <field name="name">Aunglan</field>
+            <field name="code">mahtana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_magway"/>
+        </record>
+
+
+        <record id="township_sinbaungwe" model="res.country.state.township">
+            <field name="name">Sinbaungwe</field>
+            <field name="code">hsapawa</field>
+            <field name="state_id" ref="ica_mm_nrc.region_magway"/>
+        </record>
+    </data>
+</odoo>

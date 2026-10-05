@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem id="dispatch_note_root_menu" name="Dispatch Note" web_icon="dispatch_note,static/description/icon.png">
+        <menuitem id="dispatch_note_internal_menu"
+                  name="Internal"
+                  action="action_dispatch_note_internal"
+                  sequence="10"/>
+        <menuitem id="configuration_menu" name="Configuration" sequence="900">
+            <menuitem id="fleet_menu"
+                    name="Fleet"
+                    action="fleet.fleet_vehicle_action"
+                    sequence="0"/>
+        </menuitem>
+    </menuitem>
+</odoo>

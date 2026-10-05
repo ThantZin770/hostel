@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="seq_aqua_global_trace" model="ir.sequence">
+        <field name="name">Aquaculture Global Biological ID</field>
+        <field name="code">aqua.global.trace</field>
+        <field name="prefix">AQ-%(year)s-</field>
+        <field name="padding">6</field>
+        <field name="implementation">standard</field>
+    </record>
+
+    <record id="seq_aqua_batch_local" model="ir.sequence">
+        <field name="name">Aquaculture Local Batch Number</field>
+        <field name="code">aqua.batch.local</field>
+        <field name="padding">6</field>
+        <field name="implementation">standard</field>
+    </record>
+</odoo>

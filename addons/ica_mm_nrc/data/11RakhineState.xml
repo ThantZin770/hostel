@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="state_rakhine" model="res.country.state">
+            <field name="name">Rakhine</field>
+            <field name="code">11/</field>
+            <field name="country_id" ref="base.mm"/>
+        </record>
+
+
+        <record id="township_sittwe" model="res.country.state.township">
+            <field name="name">Sittwe</field>
+            <field name="code">satana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_rakhine"/>
+        </record>
+
+
+        <record id="township_pauktaw" model="res.country.state.township">
+            <field name="name">Pauktaw</field>
+            <field name="code">patana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_rakhine"/>
+        </record>
+
+
+        <record id="township_ponnagyun" model="res.country.state.township">
+            <field name="name">Ponnagyun</field>
+            <field name="code">panata</field>
+            <field name="state_id" ref="ica_mm_nrc.state_rakhine"/>
+        </record>
+
+
+        <record id="township_rathedaung" model="res.country.state.township">
+            <field name="name">Rathedaung</field>
+            <field name="code">rathata</field>
+            <field name="state_id" ref="ica_mm_nrc.state_rakhine"/>
+        </record>
+
+
+        <record id="township_kyaukphyu" model="res.country.state.township">
+            <field name="name">Kyaukphyu</field>
+            <field name="code">kaphana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_rakhine"/>
+        </record>
+
+
+        <record id="township_ramree" model="res.country.state.township">
+            <field name="name">Ramree</field>
+            <field name="code">rabana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_rakhine"/>
+        </record>
+
+
+        <record id="township_taungup" model="res.country.state.township">
+            <field name="name">Taungup</field>
+            <field name="code">takana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_rakhine"/>
+        </record>
+
+
+        <record id="township_ma-ei" model="res.country.state.township">
+            <field name="name">Ma-ei</field>
+            <field name="code">maata</field>
+            <field name="state_id" ref="ica_mm_nrc.state_rakhine"/>
+        </record>
+
+
+        <record id="township_manaung" model="res.country.state.township">
+            <field name="name">Manaung</field>
+            <field name="code">maana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_rakhine"/>
+        </record>
+
+
+        <record id="township_maungdaw" model="res.country.state.township">
+            <field name="name">Maungdaw</field>
+            <field name="code">matana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_rakhine"/>
+        </record>
+
+
+        <record id="township_taungpyoletwe" model="res.country.state.township">
+            <field name="name">Taungpyoletwe</field>
+            <field name="code">tapawa</field>
+            <field name="state_id" ref="ica_mm_nrc.state_rakhine"/>
+        </record>
+
+
+        <record id="township_buthidaung" model="res.country.state.township">
+            <field name="name">Buthidaung</field>
+            <field name="code">bathata</field>
+            <field name="state_id" ref="ica_mm_nrc.state_rakhine"/>
+        </record>
+
+
+        <record id="township_mrauk-u" model="res.country.state.township">
+            <field name="name">Mrauk-U</field>
+            <field name="code">mauna</field>
+            <field name="state_id" ref="ica_mm_nrc.state_rakhine"/>
+        </record>
+
+
+        <record id="township_kyauktaw" model="res.country.state.township">
+            <field name="name">Kyauktaw</field>
+            <field name="code">katana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_rakhine"/>
+        </record>
+
+
+        <record id="township_minbya" model="res.country.state.township">
+            <field name="name">Minbya</field>
+            <field name="code">mapana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_rakhine"/>
+        </record>
+
+
+        <record id="township_myebon" model="res.country.state.township">
+            <field name="name">Myebon</field>
+            <field name="code">mapata</field>
+            <field name="state_id" ref="ica_mm_nrc.state_rakhine"/>
+        </record>
+
+
+        <record id="township_thandwe" model="res.country.state.township">
+            <field name="name">Thandwe</field>
+            <field name="code">thatana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_rakhine"/>
+        </record>
+
+
+        <record id="township_gwa" model="res.country.state.township">
+            <field name="name">Gwa</field>
+            <field name="code">gamana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_rakhine"/>
+        </record>
+
+
+        <record id="township_kyeintali" model="res.country.state.township">
+            <field name="name">Kyeintali</field>
+            <field name="code">katala</field>
+            <field name="state_id" ref="ica_mm_nrc.state_rakhine"/>
+        </record>
+
+
+        <record id="township_ann" model="res.country.state.township">
+            <field name="name">Ann</field>
+            <field name="code">amana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_rakhine"/>
+        </record>
+    </data>
+</odoo>

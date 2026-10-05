@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hostel_building,access_hostel_building,model_hostel_building,base.group_user,1,1,1,1
+access_hostel_floor,access_hostel_floor,model_hostel_floor,base.group_user,1,1,1,1
+access_hostel_section,access_hostel_section,model_hostel_section,base.group_user,1,1,1,1
+access_hostel_unit,access_hostel_unit,model_hostel_unit,base.group_user,1,1,1,1
+access_hostel_room,access_hostel_room,model_hostel_room,base.group_user,1,1,1,1
+access_hostel_room_type,access_hostel_room_type,model_hostel_room_type,base.group_user,1,1,1,1
+access_hostel_gender_restriction,access_hostel_gender_restriction,model_hostel_gender_restriction,base.group_user,1,1,1,1

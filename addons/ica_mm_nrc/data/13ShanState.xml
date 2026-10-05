@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="state_shan" model="res.country.state">
+            <field name="name">Shan</field>
+            <field name="code">13/</field>
+            <field name="country_id" ref="base.mm"/>
+        </record>
+
+        <!--        shan state south-->
+
+        <record id="township_taunggyi" model="res.country.state.township">
+            <field name="name">Taunggyi</field>
+            <field name="code">takana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_kyauktalongyi" model="res.country.state.township">
+            <field name="name">Kyauktalongyi</field>
+            <field name="code">katala</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_yatsauk" model="res.country.state.township">
+            <field name="name">Yatsauk</field>
+            <field name="code">rasana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_indaw" model="res.country.state.township">
+            <field name="name">Indaw</field>
+            <field name="code">atana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_kalaw" model="res.country.state.township">
+            <field name="name">Kalaw</field>
+            <field name="code">kalana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_nyaungshwe" model="res.country.state.township">
+            <field name="name">Nyaungshwe</field>
+            <field name="code">nyarana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_pekon" model="res.country.state.township">
+            <field name="name">Pekon</field>
+            <field name="code">phakhana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_namhkam" model="res.country.state.township">
+            <field name="name">Namhkam</field>
+            <field name="code">nasana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_kholam" model="res.country.state.township">
+            <field name="name">Kholam</field>
+            <field name="code">khalana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_kunhing" model="res.country.state.township">
+            <field name="name">Kunhing</field>
+            <field name="code">kahana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_kali" model="res.country.state.township">
+            <field name="name">Kali</field>
+            <field name="code">kalada</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_mongnai" model="res.country.state.township">
+            <field name="name">Mongnai</field>
+            <field name="code">manana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_kengtung" model="res.country.state.township">
+            <field name="name">Kengtung</field>
+            <field name="code">katata</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_monghsu" model="res.country.state.township">
+            <field name="name">Monghsu</field>
+            <field name="code">marana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_mongsan" model="res.country.state.township">
+            <field name="name">Mongsan</field>
+            <field name="code">masana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_kyethi" model="res.country.state.township">
+            <field name="name">Kyethi</field>
+            <field name="code">kathana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_mongnawng" model="res.country.state.township">
+            <field name="name">Mongnawng</field>
+            <field name="code">manata</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_linkhay" model="res.country.state.township">
+            <field name="name">Linkhay</field>
+            <field name="code">lakhata</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_homane" model="res.country.state.township">
+            <field name="name">Homane</field>
+            <field name="code">hamana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_mongpan" model="res.country.state.township">
+            <field name="name">Mongpan</field>
+            <field name="code">mapana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_mawkmai" model="res.country.state.township">
+            <field name="name">Mawkmai</field>
+            <field name="code">mamana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_loilen" model="res.country.state.township">
+            <field name="name">Loilen</field>
+            <field name="code">lalana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_panglong" model="res.country.state.township">
+            <field name="name">Panglong</field>
+            <field name="code">palana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_mongkaing" model="res.country.state.township">
+            <field name="name">Mongkaing</field>
+            <field name="code">makana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_lai-hka" model="res.country.state.township">
+            <field name="name">Lai-Hka</field>
+            <field name="code">lakhana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_ywangan" model="res.country.state.township">
+            <field name="name">Ywangan</field>
+            <field name="code">rangana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_pindaya" model="res.country.state.township">
+            <field name="name">Pindaya</field>
+            <field name="code">pataya</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_hopong" model="res.country.state.township">
+            <field name="name">Hopong</field>
+            <field name="code">hapana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_hsi_hseng" model="res.country.state.township">
+            <field name="name">Hsi Hseng</field>
+            <field name="code">hsahsana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_pinlaung" model="res.country.state.township">
+            <field name="name">Pinlaung</field>
+            <field name="code">palana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_nawn-tara" model="res.country.state.township">
+            <field name="name">Nawn-tara</field>
+            <field name="code">natara</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+        <!--        shan state nroth-->
+        <record id="township_taunggyi" model="res.country.state.township">
+            <field name="name">Taunggyi</field>
+            <field name="code">takana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_kyauktalongyi" model="res.country.state.township">
+            <field name="name">Kyauktalongyi</field>
+            <field name="code">katala</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_yatsauk" model="res.country.state.township">
+            <field name="name">Yatsauk</field>
+            <field name="code">rasana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_indaw" model="res.country.state.township">
+            <field name="name">Indaw</field>
+            <field name="code">atana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_kalaw" model="res.country.state.township">
+            <field name="name">Kalaw</field>
+            <field name="code">kalana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_nyaungshwe" model="res.country.state.township">
+            <field name="name">Nyaungshwe</field>
+            <field name="code">nyarana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_pekon" model="res.country.state.township">
+            <field name="name">Pekon</field>
+            <field name="code">phakhana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_namhkam" model="res.country.state.township">
+            <field name="name">Namhkam</field>
+            <field name="code">nasana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_kholam" model="res.country.state.township">
+            <field name="name">Kholam</field>
+            <field name="code">khalana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_kunhing" model="res.country.state.township">
+            <field name="name">Kunhing</field>
+            <field name="code">kahana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_kali" model="res.country.state.township">
+            <field name="name">Kali</field>
+            <field name="code">kalada</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_mongnai" model="res.country.state.township">
+            <field name="name">Mongnai</field>
+            <field name="code">manana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_kengtung" model="res.country.state.township">
+            <field name="name">Kengtung</field>
+            <field name="code">katata</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_monghsu" model="res.country.state.township">
+            <field name="name">Monghsu</field>
+            <field name="code">marana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_mongsan" model="res.country.state.township">
+            <field name="name">Mongsan</field>
+            <field name="code">masana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_kyethi" model="res.country.state.township">
+            <field name="name">Kyethi</field>
+            <field name="code">kathana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_mongnawng" model="res.country.state.township">
+            <field name="name">Mongnawng</field>
+            <field name="code">manata</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_linkhay" model="res.country.state.township">
+            <field name="name">Linkhay</field>
+            <field name="code">lakhata</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_homane" model="res.country.state.township">
+            <field name="name">Homane</field>
+            <field name="code">hamana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_mongpan" model="res.country.state.township">
+            <field name="name">Mongpan</field>
+            <field name="code">mapana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_mawkmai" model="res.country.state.township">
+            <field name="name">Mawkmai</field>
+            <field name="code">mamana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_loilen" model="res.country.state.township">
+            <field name="name">Loilen</field>
+            <field name="code">lalana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_panglong" model="res.country.state.township">
+            <field name="name">Panglong</field>
+            <field name="code">palana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_mongkaing" model="res.country.state.township">
+            <field name="name">Mongkaing</field>
+            <field name="code">makana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_lai-hka" model="res.country.state.township">
+            <field name="name">Lai-Hka</field>
+            <field name="code">lakhana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_ywangan" model="res.country.state.township">
+            <field name="name">Ywangan</field>
+            <field name="code">rangana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_pindaya" model="res.country.state.township">
+            <field name="name">Pindaya</field>
+            <field name="code">pataya</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_hopong" model="res.country.state.township">
+            <field name="name">Hopong</field>
+            <field name="code">hapana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_hsi_hseng" model="res.country.state.township">
+            <field name="name">Hsi Hseng</field>
+            <field name="code">hsahsana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_pinlaung" model="res.country.state.township">
+            <field name="name">Pinlaung</field>
+            <field name="code">palana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_nawn-tara" model="res.country.state.township">
+            <field name="name">Nawn-tara</field>
+            <field name="code">natara</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+        <!--        east-->
+
+
+        <record id="township_kengtung" model="res.country.state.township">
+            <field name="name">Kengtung</field>
+            <field name="code">katana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_mong_khet" model="res.country.state.township">
+            <field name="name">Mong Khet</field>
+            <field name="code">makhana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_mong_ping" model="res.country.state.township">
+            <field name="name">Mong Ping</field>
+            <field name="code">mapata</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_tongta" model="res.country.state.township">
+            <field name="name">Tongta</field>
+            <field name="code">tatana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_tachileik" model="res.country.state.township">
+            <field name="name">Tachileik</field>
+            <field name="code">takhala</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_talay" model="res.country.state.township">
+            <field name="name">Talay</field>
+            <field name="code">talana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_kyaing_lap" model="res.country.state.township">
+            <field name="name">Kyaing Lap</field>
+            <field name="code">kalahta</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_mong_hpyak" model="res.country.state.township">
+            <field name="name">Mong Hpyak</field>
+            <field name="code">maphana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_mong_hsat" model="res.country.state.township">
+            <field name="name">Mong Hsat</field>
+            <field name="code">mahsana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_mongkhoke" model="res.country.state.township">
+            <field name="name">Mongkhoke</field>
+            <field name="code">makhata</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_mong_ton" model="res.country.state.township">
+            <field name="name">Mong Ton</field>
+            <field name="code">matana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_ponparkyin" model="res.country.state.township">
+            <field name="name">Ponparkyin</field>
+            <field name="code">papaka</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_mong_hta" model="res.country.state.township">
+            <field name="name">Mong Hta</field>
+            <field name="code">mahtana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_mong_yawng" model="res.country.state.township">
+            <field name="name">Mong Yawng</field>
+            <field name="code">mayata</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_mong_yu" model="res.country.state.township">
+            <field name="name">Mong Yu</field>
+            <field name="code">mayahta</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_mong_yang" model="res.country.state.township">
+            <field name="name">Mong Yang</field>
+            <field name="code">mayana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_mong_pawk" model="res.country.state.township">
+            <field name="name">Mong Pawk</field>
+            <field name="code">mapahta</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+
+
+        <record id="township_mong_lar" model="res.country.state.township">
+            <field name="name">Mong Lar</field>
+            <field name="code">malana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_shan"/>
+        </record>
+    </data>
+</odoo>

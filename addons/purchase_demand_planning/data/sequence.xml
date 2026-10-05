@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="seq_purchase_demand_plan" model="ir.sequence">
+        <field name="name">Purchase Demand Plan(Manual)</field>
+        <field name="code">purchase.demand.plan</field>
+        <field name="prefix">PDRM/%(day)s/%(month)s/%(year)s/</field>
+        <field name="padding">5</field>
+    </record>
+
+    <record id="seq_purchase_demand_plan_auto" model="ir.sequence">
+        <field name="name">Purchase Demand Plan (Auto)</field>
+        <field name="code">purchase.demand.plan.auto</field>
+        <field name="prefix">PDRA/%(day)s/%(month)s/%(year)s/</field>
+        <field name="padding">5</field>
+    </record>
+
+</odoo>

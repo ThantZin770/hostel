@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem id="menu_purchase_return"
+              name="Purchase Returns"
+              parent="demand_planning.demand_planning_requests"
+              action="action_purchase_return"
+              sequence="7"/>
+</odoo>

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="view_purchase_demand_plan_line_central_list" model="ir.ui.view">
+        <field name="name">purchase.demand.plan.line.central.list</field>
+        <field name="model">purchase.demand.plan.line</field>
+        <field name="arch" type="xml">
+            <list string="Central Demand Planning"
+                  js_class="central_demand_planning"
+                  default_order="required_date asc, id desc"
+                  decoration-muted="state == 'rejected'"
+                  decoration-success="state == 'rfq_created'"
+                  create="0"
+                  editable="bottom">
+                <header>
+                    <button name="action_create_central_rfq"
+                            type="object"
+                            string="Create RFQ"/>
+                </header>
+                <field name="demand_id" string="Reference" readonly="1"/>
+                <button name="action_open_demand_request"
+                        type="object"
+                        icon="fa-external-link"
+                        title="Open Demand Request"/>
+                <field name="product_id" width="150px" readonly="1"/>
+                <field name="description" optional="hide" readonly="1"/>
+                <field name="demand_requester_id" widget="many2one_avatar_user" width="150px" readonly="1"/>
+                <field name="demand_company_id" optional="hide" readonly="1"/>
+                <field name="demand_request_date" optional="hide" readonly="1"/>
+                <field name="required_date" string="Delivery Date" width="110px" optional="show" readonly="1"/>
+                <field name="requested_qty" sum="Demand Qty" readonly="1"/>
+                <field name="approved_qty" sum="Approved Qty"/>
+                <field name="rejected_qty" sum="Rejected Qty" readonly="1" optional="hide"/>
+                <field name="uom_id" readonly="1"/>
+                <field name="preferred_vendor_id" width="150px" readonly="1"/>
+                <field name="rfq_ids" widget="many2many_tags" optional="hide" readonly="1"/>
+                <field name="rfq_line_ids" widget="many2many_tags" optional="hide" readonly="1"/>
+                <field name="state"
+                       widget="badge"
+                       readonly="1"
+                       optional="show"
+                       decoration-warning="state == 'pending'"
+                       decoration-success="state == 'approved'"
+                       decoration-info="state == 'rfq_created'"
+                       decoration-danger="state == 'rejected'"/>
+                <button name="action_central_approve_line"
+                        type="object"
+                        icon="fa-check"
+                        string="Approve"
+                        title="Approve"
+                        invisible="state != 'pending'"/>
+                <button name="action_central_reject_line"
+                        type="object"
+                        icon="fa-times"
+                        title="Reject "
+                        string="Reject"
+                        invisible="state in ['rejected', 'rfq_created','approved']"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_purchase_demand_plan_line_central_search" model="ir.ui.view">
+        <field name="name">purchase.demand.plan.line.central.search</field>
+        <field name="model">purchase.demand.plan.line</field>
+        <field name="arch" type="xml">
+            <search string="Search Central Demand Planning">
+                <field name="demand_id" string="Reference"/>
+                <field name="product_id"/>
+                <field name="description"/>
+                <field name="preferred_vendor_id"/>
+                <field name="demand_requester_id"/>
+                <field name="demand_company_id"/>
+                <filter name="my_lines"
+                        string="My Demands"
+                        domain="[('demand_requester_id', '=', uid)]"/>
+                <separator/>
+                <filter name="to_review"
+                        string="To Review"
+                        domain="[('state', '=', 'pending')]"/>
+                <filter name="approved"
+                        string="Approved"
+                        domain="[('state', '=', 'approved')]"/>
+                <filter name="rfq_created"
+                        string="RFQ Created"
+                        domain="[('state', '=', 'rfq_created')]"/>
+                <filter name="rejected"
+                        string="Rejected"
+                        domain="[('state', '=', 'rejected')]"/>
+                <separator/>
+                <filter name="late"
+                        string="Late"
+                        domain="[('required_date', '&lt;', context_today().strftime('%Y-%m-%d')), ('state', 'not in', ['rfq_created', 'rejected'])]"/>
+                <filter name="has_vendor"
+                        string="Has Vendor"
+                        domain="[('preferred_vendor_id', '!=', False)]"/>
+                <filter name="without_rfq"
+                        string="Without RFQ"
+                        domain="[('rfq_line_ids', '=', False)]"/>
+                <group>
+                    <filter name="group_product"
+                            string="Product"
+                            context="{'group_by': 'product_id'}"/>
+                    <filter name="group_vendor"
+                            string="Vendor"
+                            context="{'group_by': 'preferred_vendor_id'}"/>
+                    <filter name="group_request"
+                            string="Demand Request"
+                            context="{'group_by': 'demand_id'}"/>
+                    <filter name="group_company"
+                            string="Company"
+                            context="{'group_by': 'demand_company_id'}"/>
+                    <filter name="group_status"
+                            string="Status"
+                            context="{'group_by': 'state'}"/>
+                    <filter name="group_required_date"
+                            string="Expected Delivery Date"
+                            context="{'group_by': 'required_date'}"/>
+                </group>
+                <searchpanel>
+                    <field name="state"
+                           string="Status"
+                           icon="fa-tasks"/>
+                    <field name="demand_company_id"
+                           string="Companies"
+                           select="multi"
+                           icon="fa-building-o"/>
+                    <field name="preferred_vendor_id"
+                           string="Vendors"
+                           select="multi"
+                           icon="fa-truck"/>
+                    <field name="demand_requester_id"
+                           string="Requesters"
+                           select="multi"
+                           icon="fa-user"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_purchase_demand_plan_line_central_pivot" model="ir.ui.view">
+        <field name="name">purchase.demand.plan.line.central.pivot</field>
+        <field name="model">purchase.demand.plan.line</field>
+        <field name="arch" type="xml">
+            <pivot string="Central Demand Analysis">
+                <field name="product_id" type="row"/>
+                <field name="state" type="col"/>
+                <field name="requested_qty" type="measure"/>
+                <field name="approved_qty" type="measure"/>
+                <field name="rejected_qty" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_purchase_demand_plan_line_central_graph" model="ir.ui.view">
+        <field name="name">purchase.demand.plan.line.central.graph</field>
+        <field name="model">purchase.demand.plan.line</field>
+        <field name="arch" type="xml">
+            <graph string="Central Demand Analysis" type="bar" stacked="1">
+                <field name="product_id"/>
+                <field name="state"/>
+                <field name="requested_qty" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_purchase_demand_planning_central_lines" model="ir.actions.act_window">
+        <field name="name">Central Demand Planning</field>
+        <field name="res_model">purchase.demand.plan.line</field>
+        <field name="view_mode">list,pivot,graph</field>
+        <field name="search_view_id" ref="view_purchase_demand_plan_line_central_search"/>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create demand requests to review central planning lines.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_purchase_demand_planning_central_lines_view_list" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="view_purchase_demand_plan_line_central_list"/>
+        <field name="act_window_id" ref="action_purchase_demand_planning_central_lines"/>
+    </record>
+
+    <record id="action_purchase_demand_planning_central_lines_view_pivot" model="ir.actions.act_window.view">
+        <field name="sequence" eval="3"/>
+        <field name="view_mode">pivot</field>
+        <field name="view_id" ref="view_purchase_demand_plan_line_central_pivot"/>
+        <field name="act_window_id" ref="action_purchase_demand_planning_central_lines"/>
+    </record>
+
+    <record id="action_purchase_demand_planning_central_lines_view_graph" model="ir.actions.act_window.view">
+        <field name="sequence" eval="4"/>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="view_purchase_demand_plan_line_central_graph"/>
+        <field name="act_window_id" ref="action_purchase_demand_planning_central_lines"/>
+    </record>
+
+    <delete model="ir.actions.act_window.view"
+            search="[('act_window_id', '=', ref('action_purchase_demand_planning_central_lines')), ('view_mode', '=', 'form')]"/>
+    <delete model="ir.ui.view"
+            search="[('model', '=', 'purchase.demand.plan.line'), ('name', '=', 'purchase.demand.plan.line.central.form')]"/>
+
+</odoo>

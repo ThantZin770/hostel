@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="state_kayah" model="res.country.state">
+            <field name="name">Kayah</field>
+            <field name="code">2/</field>
+            <field name="country_id" ref="base.mm"/>
+        </record>
+
+        <record id="township_loikaw" model="res.country.state.township">
+            <field name="name">Loikaw</field>
+            <field name="code">lakana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_kayah"/>
+        </record>
+
+
+        <record id="township_shadaw" model="res.country.state.township">
+            <field name="name">Shadaw</field>
+            <field name="code">ratana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_kayah"/>
+        </record>
+
+
+        <record id="township_demoso" model="res.country.state.township">
+            <field name="name">Demoso</field>
+            <field name="code">damahsa</field>
+            <field name="state_id" ref="ica_mm_nrc.state_kayah"/>
+        </record>
+
+
+        <record id="township_hpruso" model="res.country.state.township">
+            <field name="name">Hpruso</field>
+            <field name="code">pharahsa</field>
+            <field name="state_id" ref="ica_mm_nrc.state_kayah"/>
+        </record>
+
+
+        <record id="township_bawlakhe" model="res.country.state.township">
+            <field name="name">Bawlakhe</field>
+            <field name="code">balakha</field>
+            <field name="state_id" ref="ica_mm_nrc.state_kayah"/>
+        </record>
+
+
+        <record id="township_hpasawng" model="res.country.state.township">
+            <field name="name">Hpasawng</field>
+            <field name="code">phahsana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_kayah"/>
+        </record>
+
+
+        <record id="township_mese" model="res.country.state.township">
+            <field name="name">Mese</field>
+            <field name="code">masana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_kayah"/>
+        </record>
+
+
+        <record id="township_ywathit" model="res.country.state.township">
+            <field name="name">Ywathit</field>
+            <field name="code">rathana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_kayah"/>
+        </record>
+    </data>
+</odoo>

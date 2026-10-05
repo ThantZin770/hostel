@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="region_sagaing" model="res.country.state">
+            <field name="name">Sagaing</field>
+            <field name="code">5/</field>
+            <field name="country_id" ref="base.mm"/>
+        </record>
+
+        <record id="township_monywa" model="res.country.state.township">
+            <field name="name">Monywa</field>
+            <field name="code">marana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_chaung-u" model="res.country.state.township">
+            <field name="name">Chaung-U</field>
+            <field name="code">khauta</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_budalin" model="res.country.state.township">
+            <field name="name">Budalin</field>
+            <field name="code">batala</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_ayadaw" model="res.country.state.township">
+            <field name="name">Ayadaw</field>
+            <field name="code">arata</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_kale" model="res.country.state.township">
+            <field name="name">Kale</field>
+            <field name="code">kalahta</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_kalewa" model="res.country.state.township">
+            <field name="name">Kalewa</field>
+            <field name="code">kalawa</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_mingin" model="res.country.state.township">
+            <field name="name">Mingin</field>
+            <field name="code">makana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_katha" model="res.country.state.township">
+            <field name="name">Katha</field>
+            <field name="code">kathana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_htigyaing" model="res.country.state.township">
+            <field name="name">Htigyaing</field>
+            <field name="code">htakhana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_banmauk" model="res.country.state.township">
+            <field name="name">Banmauk</field>
+            <field name="code">bamana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_indaw" model="res.country.state.township">
+            <field name="name">Indaw</field>
+            <field name="code">atana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_kawlin" model="res.country.state.township">
+            <field name="name">Kawlin</field>
+            <field name="code">kalata</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_wuntho" model="res.country.state.township">
+            <field name="name">Wuntho</field>
+            <field name="code">wathana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_pinlebu" model="res.country.state.township">
+            <field name="name">Pinlebu</field>
+            <field name="code">palaba</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_kanbalu" model="res.country.state.township">
+            <field name="name">Kanbalu</field>
+            <field name="code">kabala</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_kyunhla" model="res.country.state.township">
+            <field name="name">Kyunhla</field>
+            <field name="code">kalana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_hkamti" model="res.country.state.township">
+            <field name="name">Hkamti</field>
+            <field name="code">khatana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_tamu" model="res.country.state.township">
+            <field name="name">Tamu</field>
+            <field name="code">tamana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_myothit" model="res.country.state.township">
+            <field name="name">Myothit</field>
+            <field name="code">mathana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_khampat" model="res.country.state.township">
+            <field name="name">Khampat</field>
+            <field name="code">khapana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_sagaing" model="res.country.state.township">
+            <field name="name">Sagaing</field>
+            <field name="code">sakana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_myinmu" model="res.country.state.township">
+            <field name="name">Myinmu</field>
+            <field name="code">mamata</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_myaung" model="res.country.state.township">
+            <field name="name">Myaung</field>
+            <field name="code">mamana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_myauk" model="res.country.state.township">
+            <field name="name">Myauk</field>
+            <field name="code">malana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_paungbyin" model="res.country.state.township">
+            <field name="name">Paungbyin</field>
+            <field name="code">phapana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_yinmabin" model="res.country.state.township">
+            <field name="name">Yinmabin</field>
+            <field name="code">yamapa</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_kani" model="res.country.state.township">
+            <field name="name">Kani</field>
+            <field name="code">kanana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_salingyi" model="res.country.state.township">
+            <field name="name">Salingyi</field>
+            <field name="code">hsalaka</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_pale" model="res.country.state.township">
+            <field name="name">Pale</field>
+            <field name="code">palana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_ye-u" model="res.country.state.township">
+            <field name="name">Ye-U</field>
+            <field name="code">rauna</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_debayin" model="res.country.state.township">
+            <field name="name">Debayin</field>
+            <field name="code">dapaya</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_taze" model="res.country.state.township">
+            <field name="name">Taze</field>
+            <field name="code">tahsana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_shwebo" model="res.country.state.township">
+            <field name="name">Shwebo</field>
+            <field name="code">rabana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_kyaukmyaung" model="res.country.state.township">
+            <field name="name">Kyaukmyaung</field>
+            <field name="code">kamana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_khin-u" model="res.country.state.township">
+            <field name="name">Khin-U</field>
+            <field name="code">khauna</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_wetlet" model="res.country.state.township">
+            <field name="name">Wetlet</field>
+            <field name="code">walana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_homalin" model="res.country.state.township">
+            <field name="name">Homalin</field>
+            <field name="code">hamala</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_phaungpyin" model="res.country.state.township">
+            <field name="name">Phaungpyin</field>
+            <field name="code">mapala</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_leshi" model="res.country.state.township">
+            <field name="name">Leshi</field>
+            <field name="code">larana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_somra" model="res.country.state.township">
+            <field name="name">Somra</field>
+            <field name="code">hsamara</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_lahe" model="res.country.state.township">
+            <field name="name">Lahe</field>
+            <field name="code">lahana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_htanparkway" model="res.country.state.township">
+            <field name="name">Htanparkway</field>
+            <field name="code">htapakha</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_nanyun" model="res.country.state.township">
+            <field name="name">Nanyun</field>
+            <field name="code">nayana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_pansaung" model="res.country.state.township">
+            <field name="name">Pansaung</field>
+            <field name="code">pahsana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_donhee" model="res.country.state.township">
+            <field name="name">Donhee</field>
+            <field name="code">dahana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+
+
+        <record id="township_ngazun" model="res.country.state.township">
+            <field name="name">Ngazun</field>
+            <field name="code">ngazana</field>
+            <field name="state_id" ref="ica_mm_nrc.region_sagaing"/>
+        </record>
+    </data>
+</odoo>

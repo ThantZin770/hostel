@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- List (Tree) View -->
+    <record id="view_hostel_gender_restriction_tree" model="ir.ui.view">
+        <field name="name">hostel.gender.restriction.list</field>
+        <field name="model">hostel.gender.restriction</field>
+        <field name="arch" type="xml">
+            <list string="Gender Restrictions">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="state" widget="badge"
+                       decoration-info="state == 'draft'"
+                       decoration-success="state == 'confirmed'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_hostel_gender_restriction_form" model="ir.ui.view">
+        <field name="name">hostel.gender.restriction.form</field>
+        <field name="model">hostel.gender.restriction</field>
+        <field name="arch" type="xml">
+            <form string="Gender Restriction">
+                <header>
+                    <button name="action_confirm" string="Confirm" type="object" class="oe_highlight" invisible="state != 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                        </group>
+                        <group>
+                            <field name="remarks" placeholder="Remark"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

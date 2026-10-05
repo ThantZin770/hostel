@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_aqua_production_unit_list" model="ir.ui.view">
+        <field name="name">aqua.production.unit.list</field>
+        <field name="model">aqua.production.unit</field>
+        <field name="arch" type="xml">
+            <list decoration-muted="not active">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="company_id"/>
+                <field name="farm_id"/>
+                <field name="unit_type"/>
+                <field name="current_state" widget="badge" decoration-success="current_state == 'occupied'" decoration-warning="current_state == 'quarantine'" decoration-danger="current_state == 'problem'" decoration-muted="current_state == 'empty'"/>
+                <field name="current_batch_count"/>
+                <field name="current_quantity"/>
+                <field name="current_biomass_kg"/>
+                <field name="capacity"/>
+                <field name="water_type"/>
+                <field name="active" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_aqua_production_unit_form" model="ir.ui.view">
+        <field name="name">aqua.production.unit.form</field>
+        <field name="model">aqua.production.unit</field>
+        <field name="arch" type="xml">
+            <form string="Aquaculture Production Unit">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_open_current_batches" type="object" class="oe_stat_button" icon="fa-leaf">
+                            <field name="current_batch_count" widget="statinfo" string="Current Batches"/>
+                        </button>
+                        <button name="action_open_batch_history" type="object" class="oe_stat_button" icon="fa-history">
+                            <field name="batch_count" widget="statinfo" string="Batch History"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="farm_id"/>
+                            <field name="company_id"/>
+                        </group>
+                        <group>
+                            <field name="unit_type"/>
+                            <field name="capacity"/>
+                            <field name="water_type"/>
+                            <field name="current_state" widget="badge"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <group string="Current State">
+                        <group>
+                            <field name="current_batch_count"/>
+                            <field name="current_quantity"/>
+                            <field name="current_biomass_kg"/>
+                        </group>
+                        <group>
+                            <field name="current_batch_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Current Batches">
+                            <field name="current_batch_ids" readonly="1">
+                                <list>
+                                    <field name="global_bio_id"/>
+                                    <field name="name"/>
+                                    <field name="species_id"/>
+                                    <field name="stage_id"/>
+                                    <field name="status" widget="badge"/>
+                                    <field name="quantity"/>
+                                    <field name="avg_weight_g"/>
+                                    <field name="biomass_kg"/>
+                                    <field name="start_date"/>
+                                    <field name="problem_flag"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Batch History">
+                            <field name="batch_ids" readonly="1">
+                                <list>
+                                    <field name="global_bio_id"/>
+                                    <field name="name"/>
+                                    <field name="species_id"/>
+                                    <field name="stage_id"/>
+                                    <field name="status" widget="badge"/>
+                                    <field name="start_date"/>
+                                    <field name="end_date"/>
+                                    <field name="quantity"/>
+                                    <field name="avg_weight_g"/>
+                                    <field name="biomass_kg"/>
+                                    <field name="mortality_qty"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_aqua_production_unit_search" model="ir.ui.view">
+        <field name="name">aqua.production.unit.search</field>
+        <field name="model">aqua.production.unit</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="company_id"/>
+                <field name="farm_id"/>
+                <field name="unit_type"/>
+                <field name="current_state"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                <filter string="Occupied" name="occupied" domain="[('current_batch_count', '&gt;', 0)]"/>
+                <filter string="Empty" name="empty" domain="[('current_batch_count', '=', 0)]"/>
+                <filter string="Problem" name="problem" domain="[('current_state', '=', 'problem')]"/>
+                <group>
+                    <filter string="Company" name="group_company" context="{'group_by': 'company_id'}"/>
+                    <filter string="Farm" name="group_farm" context="{'group_by': 'farm_id'}"/>
+                    <filter string="Unit Type" name="group_unit_type" context="{'group_by': 'unit_type'}"/>
+                    <filter string="Current State" name="group_current_state" context="{'group_by': 'current_state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>

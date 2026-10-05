@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_aqua_batch_parallel_wizard_form" model="ir.ui.view">
+        <field name="name">aqua.batch.parallel.wizard.form</field>
+        <field name="model">aqua.batch.parallel.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Create Parallel Batch">
+                <group>
+                    <field name="parent_batch_id" readonly="1"/>
+                    <field name="company_id"/>
+                    <field name="farm_id" domain="[('company_id', '=', company_id)]"/>
+                    <field name="production_unit_id" domain="[('farm_id', '=', farm_id)]"/>
+                    <field name="quantity"/>
+                    <field name="avg_weight_g"/>
+                    <field name="note"/>
+                </group>
+                <footer>
+                    <button name="action_confirm" type="object" string="Create" class="btn-primary"/>
+                    <button string="Cancel" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_aqua_batch_split_wizard_form" model="ir.ui.view">
+        <field name="name">aqua.batch.split.wizard.form</field>
+        <field name="model">aqua.batch.split.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Split Batch">
+                <group>
+                    <field name="parent_batch_id" readonly="1"/>
+                    <field name="note"/>
+                </group>
+                <field name="line_ids">
+                    <list editable="bottom">
+                        <field name="company_id"/>
+                        <field name="farm_id" domain="[('company_id', '=', company_id)]"/>
+                        <field name="production_unit_id" domain="[('farm_id', '=', farm_id)]"/>
+                        <field name="target_stage_id"/>
+                        <field name="quantity"/>
+                        <field name="avg_weight_g"/>
+                        <field name="note"/>
+                    </list>
+                </field>
+                <footer>
+                    <button name="action_confirm" type="object" string="Split" class="btn-primary"/>
+                    <button string="Cancel" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_aqua_batch_separate_wizard_form" model="ir.ui.view">
+        <field name="name">aqua.batch.separate.wizard.form</field>
+        <field name="model">aqua.batch.separate.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Separate Batch">
+                <group>
+                    <field name="parent_batch_id" readonly="1"/>
+                    <field name="note"/>
+                </group>
+                <field name="line_ids">
+                    <list editable="bottom">
+                        <field name="company_id"/>
+                        <field name="farm_id" domain="[('company_id', '=', company_id)]"/>
+                        <field name="production_unit_id" domain="[('farm_id', '=', farm_id)]"/>
+                        <field name="target_stage_id"/>
+                        <field name="separation_reason"/>
+                        <field name="quantity"/>
+                        <field name="avg_weight_g"/>
+                        <field name="note"/>
+                    </list>
+                </field>
+                <footer>
+                    <button name="action_confirm" type="object" string="Separate" class="btn-primary"/>
+                    <button string="Cancel" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_aqua_batch_merge_wizard_form" model="ir.ui.view">
+        <field name="name">aqua.batch.merge.wizard.form</field>
+        <field name="model">aqua.batch.merge.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Merge Batches">
+                <group>
+                    <field name="parent_batch_ids" widget="many2many_tags"/>
+                    <field name="target_company_id"/>
+                    <field name="target_farm_id" domain="[('company_id', '=', target_company_id)]"/>
+                    <field name="target_production_unit_id" domain="[('farm_id', '=', target_farm_id)]"/>
+                    <field name="target_stage_id"/>
+                    <field name="quantity"/>
+                    <field name="avg_weight_g"/>
+                    <field name="allow_cross_global_merge"/>
+                    <field name="note"/>
+                </group>
+                <footer>
+                    <button name="action_confirm" type="object" string="Merge" class="btn-primary"/>
+                    <button string="Cancel" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_aqua_batch_transfer_wizard_form" model="ir.ui.view">
+        <field name="name">aqua.batch.transfer.wizard.form</field>
+        <field name="model">aqua.batch.transfer.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Transfer Stage">
+                <group>
+                    <field name="parent_batch_id" readonly="1"/>
+                    <field name="target_company_id"/>
+                    <field name="target_farm_id" domain="[('company_id', '=', target_company_id)]"/>
+                    <field name="target_production_unit_id" domain="[('farm_id', '=', target_farm_id)]"/>
+                    <field name="target_stage_id"/>
+                    <field name="quantity"/>
+                    <field name="avg_weight_g"/>
+                    <field name="note"/>
+                </group>
+                <footer>
+                    <button name="action_confirm" type="object" string="Transfer" class="btn-primary"/>
+                    <button string="Cancel" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

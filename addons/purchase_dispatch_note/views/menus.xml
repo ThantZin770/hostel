@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem
+            id="purchase_dispatch_note_menu"
+            name="Purchase"
+            parent="dispatch_note.dispatch_note_root_menu"
+            action="action_purchase_dispatch_note"
+            sequence="400"/>
+</odoo>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_aqua_batch_relation_list" model="ir.ui.view">
+        <field name="name">aqua.batch.relation.list</field>
+        <field name="model">aqua.batch.relation</field>
+        <field name="arch" type="xml">
+            <list decoration-muted="not active">
+                <field name="name"/>
+                <field name="global_trace_id"/>
+                <field name="operation_type"/>
+                <field name="parent_batch_id"/>
+                <field name="child_batch_id"/>
+                <field name="from_company_id"/>
+                <field name="to_company_id"/>
+                <field name="from_stage_id"/>
+                <field name="to_stage_id"/>
+                <field name="quantity"/>
+                <field name="operation_date"/>
+                <field name="active" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_aqua_batch_relation_form" model="ir.ui.view">
+        <field name="name">aqua.batch.relation.form</field>
+        <field name="model">aqua.batch.relation</field>
+        <field name="arch" type="xml">
+            <form string="Aquaculture Batch Relation">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="global_trace_id"/>
+                            <field name="operation_type"/>
+                            <field name="operation_date"/>
+                            <field name="quantity"/>
+                        </group>
+                        <group>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="From">
+                            <field name="parent_batch_id"/>
+                            <field name="from_company_id"/>
+                            <field name="from_stage_id"/>
+                        </group>
+                        <group string="To">
+                            <field name="child_batch_id"/>
+                            <field name="to_company_id"/>
+                            <field name="to_stage_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_aqua_batch_relation_search" model="ir.ui.view">
+        <field name="name">aqua.batch.relation.search</field>
+        <field name="model">aqua.batch.relation</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="global_trace_id"/>
+                <field name="parent_batch_id"/>
+                <field name="child_batch_id"/>
+                <field name="operation_type"/>
+                <field name="from_company_id"/>
+                <field name="to_company_id"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                <group>
+                    <filter string="Operation Type" name="group_operation_type" context="{'group_by': 'operation_type'}"/>
+                    <filter string="Global Biological ID" name="group_global_trace" context="{'group_by': 'global_trace_id'}"/>
+                    <filter string="From Company" name="group_from_company" context="{'group_by': 'from_company_id'}"/>
+                    <filter string="To Company" name="group_to_company" context="{'group_by': 'to_company_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>

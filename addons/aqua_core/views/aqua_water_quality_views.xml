@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_aqua_water_quality_list" model="ir.ui.view">
+        <field name="name">aqua.water.quality.list</field>
+        <field name="model">aqua.water.quality</field>
+        <field name="arch" type="xml">
+            <list decoration-muted="not active">
+                <field name="check_date"/>
+                <field name="name"/>
+                <field name="batch_id"/>
+                <field name="global_trace_id"/>
+                <field name="company_id"/>
+                <field name="farm_id"/>
+                <field name="production_unit_id"/>
+                <field name="temperature_c"/>
+                <field name="ph"/>
+                <field name="dissolved_oxygen"/>
+                <field name="salinity_ppt"/>
+                <field name="ammonia" optional="hide"/>
+                <field name="nitrite" optional="hide"/>
+                <field name="alkalinity" optional="hide"/>
+                <field name="checked_by_id"/>
+                <field name="active" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_aqua_water_quality_form" model="ir.ui.view">
+        <field name="name">aqua.water.quality.form</field>
+        <field name="model">aqua.water.quality</field>
+        <field name="arch" type="xml">
+            <form string="Aquaculture Water Quality">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="batch_id"/>
+                            <field name="global_trace_id"/>
+                            <field name="company_id"/>
+                            <field name="farm_id"/>
+                            <field name="production_unit_id"/>
+                        </group>
+                        <group>
+                            <field name="check_date"/>
+                            <field name="checked_by_id"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <group string="Measurements">
+                        <group>
+                            <field name="temperature_c"/>
+                            <field name="ph"/>
+                            <field name="dissolved_oxygen"/>
+                            <field name="salinity_ppt"/>
+                        </group>
+                        <group>
+                            <field name="ammonia"/>
+                            <field name="nitrite"/>
+                            <field name="alkalinity"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_aqua_water_quality_search" model="ir.ui.view">
+        <field name="name">aqua.water.quality.search</field>
+        <field name="model">aqua.water.quality</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="batch_id"/>
+                <field name="global_trace_id"/>
+                <field name="company_id"/>
+                <field name="farm_id"/>
+                <field name="production_unit_id"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                <group>
+                    <filter string="Company" name="group_company" context="{'group_by': 'company_id'}"/>
+                    <filter string="Farm" name="group_farm" context="{'group_by': 'farm_id'}"/>
+                    <filter string="Production Unit" name="group_unit" context="{'group_by': 'production_unit_id'}"/>
+                    <filter string="Batch" name="group_batch" context="{'group_by': 'batch_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_aqua_stage_list" model="ir.ui.view">
+        <field name="name">aqua.stage.list</field>
+        <field name="model">aqua.stage</field>
+        <field name="arch" type="xml">
+            <list decoration-muted="not active">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="company_type"/>
+                <field name="stage_type"/>
+                <field name="active" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_aqua_stage_form" model="ir.ui.view">
+        <field name="name">aqua.stage.form</field>
+        <field name="model">aqua.stage</field>
+        <field name="arch" type="xml">
+            <form string="Aquaculture Lifecycle Stage">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="sequence"/>
+                        </group>
+                        <group>
+                            <field name="company_type"/>
+                            <field name="stage_type"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_aqua_stage_search" model="ir.ui.view">
+        <field name="name">aqua.stage.search</field>
+        <field name="model">aqua.stage</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="company_type"/>
+                <field name="stage_type"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                <group>
+                    <filter string="Company Type" name="group_company_type" context="{'group_by': 'company_type'}"/>
+                    <filter string="Stage Type" name="group_stage_type" context="{'group_by': 'stage_type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>

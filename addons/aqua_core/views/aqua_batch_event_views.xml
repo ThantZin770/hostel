@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_aqua_batch_event_list" model="ir.ui.view">
+        <field name="name">aqua.batch.event.list</field>
+        <field name="model">aqua.batch.event</field>
+        <field name="arch" type="xml">
+            <list decoration-muted="not active">
+                <field name="event_date"/>
+                <field name="name"/>
+                <field name="event_type"/>
+                <field name="batch_id"/>
+                <field name="global_trace_id"/>
+                <field name="company_id"/>
+                <field name="farm_id"/>
+                <field name="stage_id"/>
+                <field name="quantity"/>
+                <field name="weight"/>
+                <field name="operator_id"/>
+                <field name="active" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_aqua_batch_event_form" model="ir.ui.view">
+        <field name="name">aqua.batch.event.form</field>
+        <field name="model">aqua.batch.event</field>
+        <field name="arch" type="xml">
+            <form string="Aquaculture Batch Event">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="batch_id"/>
+                            <field name="global_trace_id"/>
+                            <field name="event_type"/>
+                            <field name="event_date"/>
+                        </group>
+                        <group>
+                            <field name="company_id"/>
+                            <field name="farm_id"/>
+                            <field name="production_unit_id"/>
+                            <field name="stage_id"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="quantity"/>
+                            <field name="weight"/>
+                            <field name="operator_id"/>
+                        </group>
+                        <group>
+                            <field name="source_model"/>
+                            <field name="source_id"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_aqua_batch_event_search" model="ir.ui.view">
+        <field name="name">aqua.batch.event.search</field>
+        <field name="model">aqua.batch.event</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="batch_id"/>
+                <field name="global_trace_id"/>
+                <field name="event_type"/>
+                <field name="company_id"/>
+                <field name="farm_id"/>
+                <field name="stage_id"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                <group>
+                    <filter string="Event Type" name="group_event_type" context="{'group_by': 'event_type'}"/>
+                    <filter string="Company" name="group_company" context="{'group_by': 'company_id'}"/>
+                    <filter string="Farm" name="group_farm" context="{'group_by': 'farm_id'}"/>
+                    <filter string="Stage" name="group_stage" context="{'group_by': 'stage_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>

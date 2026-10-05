@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="state_kayin" model="res.country.state">
+            <field name="name">Kayin</field>
+            <field name="code">3/</field>
+            <field name="country_id" ref="base.mm"/>
+        </record>
+
+        <record id="township_hpa-an" model="res.country.state.township">
+            <field name="name">Hpa-an</field>
+            <field name="code">baana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_kayin"/>
+        </record>
+
+
+        <record id="township_hlaingbwe" model="res.country.state.township">
+            <field name="name">Hlaingbwe</field>
+            <field name="code">labana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_kayin"/>
+        </record>
+
+
+        <record id="township_paingkyon" model="res.country.state.township">
+            <field name="name">Paingkyon</field>
+            <field name="code">pakana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_kayin"/>
+        </record>
+
+
+        <record id="township_shan_ywathit" model="res.country.state.township">
+            <field name="name">Shan Ywathit</field>
+            <field name="code">raratha</field>
+            <field name="state_id" ref="ica_mm_nrc.state_kayin"/>
+        </record>
+
+
+        <record id="township_kawkareik" model="res.country.state.township">
+            <field name="name">Kawkareik</field>
+            <field name="code">kakara</field>
+            <field name="state_id" ref="ica_mm_nrc.state_kayin"/>
+        </record>
+
+
+        <record id="township_kyainseikgyi" model="res.country.state.township">
+            <field name="name">Kyainseikgyi</field>
+            <field name="code">kahsaka</field>
+            <field name="state_id" ref="ica_mm_nrc.state_kayin"/>
+        </record>
+
+
+        <record id="township_payathonzu" model="res.country.state.township">
+            <field name="name">Payathonzu</field>
+            <field name="code">bathahsa</field>
+            <field name="state_id" ref="ica_mm_nrc.state_kayin"/>
+        </record>
+
+
+        <record id="township_kyondoe" model="res.country.state.township">
+            <field name="name">Kyondoe</field>
+            <field name="code">kadana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_kayin"/>
+        </record>
+
+
+        <record id="township_hpapun" model="res.country.state.township">
+            <field name="name">Hpapun</field>
+            <field name="code">phapana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_kayin"/>
+        </record>
+
+
+        <record id="township_kamamaung" model="res.country.state.township">
+            <field name="name">Kamamaung</field>
+            <field name="code">kamama</field>
+            <field name="state_id" ref="ica_mm_nrc.state_kayin"/>
+        </record>
+
+
+        <record id="township_myawaddy" model="res.country.state.township">
+            <field name="name">Myawaddy</field>
+            <field name="code">mawata</field>
+            <field name="state_id" ref="ica_mm_nrc.state_kayin"/>
+        </record>
+
+
+        <record id="township_sugali" model="res.country.state.township">
+            <field name="name">Sugali</field>
+            <field name="code">sakala</field>
+            <field name="state_id" ref="ica_mm_nrc.state_kayin"/>
+        </record>
+
+
+        <record id="township_wawlaymyaing" model="res.country.state.township">
+            <field name="name">Wawlaymyaing</field>
+            <field name="code">walama</field>
+            <field name="state_id" ref="ica_mm_nrc.state_kayin"/>
+        </record>
+
+
+        <record id="township_leiktho" model="res.country.state.township">
+            <field name="name">Leiktho</field>
+            <field name="code">lathana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_kayin"/>
+        </record>
+
+
+        <record id="township_bawgali" model="res.country.state.township">
+            <field name="name">Bawgali</field>
+            <field name="code">bagala</field>
+            <field name="state_id" ref="ica_mm_nrc.state_kayin"/>
+        </record>
+
+
+        <record id="township_thandaunggyi_thatana" model="res.country.state.township">
+            <field name="name">Thandaunggyi</field>
+            <field name="code">thatana</field>
+            <field name="state_id" ref="ica_mm_nrc.state_kayin"/>
+        </record>
+
+
+        <record id="township_thandaunggyi_thataka" model="res.country.state.township">
+            <field name="name">Thandaunggyi</field>
+            <field name="code">thataka</field>
+            <field name="state_id" ref="ica_mm_nrc.state_kayin"/>
+        </record>
+    </data>
+</odoo>
